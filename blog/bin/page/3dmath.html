@@ -1,0 +1,516 @@
+<!DOCTYPE html><html><head>
+      <title>3dmath</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///C:\Users\guoyi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.4.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.14);
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1><p align="center">3d&#x4E2D;&#x7684;&#x7B80;&#x5355;&#x6570;&#x5B66;</p></h1>
+<p><a href="../index.html"></a></p><p align="right"><a href="../index.html">[&#x8FD4;&#x56DE;&#x9996;&#x9875;]</a></p><p></p>
+<ul>
+<li><a href="#%E4%B8%80-%E5%9B%9B%E5%85%83%E6%95%B0%E5%BA%94%E7%94%A8%E6%97%8B%E8%BD%AC">&#x4E00;&#x3001;&#x56DB;&#x5143;&#x6570;&#x5E94;&#x7528;&#x2014;&#x2014;&#x65CB;&#x8F6C;</a>
+<ul>
+<li><a href="#1-%E6%AC%A7%E6%8B%89%E8%A7%92%E6%97%8B%E8%BD%AC">1&#x3001;&#x6B27;&#x62C9;&#x89D2;&#x65CB;&#x8F6C;</a></li>
+<li><a href="#2-%E7%BB%95%E6%9F%90%E4%B8%AA%E8%BD%B4%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%8B%E8%BD%AC">2&#x3001;&#x7ED5;&#x67D0;&#x4E2A;&#x8F74;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#xFF09;&#x65CB;&#x8F6C;</a></li>
+<li><a href="#3-%E7%BB%95%E9%BC%A0%E6%A0%87%E7%82%B9%E5%B1%8F%E5%B9%95%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%AA%E7%82%B9%E6%97%8B%E8%BD%AC">3&#x3001;&#x7ED5;&#x9F20;&#x6807;&#x70B9;&#xFF08;&#x5C4F;&#x5E55;&#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x70B9;&#xFF09;&#x65CB;&#x8F6C;</a></li>
+<li><a href="#4-%E7%BB%95x-y-z%E4%B8%80%E8%BD%B4%E6%97%8B%E8%BD%AC">4&#x3001;&#x7ED5;X&#x3001;Y&#x3001;Z&#x4E00;&#x8F74;&#x65CB;&#x8F6C;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-%E6%91%84%E5%83%8F%E6%9C%BA%E5%BA%94%E7%94%A8">&#x4E8C;&#x3001;&#x6444;&#x50CF;&#x673A;&#x5E94;&#x7528;</a>
+<ul>
+<li><a href="#1-%E7%A7%BB%E5%8A%A8%E5%92%8C%E7%BC%A9%E6%94%BE">1&#x3001;&#x79FB;&#x52A8;&#x548C;&#x7F29;&#x653E;</a></li>
+<li><a href="#2-%E8%B7%9F%E9%9A%8F">2&#x3001;&#x8DDF;&#x968F;</a></li>
+</ul>
+</li>
+</ul>
+<h2 class="mume-header" id="%E4%B8%80-%E5%9B%9B%E5%85%83%E6%95%B0%E5%BA%94%E7%94%A8%E6%97%8B%E8%BD%AC">&#x4E00;&#x3001;&#x56DB;&#x5143;&#x6570;&#x5E94;&#x7528;&#x2014;&#x2014;&#x65CB;&#x8F6C;</h2>
+
+<h3 class="mume-header" id="1-%E6%AC%A7%E6%8B%89%E8%A7%92%E6%97%8B%E8%BD%AC">1&#x3001;&#x6B27;&#x62C9;&#x89D2;&#x65CB;&#x8F6C;</h3>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token comment">// The transform to point at the target</span>
+<span class="token keyword">public</span> Transform turret<span class="token punctuation">;</span>
+<span class="token keyword">public</span> float idleRotationSpeed <span class="token operator">=</span> <span class="token number">39</span><span class="token punctuation">;</span>
+<span class="token comment">// If m_Turret rotates freely or only on y;</span>
+<span class="token keyword">public</span> bool onlyYTurretRotation<span class="token punctuation">;</span>
+<span class="token keyword">protected</span> virtual <span class="token keyword">void</span> <span class="token function">AimTurret</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>turret <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">return</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>m_CurrrentTargetable <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token comment">// do idle rotation</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>m_WaitTimer <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			m_WaitTimer <span class="token operator">-=</span> Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">;</span>
+			<span class="token keyword">if</span> <span class="token punctuation">(</span>m_WaitTimer <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+			<span class="token punctuation">{</span>
+				m_CurrentRotationSpeed <span class="token operator">=</span> <span class="token punctuation">(</span>Random<span class="token punctuation">.</span>value <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> idleRotationSpeed<span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">}</span>
+		<span class="token keyword">else</span>
+        <span class="token punctuation">{</span>
+			Vector3 euler <span class="token operator">=</span> turret<span class="token punctuation">.</span>rotation<span class="token punctuation">.</span>eulerAngles<span class="token punctuation">;</span>
+                        euler<span class="token punctuation">.</span>x <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Lerp</span><span class="token punctuation">(</span><span class="token function">Wrap180</span><span class="token punctuation">(</span>euler<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> m_XRotationCorrectionTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			m_XRotationCorrectionTime <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Clamp01</span><span class="token punctuation">(</span><span class="token punctuation">(</span>m_XRotationCorrectionTime <span class="token operator">+</span> Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">)</span> <span class="token operator">/</span> idleCorrectionTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			euler<span class="token punctuation">.</span>y <span class="token operator">+=</span> m_CurrentRotationSpeed <span class="token operator">*</span> Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">;</span>
+					turret<span class="token punctuation">.</span>eulerAngles <span class="token operator">=</span> euler<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">else</span>
+	<span class="token punctuation">{</span>
+		m_WaitTimer <span class="token operator">=</span> idleWaitTime<span class="token punctuation">;</span>
+		Vector3 targetPosition <span class="token operator">=</span> m_CurrrentTargetable<span class="token punctuation">.</span>position<span class="token punctuation">;</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>onlyYTurretRotation<span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			targetPosition<span class="token punctuation">.</span>y <span class="token operator">=</span> turret<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+		Vector3 direction <span class="token operator">=</span> targetPosition <span class="token operator">-</span> turret<span class="token punctuation">.</span>position<span class="token punctuation">;</span>
+		Quaternion look <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">LookRotation</span><span class="token punctuation">(</span>direction<span class="token punctuation">,</span> Vector3<span class="token punctuation">.</span>up<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		Vector3 lookEuler <span class="token operator">=</span> look<span class="token punctuation">.</span>eulerAngles<span class="token punctuation">;</span>
+		<span class="token comment">// We need to convert the rotation to a -180/180 wrap so that we can clamp the angle with a min/max</span>
+		float x <span class="token operator">=</span> <span class="token function">Wrap180</span><span class="token punctuation">(</span>lookEuler<span class="token punctuation">.</span>x<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		lookEuler<span class="token punctuation">.</span>x <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Clamp</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> turretXRotationRange<span class="token punctuation">.</span>x<span class="token punctuation">,</span> turretXRotationRange<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		look<span class="token punctuation">.</span>eulerAngles <span class="token operator">=</span> lookEuler<span class="token punctuation">;</span>
+		turret<span class="token punctuation">.</span>rotation <span class="token operator">=</span> look<span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">static</span> float <span class="token function">Wrap180</span><span class="token punctuation">(</span>float angle<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	angle <span class="token operator">%=</span> <span class="token number">360</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>angle <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token number">180</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		angle <span class="token operator">+=</span> <span class="token number">360</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>angle <span class="token operator">&gt;</span> <span class="token number">180</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		angle <span class="token operator">-=</span> <span class="token number">360</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">return</span> angle<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="2-%E7%BB%95%E6%9F%90%E4%B8%AA%E8%BD%B4%E8%87%AA%E5%AE%9A%E4%B9%89%E6%97%8B%E8%BD%AC">2&#x3001;&#x7ED5;&#x67D0;&#x4E2A;&#x8F74;&#xFF08;&#x81EA;&#x5B9A;&#x4E49;&#xFF09;&#x65CB;&#x8F6C;</h3>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">public</span> override <span class="token keyword">void</span> <span class="token function">Launch</span><span class="token punctuation">(</span>Targetable enemy<span class="token punctuation">,</span> GameObject attack<span class="token punctuation">,</span> Transform firingPoint<span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">var</span> homingMissile <span class="token operator">=</span> attack<span class="token punctuation">.</span>GetComponent<span class="token operator">&lt;</span>HomingLinearProjectile<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>homingMissile <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		Debug<span class="token punctuation">.</span><span class="token function">LogError</span><span class="token punctuation">(</span><span class="token string">&quot;No HomingLinearProjectile attached to attack object&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token keyword">return</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+	Vector3 startingPoint <span class="token operator">=</span> firingPoint<span class="token punctuation">.</span>position<span class="token punctuation">;</span>
+	Vector3 targetPoint <span class="token operator">=</span> Ballistics<span class="token punctuation">.</span><span class="token function">CalculateLinearLeadingTargetPoint</span><span class="token punctuation">(</span>
+		startingPoint<span class="token punctuation">,</span> enemy<span class="token punctuation">.</span>position<span class="token punctuation">,</span>
+		enemy<span class="token punctuation">.</span>velocity<span class="token punctuation">,</span> homingMissile<span class="token punctuation">.</span>startSpeed<span class="token punctuation">,</span>
+		homingMissile<span class="token punctuation">.</span>acceleration<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		homingMissile<span class="token punctuation">.</span><span class="token function">SetHomingTarget</span><span class="token punctuation">(</span>enemy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">var</span> attackAffector <span class="token operator">=</span> GetComponent<span class="token operator">&lt;</span>AttackAffector<span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Vector3 direction <span class="token operator">=</span> attackAffector<span class="token punctuation">.</span>towerTargetter<span class="token punctuation">.</span>turret<span class="token punctuation">.</span>forward<span class="token punctuation">;</span>
+	Vector3 binormal <span class="token operator">=</span> Vector3<span class="token punctuation">.</span><span class="token function">Cross</span><span class="token punctuation">(</span>direction<span class="token punctuation">,</span> Vector3<span class="token punctuation">.</span>up<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Quaternion rotation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">AngleAxis</span><span class="token punctuation">(</span>fireVectorXRotationAdjustment<span class="token punctuation">,</span> binormal<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	Vector3 adjustedFireVector <span class="token operator">=</span> rotation <span class="token operator">*</span> direction<span class="token punctuation">;</span>
+	homingMissile<span class="token punctuation">.</span><span class="token function">FireInDirection</span><span class="token punctuation">(</span>startingPoint<span class="token punctuation">,</span> adjustedFireVector<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">PlayParticles</span><span class="token punctuation">(</span>fireParticleSystem<span class="token punctuation">,</span> startingPoint<span class="token punctuation">,</span> targetPoint<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="3-%E7%BB%95%E9%BC%A0%E6%A0%87%E7%82%B9%E5%B1%8F%E5%B9%95%E5%9D%90%E6%A0%87%E7%B3%BB%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%AA%E7%82%B9%E6%97%8B%E8%BD%AC">3&#x3001;&#x7ED5;&#x9F20;&#x6807;&#x70B9;&#xFF08;&#x5C4F;&#x5E55;&#x5750;&#x6807;&#x7CFB;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x70B9;&#xFF09;&#x65CB;&#x8F6C;</h3>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">void</span> <span class="token function">Turning</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    #<span class="token keyword">if</span> <span class="token operator">!</span><span class="token constant">MOBILE_INPUT</span>
+    <span class="token comment">// Create a ray from the mouse cursor on screen in the direction of the camera.</span>
+    Ray camRay <span class="token operator">=</span> Camera<span class="token punctuation">.</span>main<span class="token punctuation">.</span><span class="token function">ScreenPointToRay</span> <span class="token punctuation">(</span>Input<span class="token punctuation">.</span>mousePosition<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Create a RaycastHit variable to store information about what was hit by the ray.</span>
+    RaycastHit floorHit<span class="token punctuation">;</span>
+    <span class="token comment">// Perform the raycast and if it hits something on the floor layer...</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>Physics<span class="token punctuation">.</span><span class="token function">Raycast</span> <span class="token punctuation">(</span>camRay<span class="token punctuation">,</span> out floorHit<span class="token punctuation">,</span> camRayLength<span class="token punctuation">,</span> floorMask<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// Create a vector from the player to the point on the floor the raycast from the mouse hit.</span>
+        Vector3 playerToMouse <span class="token operator">=</span> floorHit<span class="token punctuation">.</span>point <span class="token operator">-</span> transform<span class="token punctuation">.</span>position<span class="token punctuation">;</span>
+        <span class="token comment">// Ensure the vector is entirely along the floor plane.</span>
+        playerToMouse<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">0</span>f<span class="token punctuation">;</span>
+        <span class="token comment">// Create a quaternion (rotation) based on looking down the vector from the player to the mouse.</span>
+        Quaternion newRotatation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">LookRotation</span> <span class="token punctuation">(</span>playerToMouse<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Set the player&apos;s rotation to this new rotation.</span>
+        playerRigidbody<span class="token punctuation">.</span><span class="token function">MoveRotation</span> <span class="token punctuation">(</span>newRotatation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="4-%E7%BB%95x-y-z%E4%B8%80%E8%BD%B4%E6%97%8B%E8%BD%AC">4&#x3001;&#x7ED5;X&#x3001;Y&#x3001;Z&#x4E00;&#x8F74;&#x65CB;&#x8F6C;</h3>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Turn</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Determine the number of degrees to be turned based on the input, speed and time between frames.</span>
+    float turn <span class="token operator">=</span> m_TurnInputValue <span class="token operator">*</span> m_TurnSpeed <span class="token operator">*</span> Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">;</span>
+    <span class="token comment">// Make this into a rotation in the y axis.</span>
+    Quaternion turnRotation <span class="token operator">=</span> Quaternion<span class="token punctuation">.</span><span class="token function">Euler</span> <span class="token punctuation">(</span><span class="token number">0</span>f<span class="token punctuation">,</span> turn<span class="token punctuation">,</span> <span class="token number">0</span>f<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Apply this rotation to the rigidbody&apos;s rotation.</span>
+    m_Rigidbody<span class="token punctuation">.</span><span class="token function">MoveRotation</span> <span class="token punctuation">(</span>m_Rigidbody<span class="token punctuation">.</span>rotation <span class="token operator">*</span> turnRotation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E4%BA%8C-%E6%91%84%E5%83%8F%E6%9C%BA%E5%BA%94%E7%94%A8">&#x4E8C;&#x3001;&#x6444;&#x50CF;&#x673A;&#x5E94;&#x7528;</h2>
+
+<h3 class="mume-header" id="1-%E7%A7%BB%E5%8A%A8%E5%92%8C%E7%BC%A9%E6%94%BE">1&#x3001;&#x79FB;&#x52A8;&#x548C;&#x7F29;&#x653E;</h3>
+
+<pre data-role="codeBlock" data-info="typeScript" class="language-typescript"><span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Move</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Find the average position of the targets.</span>
+    <span class="token function">FindAveragePosition</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Smoothly transition to that position.</span>
+    transform<span class="token punctuation">.</span>position <span class="token operator">=</span> Vector3<span class="token punctuation">.</span><span class="token function">SmoothDamp</span><span class="token punctuation">(</span>transform<span class="token punctuation">.</span>position<span class="token punctuation">,</span> m_DesiredPosition<span class="token punctuation">,</span> ref m_MoveVelocity<span class="token punctuation">,</span> m_DampTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">FindAveragePosition</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    Vector3 averagePos <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vector3</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    int numTargets <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token comment">// Go through all the targets and add their positions together.</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>int i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m_Targets<span class="token punctuation">.</span>Length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// If the target isn&apos;t active, go on to the next one.</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>m_Targets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>gameObject<span class="token punctuation">.</span>activeSelf<span class="token punctuation">)</span>
+        <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token comment">// Add to the average and increment the number of targets in the average.</span>
+        averagePos <span class="token operator">+=</span> m_Targets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>position<span class="token punctuation">;</span>
+        numTargets<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// If there are targets divide the sum of the positions by the number of them to find the average.</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>numTargets <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    averagePos <span class="token operator">/=</span> numTargets<span class="token punctuation">;</span>
+    <span class="token comment">// Keep the same y value.</span>
+    averagePos<span class="token punctuation">.</span>y <span class="token operator">=</span> transform<span class="token punctuation">.</span>position<span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+    <span class="token comment">// The desired position is the average position;</span>
+    m_DesiredPosition <span class="token operator">=</span> averagePos<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>   
+<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">Zoom</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Find the required size based on the desired position and smoothly transition to that size.</span>
+    float requiredSize <span class="token operator">=</span> <span class="token function">FindRequiredSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    m_Camera<span class="token punctuation">.</span>orthographicSize <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">SmoothDamp</span> <span class="token punctuation">(</span>m_Camera<span class="token punctuation">.</span>orthographicSize<span class="token punctuation">,</span> requiredSize<span class="token punctuation">,</span> ref m_ZoomSpeed<span class="token punctuation">,</span> m_DampTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>    
+<span class="token keyword">private</span> float <span class="token function">FindRequiredSize</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Find the position the camera rig is moving towards in its local space.</span>
+    Vector3 desiredLocalPos <span class="token operator">=</span> transform<span class="token punctuation">.</span><span class="token function">InverseTransformPoint</span><span class="token punctuation">(</span>m_DesiredPosition<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Start the camera&apos;s size calculation at zero.</span>
+    float size <span class="token operator">=</span> <span class="token number">0</span>f<span class="token punctuation">;</span>
+    <span class="token comment">// Go through all the targets...</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>int i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> m_Targets<span class="token punctuation">.</span>Length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// ... and if they aren&apos;t active continue on to the next target.</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>m_Targets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>gameObject<span class="token punctuation">.</span>activeSelf<span class="token punctuation">)</span>
+            <span class="token keyword">continue</span><span class="token punctuation">;</span>
+        <span class="token comment">// Otherwise, find the position of the target in the camera&apos;s local space.</span>
+        Vector3 targetLocalPos <span class="token operator">=</span> transform<span class="token punctuation">.</span><span class="token function">InverseTransformPoint</span><span class="token punctuation">(</span>m_Targets<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>position<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Find the position of the target from the desired position of the camera&apos;s local space.</span>
+        Vector3 desiredPosToTarget <span class="token operator">=</span> targetLocalPos <span class="token operator">-</span> desiredLocalPos<span class="token punctuation">;</span>
+        <span class="token comment">// Choose the largest out of the current size and the distance of the tank &apos;up&apos; or &apos;down&apos; from the camera.</span>
+        size <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Max</span><span class="token punctuation">(</span>size<span class="token punctuation">,</span> Mathf<span class="token punctuation">.</span><span class="token function">Abs</span><span class="token punctuation">(</span>desiredPosToTarget<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// Choose the largest out of the current size and the calculated size based on the tank being to the left or right of the camera.</span>
+        size <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Max</span><span class="token punctuation">(</span>size<span class="token punctuation">,</span> Mathf<span class="token punctuation">.</span><span class="token function">Abs</span><span class="token punctuation">(</span>desiredPosToTarget<span class="token punctuation">.</span>x<span class="token punctuation">)</span> <span class="token operator">/</span> m_Camera<span class="token punctuation">.</span>aspect<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// Add the edge buffer to the size.</span>
+    size <span class="token operator">+=</span> m_ScreenEdgeBuffer<span class="token punctuation">;</span>
+    <span class="token comment">// Make sure the camera&apos;s size isn&apos;t below the minimum.</span>
+    size <span class="token operator">=</span> Mathf<span class="token punctuation">.</span><span class="token function">Max</span> <span class="token punctuation">(</span>size<span class="token punctuation">,</span> m_MinSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">return</span> size<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>       
+<span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">SetCameraTargets</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Create a collection of transforms the same size as the number of tanks.</span>
+    Transform<span class="token punctuation">[</span><span class="token punctuation">]</span> targets <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Transform</span><span class="token punctuation">[</span>m_Tanks<span class="token punctuation">.</span>Length<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token comment">// For each of these transforms...</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span>int i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> targets<span class="token punctuation">.</span>Length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// ... set it to the appropriate tank transform.</span>
+        targets<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> m_Tanks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>m_Instance<span class="token punctuation">.</span>transform<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// These are the targets the camera should follow.</span>
+    m_CameraControl<span class="token punctuation">.</span>m_Targets <span class="token operator">=</span> targets<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>        
+</pre><h3 class="mume-header" id="2-%E8%B7%9F%E9%9A%8F">2&#x3001;&#x8DDF;&#x968F;</h3>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">public</span> Transform target<span class="token punctuation">;</span>            <span class="token comment">// The position that that camera will be following.</span>
+<span class="token keyword">public</span> float smoothing <span class="token operator">=</span> <span class="token number">5</span>f<span class="token punctuation">;</span>        <span class="token comment">// The speed with which the camera will be following.</span>
+Vector3 offset<span class="token punctuation">;</span>                     <span class="token comment">// The initial offset from the target.</span>
+<span class="token keyword">void</span> <span class="token function">Start</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Calculate the initial offset.</span>
+    offset <span class="token operator">=</span> transform<span class="token punctuation">.</span>position <span class="token operator">-</span> target<span class="token punctuation">.</span>position<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">FixedUpdate</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// Create a postion the camera is aiming for based on the offset from the target.</span>
+    Vector3 targetCamPos <span class="token operator">=</span> target<span class="token punctuation">.</span>position <span class="token operator">+</span> offset<span class="token punctuation">;</span>
+    <span class="token comment">// Smoothly interpolate between the camera&apos;s current position and it&apos;s target position.</span>
+    transform<span class="token punctuation">.</span>position <span class="token operator">=</span> Vector3<span class="token punctuation">.</span><span class="token function">Lerp</span> <span class="token punctuation">(</span>transform<span class="token punctuation">.</span>position<span class="token punctuation">,</span> targetCamPos<span class="token punctuation">,</span> smoothing <span class="token operator">*</span> Time<span class="token punctuation">.</span>deltaTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

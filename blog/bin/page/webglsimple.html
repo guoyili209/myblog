@@ -1,0 +1,686 @@
+<!DOCTYPE html><html><head>
+      <title>webglsimple</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\guoyi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.4.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.14);
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1><p align="center">WebGL&#x6E32;&#x67D3;&#x6D41;&#x7A0B;&#x793A;&#x4F8B;</p></h1>
+<p><a href="../index.html"></a></p><p align="right"><a href="../index.html">[&#x8FD4;&#x56DE;&#x9996;&#x9875;]</a></p><p></p>
+<ul>
+<li><a href="#%E4%B8%80-%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3">&#x4E00;&#x3001;&#x7A0B;&#x5E8F;&#x5165;&#x53E3;</a></li>
+<li><a href="#%E4%BA%8C-%E6%B8%B2%E6%9F%93%E6%AD%A5%E9%AA%A4">&#x4E8C;&#x3001;&#x6E32;&#x67D3;&#x6B65;&#x9AA4;</a>
+<ul>
+<li><a href="#1-%E7%BC%96%E5%86%99%E7%9D%80%E8%89%B2%E5%99%A8%E6%BA%90%E7%A0%81">1&#x3001;&#x7F16;&#x5199;&#x7740;&#x8272;&#x5668;&#x6E90;&#x7801;</a>
+<ul>
+<li><a href="#%E9%A1%B6%E7%82%B9%E7%9D%80%E8%89%B2%E5%99%A8">&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;</a></li>
+<li><a href="#%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8">&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%88%9B%E5%BB%BA%E5%B9%B6%E7%BC%96%E8%AF%91%E7%9D%80%E8%89%B2%E5%99%A8">2&#x3001;&#x521B;&#x5EFA;&#x5E76;&#x7F16;&#x8BD1;&#x7740;&#x8272;&#x5668;</a></li>
+<li><a href="#3-%E5%88%9B%E5%BB%BA%E7%A8%8B%E5%BA%8F%E5%AF%B9%E8%B1%A1%E5%B9%B6%E9%93%BE%E6%8E%A5%E5%88%B0webgl%E7%BB%91%E5%AE%9A%E7%9D%80%E8%89%B2%E5%99%A8%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E5%88%B0webgl%E4%B8%AD">3&#x3001;&#x521B;&#x5EFA;&#x7A0B;&#x5E8F;&#x5BF9;&#x8C61;&#xFF08;&#x5E76;&#x94FE;&#x63A5;&#x5230;WebGL&#xFF0C;&#x7ED1;&#x5B9A;&#x7740;&#x8272;&#x5668;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x5230;WebGL&#x4E2D;&#xFF09;</a>
+<ul>
+<li><a href="#%E5%88%9B%E5%BB%BA%E7%A8%8B%E5%BA%8F%E5%AF%B9%E8%B1%A1%E5%B9%B6%E9%93%BE%E6%8E%A5%E5%88%B0webgl">&#x521B;&#x5EFA;&#x7A0B;&#x5E8F;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x94FE;&#x63A5;&#x5230;WebGL</a></li>
+<li><a href="#%E7%BB%91%E5%AE%9A%E7%9D%80%E8%89%B2%E5%99%A8%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E5%88%B0webgl%E4%B8%AD">&#x7ED1;&#x5B9A;&#x7740;&#x8272;&#x5668;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x5230;WebGL&#x4E2D;</a></li>
+</ul>
+</li>
+<li><a href="#4-%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E7%BC%93%E5%86%B2">4&#x3001;&#x5EFA;&#x7ACB;&#x6570;&#x636E;&#x7F13;&#x51B2;</a></li>
+<li><a href="#5-%E5%88%9B%E5%BB%BA%E7%BA%B9%E7%90%86">5&#x3001;&#x521B;&#x5EFA;&#x7EB9;&#x7406;</a></li>
+<li><a href="#6-%E7%BB%98%E5%88%B6%E5%9C%BA%E6%99%AF">6&#x3001;&#x7ED8;&#x5236;&#x573A;&#x666F;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%A2%E5%A4%B1%E5%A4%84%E7%90%86">&#x4E09;&#x3001;&#x4E0A;&#x4E0B;&#x6587;&#x4E22;&#x5931;&#x5904;&#x7406;</a></li>
+<li><a href="#%E9%99%84%E5%BD%95">&#x9644;&#x5F55;</a>
+<ul>
+<li><a href="#%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E7%AE%80%E4%BB%8B">&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x7B80;&#x4ECB;</a>
+<ul>
+<li><a href="#uniform">uniform</a></li>
+<li><a href="#attribute">attribute</a></li>
+<li><a href="#varying">varying</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 class="mume-header" id="%E4%B8%80-%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3">&#x4E00;&#x3001;&#x7A0B;&#x5E8F;&#x5165;&#x53E3;</h4>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">function</span> <span class="token function">startup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  canvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;myGLCanvas&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  canvas <span class="token operator">=</span> WebGLDebugUtils<span class="token punctuation">.</span><span class="token function">makeLostContextSimulatingCanvas</span><span class="token punctuation">(</span>canvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;webglcontextlost&apos;</span><span class="token punctuation">,</span> handleContextLost<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  canvas<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;webglcontextrestored&apos;</span><span class="token punctuation">,</span> handleContextRestored<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// Uncomment the three lines below to be able to simulate a </span>
+  <span class="token comment">// lost context by clicking the mouse </span>
+  <span class="token comment">// window.addEventListener(&apos;mousedown&apos;, function() {</span>
+  <span class="token comment">//   canvas.loseContext();</span>
+  <span class="token comment">// });</span>
+  
+  gl <span class="token operator">=</span> <span class="token function">createGLContext</span><span class="token punctuation">(</span>canvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setupShaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token function">setupBuffers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setupTextures</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  gl<span class="token punctuation">.</span><span class="token function">clearColor</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">enable</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">DEPTH_TEST</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">createGLContext</span><span class="token punctuation">(</span><span class="token parameter">canvas</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> names <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;webgl&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;experimental-webgl&quot;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> context <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> names<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      context <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span>names<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">break</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    context<span class="token punctuation">.</span>viewportWidth <span class="token operator">=</span> canvas<span class="token punctuation">.</span>width<span class="token punctuation">;</span>
+    context<span class="token punctuation">.</span>viewportHeight <span class="token operator">=</span> canvas<span class="token punctuation">.</span>height<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">&quot;Failed to create WebGL context!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> context<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="%E4%BA%8C-%E6%B8%B2%E6%9F%93%E6%AD%A5%E9%AA%A4">&#x4E8C;&#x3001;&#x6E32;&#x67D3;&#x6B65;&#x9AA4;</h4>
+
+<h5 class="mume-header" id="1-%E7%BC%96%E5%86%99%E7%9D%80%E8%89%B2%E5%99%A8%E6%BA%90%E7%A0%81">1&#x3001;&#x7F16;&#x5199;&#x7740;&#x8272;&#x5668;&#x6E90;&#x7801;</h5>
+
+<h6 class="mume-header" id="%E9%A1%B6%E7%82%B9%E7%9D%80%E8%89%B2%E5%99%A8">&#x9876;&#x70B9;&#x7740;&#x8272;&#x5668;</h6>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">&quot;utf-8&quot;</span><span class="token operator">&gt;</span> 
+<span class="token operator">&lt;</span>script id<span class="token operator">=</span><span class="token string">&quot;shader-vs&quot;</span> <span class="token keyword">type</span><span class="token operator">=</span><span class="token string">&quot;x-shader/x-vertex&quot;</span><span class="token operator">&gt;</span>
+  attribute vec3 aVertexPosition<span class="token punctuation">;</span>
+  attribute vec2 aTextureCoordinates<span class="token punctuation">;</span>
+  
+  uniform mat4 uMVMatrix<span class="token punctuation">;</span>
+  uniform mat4 uPMatrix<span class="token punctuation">;</span>
+  
+  varying vec2 vTextureCoordinates<span class="token punctuation">;</span>
+  
+  <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gl_Position <span class="token operator">=</span> uPMatrix <span class="token operator">*</span> uMVMatrix <span class="token operator">*</span> <span class="token function">vec4</span><span class="token punctuation">(</span>aVertexPosition<span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    vTextureCoordinates <span class="token operator">=</span> aTextureCoordinates<span class="token punctuation">;</span>  
+  <span class="token punctuation">}</span>                
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</pre><h6 class="mume-header" id="%E7%89%87%E5%85%83%E7%9D%80%E8%89%B2%E5%99%A8">&#x7247;&#x5143;&#x7740;&#x8272;&#x5668;</h6>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token operator">&lt;</span>script id<span class="token operator">=</span><span class="token string">&quot;shader-fs&quot;</span> <span class="token keyword">type</span><span class="token operator">=</span><span class="token string">&quot;x-shader/x-fragment&quot;</span><span class="token operator">&gt;</span>
+  precision mediump float<span class="token punctuation">;</span>
+  
+  varying vec2 vTextureCoordinates<span class="token punctuation">;</span>
+  uniform sampler2D uSampler<span class="token punctuation">;</span>
+  <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gl_FragColor <span class="token operator">=</span> <span class="token function">texture2D</span><span class="token punctuation">(</span>uSampler<span class="token punctuation">,</span> vTextureCoordinates<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> 
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</pre><h5 class="mume-header" id="2-%E5%88%9B%E5%BB%BA%E5%B9%B6%E7%BC%96%E8%AF%91%E7%9D%80%E8%89%B2%E5%99%A8">2&#x3001;&#x521B;&#x5EFA;&#x5E76;&#x7F16;&#x8BD1;&#x7740;&#x8272;&#x5668;</h5>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">function</span> <span class="token function">loadShaderFromDOM</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> shaderScript <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// If we don&apos;t find an element with the specified id</span>
+  <span class="token comment">// we do an early exit </span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>shaderScript<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">// Loop through the children for the found DOM element and</span>
+  <span class="token comment">// build up the shader source code as a string</span>
+  <span class="token keyword">var</span> shaderSource <span class="token operator">=</span> <span class="token string">&quot;&quot;</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> currentChild <span class="token operator">=</span> shaderScript<span class="token punctuation">.</span>firstChild<span class="token punctuation">;</span>
+  <span class="token keyword">while</span> <span class="token punctuation">(</span>currentChild<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>currentChild<span class="token punctuation">.</span>nodeType <span class="token operator">==</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// 3 corresponds to TEXT_NODE</span>
+      shaderSource <span class="token operator">+=</span> currentChild<span class="token punctuation">.</span>textContent<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    currentChild <span class="token operator">=</span> currentChild<span class="token punctuation">.</span>nextSibling<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+ 
+  <span class="token keyword">var</span> shader<span class="token punctuation">;</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>shaderScript<span class="token punctuation">.</span><span class="token keyword">type</span> <span class="token operator">==</span> <span class="token string">&quot;x-shader/x-fragment&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    shader <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createShader</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">FRAGMENT_SHADER</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>shaderScript<span class="token punctuation">.</span><span class="token keyword">type</span> <span class="token operator">==</span> <span class="token string">&quot;x-shader/x-vertex&quot;</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    shader <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createShader</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">VERTEX_SHADER</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+ 
+  gl<span class="token punctuation">.</span><span class="token function">shaderSource</span><span class="token punctuation">(</span>shader<span class="token punctuation">,</span> shaderSource<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">compileShader</span><span class="token punctuation">(</span>shader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>gl<span class="token punctuation">.</span><span class="token function">getShaderParameter</span><span class="token punctuation">(</span>shader<span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">COMPILE_STATUS</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+      <span class="token operator">!</span>gl<span class="token punctuation">.</span><span class="token function">isContextLost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token function">getShaderInfoLog</span><span class="token punctuation">(</span>shader<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> 
+  <span class="token keyword">return</span> shader<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h5 class="mume-header" id="3-%E5%88%9B%E5%BB%BA%E7%A8%8B%E5%BA%8F%E5%AF%B9%E8%B1%A1%E5%B9%B6%E9%93%BE%E6%8E%A5%E5%88%B0webgl%E7%BB%91%E5%AE%9A%E7%9D%80%E8%89%B2%E5%99%A8%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E5%88%B0webgl%E4%B8%AD">3&#x3001;&#x521B;&#x5EFA;&#x7A0B;&#x5E8F;&#x5BF9;&#x8C61;&#xFF08;&#x5E76;&#x94FE;&#x63A5;&#x5230;WebGL&#xFF0C;&#x7ED1;&#x5B9A;&#x7740;&#x8272;&#x5668;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x5230;WebGL&#x4E2D;&#xFF09;</h5>
+
+<h6 class="mume-header" id="%E5%88%9B%E5%BB%BA%E7%A8%8B%E5%BA%8F%E5%AF%B9%E8%B1%A1%E5%B9%B6%E9%93%BE%E6%8E%A5%E5%88%B0webgl">&#x521B;&#x5EFA;&#x7A0B;&#x5E8F;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x94FE;&#x63A5;&#x5230;WebGL</h6>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">var</span> pwgl<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">setupShaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> vertexShader <span class="token operator">=</span> <span class="token function">loadShaderFromDOM</span><span class="token punctuation">(</span><span class="token string">&quot;shader-vs&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> fragmentShader <span class="token operator">=</span> <span class="token function">loadShaderFromDOM</span><span class="token punctuation">(</span><span class="token string">&quot;shader-fs&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> shaderProgram <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createProgram</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">attachShader</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> vertexShader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">attachShader</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> fragmentShader<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">linkProgram</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>gl<span class="token punctuation">.</span><span class="token function">getProgramParameter</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">LINK_STATUS</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span>
+      <span class="token operator">!</span>gl<span class="token punctuation">.</span><span class="token function">isContextLost</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">&quot;Failed to setup shaders&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  gl<span class="token punctuation">.</span><span class="token function">useProgram</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h6 class="mume-header" id="%E7%BB%91%E5%AE%9A%E7%9D%80%E8%89%B2%E5%99%A8%E4%B8%AD%E7%9A%84%E5%8F%98%E9%87%8F%E5%88%B0webgl%E4%B8%AD">&#x7ED1;&#x5B9A;&#x7740;&#x8272;&#x5668;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x5230;WebGL&#x4E2D;</h6>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript">  pwgl<span class="token punctuation">.</span>vertexPositionAttributeLoc <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getAttribLocation</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> <span class="token string">&quot;aVertexPosition&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  pwgl<span class="token punctuation">.</span>vertexTextureAttributeLoc <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getAttribLocation</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> <span class="token string">&quot;aTextureCoordinates&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  pwgl<span class="token punctuation">.</span>uniformMVMatrixLoc <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getUniformLocation</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> <span class="token string">&quot;uMVMatrix&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  pwgl<span class="token punctuation">.</span>uniformProjMatrixLoc <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getUniformLocation</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> <span class="token string">&quot;uPMatrix&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  pwgl<span class="token punctuation">.</span>uniformSamplerLoc <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">getUniformLocation</span><span class="token punctuation">(</span>shaderProgram<span class="token punctuation">,</span> <span class="token string">&quot;uSampler&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   
+  gl<span class="token punctuation">.</span><span class="token function">enableVertexAttribArray</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>vertexPositionAttributeLoc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">enableVertexAttribArray</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>vertexTextureAttributeLoc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  pwgl<span class="token punctuation">.</span>modelViewMatrix <span class="token operator">=</span> mat4<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  pwgl<span class="token punctuation">.</span>projectionMatrix <span class="token operator">=</span> mat4<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  pwgl<span class="token punctuation">.</span>modelViewMatrixStack <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h5 class="mume-header" id="4-%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E7%BC%93%E5%86%B2">4&#x3001;&#x5EFA;&#x7ACB;&#x6570;&#x636E;&#x7F13;&#x51B2;</h5>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">function</span> <span class="token function">setupBuffers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setupFloorBuffers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">setupFloorBuffers</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>   
+  pwgl<span class="token punctuation">.</span>floorVertexPositionBuffer <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ARRAY_BUFFER</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>floorVertexPositionBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token keyword">var</span> floorVertexPosition <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token comment">// Plane in y=0</span>
+       <span class="token number">5.0</span><span class="token punctuation">,</span>   <span class="token number">0.0</span><span class="token punctuation">,</span>  <span class="token number">5.0</span><span class="token punctuation">,</span>  <span class="token comment">//v0</span>
+       <span class="token number">5.0</span><span class="token punctuation">,</span>   <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5.0</span><span class="token punctuation">,</span>  <span class="token comment">//v1</span>
+      <span class="token operator">-</span><span class="token number">5.0</span><span class="token punctuation">,</span>   <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5.0</span><span class="token punctuation">,</span>  <span class="token comment">//v2</span>
+      <span class="token operator">-</span><span class="token number">5.0</span><span class="token punctuation">,</span>   <span class="token number">0.0</span><span class="token punctuation">,</span>  <span class="token number">5.0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">//v3</span>
+  
+  gl<span class="token punctuation">.</span><span class="token function">bufferData</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ARRAY_BUFFER</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Float32Array</span><span class="token punctuation">(</span>floorVertexPosition<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                gl<span class="token punctuation">.</span><span class="token constant">STATIC_DRAW</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  pwgl<span class="token punctuation">.</span><span class="token constant">FLOOR_VERTEX_POS_BUF_ITEM_SIZE</span> <span class="token operator">=</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  pwgl<span class="token punctuation">.</span><span class="token constant">FLOOR_VERTEX_POS_BUF_NUM_ITEMS</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+  
+  pwgl<span class="token punctuation">.</span>floorVertexTextureCoordinateBuffer <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ARRAY_BUFFER</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>floorVertexTextureCoordinateBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> floorVertexTextureCoordinates <span class="token operator">=</span> <span class="token punctuation">[</span>
+      <span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span>
+      <span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">,</span>
+      <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">,</span>
+      <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span>
+  <span class="token punctuation">]</span><span class="token punctuation">;</span>
+  
+  gl<span class="token punctuation">.</span><span class="token function">bufferData</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ARRAY_BUFFER</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Float32Array</span><span class="token punctuation">(</span>floorVertexTextureCoordinates<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                gl<span class="token punctuation">.</span><span class="token constant">STATIC_DRAW</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  pwgl<span class="token punctuation">.</span><span class="token constant">FLOOR_VERTEX_TEX_COORD_BUF_ITEM_SIZE</span> <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+  pwgl<span class="token punctuation">.</span><span class="token constant">FLOOR_VERTEX_TEX_COORD_BUF_NUM_ITEMS</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+   
+  pwgl<span class="token punctuation">.</span>floorVertexIndexBuffer <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createBuffer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ELEMENT_ARRAY_BUFFER</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>floorVertexIndexBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">var</span> floorVertexIndices <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>  
+            
+  gl<span class="token punctuation">.</span><span class="token function">bufferData</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ELEMENT_ARRAY_BUFFER</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Uint16Array</span><span class="token punctuation">(</span>floorVertexIndices<span class="token punctuation">)</span><span class="token punctuation">,</span> 
+                gl<span class="token punctuation">.</span><span class="token constant">STATIC_DRAW</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+  pwgl<span class="token punctuation">.</span><span class="token constant">FLOOR_VERTEX_INDEX_BUF_ITEM_SIZE</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  pwgl<span class="token punctuation">.</span><span class="token constant">FLOOR_VERTEX_INDEX_BUF_NUM_ITEMS</span> <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h5 class="mume-header" id="5-%E5%88%9B%E5%BB%BA%E7%BA%B9%E7%90%86">5&#x3001;&#x521B;&#x5EFA;&#x7EB9;&#x7406;</h5>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">function</span> <span class="token function">setupTextures</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Texture for the floor</span>
+  pwgl<span class="token punctuation">.</span>groundTexture <span class="token operator">=</span> gl<span class="token punctuation">.</span><span class="token function">createTexture</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">loadImageForTexture</span><span class="token punctuation">(</span><span class="token string">&quot;wood_floor_256.jpg&quot;</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>groundTexture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">loadImageForTexture</span><span class="token punctuation">(</span><span class="token parameter">url<span class="token punctuation">,</span> texture</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">var</span> image <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  image<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    pwgl<span class="token punctuation">.</span>ongoingImageLoads<span class="token punctuation">.</span><span class="token function">splice</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>ongoingImageLoads<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">textureFinishedLoading</span><span class="token punctuation">(</span>image<span class="token punctuation">,</span> texture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  pwgl<span class="token punctuation">.</span>ongoingImageLoads<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  image<span class="token punctuation">.</span>src <span class="token operator">=</span> url<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">textureFinishedLoading</span><span class="token punctuation">(</span><span class="token parameter">image<span class="token punctuation">,</span> texture</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindTexture</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">,</span> texture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">//&#x7FFB;&#x8F6C;&#x7EB9;&#x7406;Y&#x8F74;&#xFF0C;&#x56E0;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x5750;&#x6807;&#x7CFB;&#x548C;&#x7EB9;&#x7406;&#x5750;&#x6807;&#x7CFB;Y&#x8F74;&#x76F8;&#x53CD;</span>
+  gl<span class="token punctuation">.</span><span class="token function">pixelStorei</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">UNPACK_FLIP_Y_WEBGL</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  gl<span class="token punctuation">.</span><span class="token function">texImage2D</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">RGBA</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">RGBA</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">UNSIGNED_BYTE</span><span class="token punctuation">,</span>image<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                
+  gl<span class="token punctuation">.</span><span class="token function">generateMipmap</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  gl<span class="token punctuation">.</span><span class="token function">texParameteri</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_MAG_FILTER</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">LINEAR</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">texParameteri</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_MIN_FILTER</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">LINEAR</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  gl<span class="token punctuation">.</span><span class="token function">texParameteri</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_WRAP_S</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">MIRRORED_REPEAT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">texParameteri</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_WRAP_T</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span><span class="token constant">MIRRORED_REPEAT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindTexture</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+</pre><h5 class="mume-header" id="6-%E7%BB%98%E5%88%B6%E5%9C%BA%E6%99%AF">6&#x3001;&#x7ED8;&#x5236;&#x573A;&#x666F;</h5>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">function</span> <span class="token function">draw</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+  gl<span class="token punctuation">.</span><span class="token function">viewport</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span>viewportWidth<span class="token punctuation">,</span> gl<span class="token punctuation">.</span>viewportHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">clear</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">COLOR_BUFFER_BIT</span> <span class="token operator">|</span> gl<span class="token punctuation">.</span><span class="token constant">DEPTH_BUFFER_BIT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  mat4<span class="token punctuation">.</span><span class="token function">perspective</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">,</span> gl<span class="token punctuation">.</span>viewportWidth <span class="token operator">/</span> gl<span class="token punctuation">.</span>viewportHeight<span class="token punctuation">,</span> 
+                   <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">100.0</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>projectionMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  mat4<span class="token punctuation">.</span><span class="token function">identity</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  mat4<span class="token punctuation">.</span><span class="token function">lookAt</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token function">uploadModelViewMatrixToShader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">uploadProjectionMatrixToShader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">uniform1i</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>uniformSamplerLoc<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token function">drawFloor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// Draw table</span>
+  <span class="token function">pushModelViewMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  mat4<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.1</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">uploadModelViewMatrixToShader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">drawTable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">popModelViewMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// Draw box on top of the table</span>
+  <span class="token function">pushModelViewMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  mat4<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">2.7</span> <span class="token punctuation">,</span><span class="token number">0.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  mat4<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">uploadModelViewMatrixToShader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">drawCube</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>boxTexture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">popModelViewMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  pwgl<span class="token punctuation">.</span>requestId <span class="token operator">=</span> <span class="token function">requestAnimFrame</span><span class="token punctuation">(</span>draw<span class="token punctuation">,</span>canvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">uploadModelViewMatrixToShader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gl<span class="token punctuation">.</span><span class="token function">uniformMatrix4fv</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>uniformMVMatrixLoc<span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">uploadProjectionMatrixToShader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gl<span class="token punctuation">.</span><span class="token function">uniformMatrix4fv</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>uniformProjMatrixLoc<span class="token punctuation">,</span> 
+                      <span class="token boolean">false</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>projectionMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">drawFloor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Draw the floor</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ARRAY_BUFFER</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>floorVertexPositionBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">vertexAttribPointer</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>vertexPositionAttributeLoc<span class="token punctuation">,</span>pwgl<span class="token punctuation">.</span><span class="token constant">FLOOR_VERTEX_POS_BUF_ITEM_SIZE</span><span class="token punctuation">,</span>gl<span class="token punctuation">.</span><span class="token constant">FLOAT</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ARRAY_BUFFER</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>floorVertexTextureCoordinateBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">vertexAttribPointer</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>vertexTextureAttributeLoc<span class="token punctuation">,</span>pwgl<span class="token punctuation">.</span><span class="token constant">FLOOR_VERTEX_TEX_COORD_BUF_ITEM_SIZE</span><span class="token punctuation">,</span>gl<span class="token punctuation">.</span><span class="token constant">FLOAT</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  gl<span class="token punctuation">.</span><span class="token function">activeTexture</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindTexture</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>groundTexture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ELEMENT_ARRAY_BUFFER</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>floorVertexIndexBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">drawElements</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TRIANGLE_FAN</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span><span class="token constant">FLOOR_VERTEX_INDEX_BUF_NUM_ITEMS</span><span class="token punctuation">,</span>gl<span class="token punctuation">.</span><span class="token constant">UNSIGNED_SHORT</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">function</span> <span class="token function">drawCube</span><span class="token punctuation">(</span><span class="token parameter">texture</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ARRAY_BUFFER</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>cubeVertexPositionBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">vertexAttribPointer</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>vertexPositionAttributeLoc<span class="token punctuation">,</span> 
+                         pwgl<span class="token punctuation">.</span><span class="token constant">CUBE_VERTEX_POS_BUF_ITEM_SIZE</span><span class="token punctuation">,</span>
+                         gl<span class="token punctuation">.</span><span class="token constant">FLOAT</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                         
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ARRAY_BUFFER</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>cubeVertexTextureCoordinateBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">vertexAttribPointer</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>vertexTextureAttributeLoc<span class="token punctuation">,</span>
+                         pwgl<span class="token punctuation">.</span><span class="token constant">CUBE_VERTEX_TEX_COORD_BUF_ITEM_SIZE</span><span class="token punctuation">,</span>
+                         gl<span class="token punctuation">.</span><span class="token constant">FLOAT</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  gl<span class="token punctuation">.</span><span class="token function">activeTexture</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">bindTexture</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TEXTURE_2D</span><span class="token punctuation">,</span> texture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+  gl<span class="token punctuation">.</span><span class="token function">bindBuffer</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">ELEMENT_ARRAY_BUFFER</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>cubeVertexIndexBuffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+  gl<span class="token punctuation">.</span><span class="token function">drawElements</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">TRIANGLES</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span><span class="token constant">CUBE_VERTEX_INDEX_BUF_NUM_ITEMS</span><span class="token punctuation">,</span>
+                  gl<span class="token punctuation">.</span><span class="token constant">UNSIGNED_SHORT</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">drawTable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">// Draw table top</span>
+  <span class="token function">pushModelViewMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  mat4<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  mat4<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">2.0</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token number">2.0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token function">uploadModelViewMatrixToShader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Draw the actual cube (now scaled to a cuboid) with woodTexture</span>
+  <span class="token function">drawCube</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>woodTexture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">popModelViewMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// Draw table legs</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">&lt;=</span><span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">+=</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> j<span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">&lt;=</span><span class="token number">1</span><span class="token punctuation">;</span> j<span class="token operator">+=</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">pushModelViewMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+      mat4<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">,</span> <span class="token punctuation">[</span>i<span class="token operator">*</span><span class="token number">1.9</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.1</span><span class="token punctuation">,</span> j<span class="token operator">*</span><span class="token number">1.9</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      mat4<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> pwgl<span class="token punctuation">.</span>modelViewMatrix<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">uploadModelViewMatrixToShader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">drawCube</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>woodTexture<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">popModelViewMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>  
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="%E4%B8%89-%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%A2%E5%A4%B1%E5%A4%84%E7%90%86">&#x4E09;&#x3001;&#x4E0A;&#x4E0B;&#x6587;&#x4E22;&#x5931;&#x5904;&#x7406;</h4>
+
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">function</span> <span class="token function">handleContextLost</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  event<span class="token punctuation">.</span><span class="token function">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">cancelRequestAnimFrame</span><span class="token punctuation">(</span>pwgl<span class="token punctuation">.</span>requestId<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+   <span class="token comment">// Ignore all ongoing image loads by removing</span>
+   <span class="token comment">// their onload handler</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pwgl<span class="token punctuation">.</span>ongoingImageLoads<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     pwgl<span class="token punctuation">.</span>ongoingImageLoads<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>onload <span class="token operator">=</span> undefined<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+   pwgl<span class="token punctuation">.</span>ongoingImageLoads <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token keyword">function</span> <span class="token function">handleContextRestored</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token function">setupShaders</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  <span class="token function">setupBuffers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">setupTextures</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+  gl<span class="token punctuation">.</span><span class="token function">clearColor</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">,</span> <span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  gl<span class="token punctuation">.</span><span class="token function">enable</span><span class="token punctuation">(</span>gl<span class="token punctuation">.</span><span class="token constant">DEPTH_TEST</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  pwgl<span class="token punctuation">.</span>requestId <span class="token operator">=</span> <span class="token function">requestAnimFrame</span><span class="token punctuation">(</span>draw<span class="token punctuation">,</span>canvas<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h4 class="mume-header" id="%E9%99%84%E5%BD%95">&#x9644;&#x5F55;</h4>
+
+<h5 class="mume-header" id="%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B%E7%AE%80%E4%BB%8B">&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x7B80;&#x4ECB;</h5>
+
+<h6 class="mume-header" id="uniform">uniform</h6>
+
+<ul>
+<li>uniform&#x53D8;&#x91CF;&#x5728;vertex&#x548C;fragment&#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x58F0;&#x660E;&#x65B9;&#x5F0F;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#xFF0C;&#x5219;&#x5B83;&#x53EF;&#x4EE5;&#x5728;vertex&#x548C;fragment&#x5171;&#x4EAB;&#x4F7F;&#x7528;&#x3002;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x4E00;&#x4E2A;&#x88AB;vertex&#x548C;fragment shader&#x5171;&#x4EAB;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF09;</li>
+<li>uniform&#x53D8;&#x91CF;&#x4E00;&#x822C;&#x7528;&#x6765;&#x8868;&#x793A;&#xFF1A;&#x53D8;&#x6362;&#x77E9;&#x9635;&#xFF0C;&#x6750;&#x8D28;&#xFF0C;&#x5149;&#x7167;&#x53C2;&#x6570;&#x548C;&#x989C;&#x8272;&#x7B49;&#x4FE1;&#x606F;&#x3002;</li>
+</ul>
+<h6 class="mume-header" id="attribute">attribute</h6>
+
+<ul>
+<li>attribute&#x53D8;&#x91CF;&#x662F;&#x53EA;&#x80FD;&#x5728;vertex shader&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x3002;&#xFF08;&#x5B83;&#x4E0D;&#x80FD;&#x5728;fragment shader&#x4E2D;&#x58F0;&#x660E;attribute&#x53D8;&#x91CF;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x88AB;fragment shader&#x4E2D;&#x4F7F;&#x7528;&#xFF09;</li>
+<li>&#x4E00;&#x822C;&#x7528;attribute&#x53D8;&#x91CF;&#x6765;&#x8868;&#x793A;&#x4E00;&#x4E9B;&#x9876;&#x70B9;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5982;&#xFF1A;&#x9876;&#x70B9;&#x5750;&#x6807;&#xFF0C;&#x6CD5;&#x7EBF;&#xFF0C;&#x7EB9;&#x7406;&#x5750;&#x6807;&#xFF0C;&#x9876;&#x70B9;&#x989C;&#x8272;&#x7B49;&#x3002;</li>
+<li>&#x5728;application&#x4E2D;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x51FD;&#x6570;glBindAttribLocation&#xFF08;&#xFF09;&#x6765;&#x7ED1;&#x5B9A;&#x6BCF;&#x4E2A;attribute&#x53D8;&#x91CF;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x51FD;&#x6570;glVertexAttribPointer&#xFF08;&#xFF09;&#x4E3A;&#x6BCF;&#x4E2A;attribute&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#x3002;</li>
+</ul>
+<h6 class="mume-header" id="varying">varying</h6>
+
+<ul>
+<li>varying&#x53D8;&#x91CF;&#x662F;vertex&#x548C;fragment shader&#x4E4B;&#x95F4;&#x505A;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7528;&#x7684;&#x3002;&#x4E00;&#x822C;vertex shader&#x4FEE;&#x6539;varying&#x53D8;&#x91CF;&#x7684;&#x503C;&#xFF0C;&#x7136;&#x540E;fragment shader&#x4F7F;&#x7528;&#x8BE5;varying&#x53D8;&#x91CF;&#x7684;&#x503C;&#x3002;&#x56E0;&#x6B64;varying&#x53D8;&#x91CF;&#x5728;vertex&#x548C;fragment shader&#x4E8C;&#x8005;&#x4E4B;&#x95F4;&#x7684;&#x58F0;&#x660E;&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x81F4;&#x7684;&#x3002;application&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x6B64;&#x53D8;&#x91CF;&#x3002;</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

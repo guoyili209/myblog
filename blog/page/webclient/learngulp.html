@@ -1,0 +1,770 @@
+<!DOCTYPE html><html><head>
+      <title>learngulp</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\guoyi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.0\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.14);
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1><p align="center">gulp&#x6559;&#x7A0B;</p></h1>
+<ul>
+<li><a href="#%E4%B8%80-%E6%A6%82%E8%BF%B0">&#x4E00;&#x3001;&#x6982;&#x8FF0;</a></li>
+<li><a href="#%E4%BA%8C-%E5%AE%89%E8%A3%85">&#x4E8C;&#x3001;&#x5B89;&#x88C5;</a>
+<ul>
+<li><a href="#1-gulp%E7%9A%84%E5%AE%89%E8%A3%85">1&#x3001;gulp&#x7684;&#x5B89;&#x88C5;</a></li>
+<li><a href="#2-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8gulp">2&#x3001;&#x5F00;&#x59CB;&#x4F7F;&#x7528;gulp</a>
+<ul>
+<li><a href="#21-%E5%BB%BA%E7%AB%8Bgulpfilejs%E6%96%87%E4%BB%B6">2.1 &#x5EFA;&#x7ACB;gulpfile.js&#x6587;&#x4EF6;</a></li>
+<li><a href="#22-%E8%BF%90%E8%A1%8Cgulp%E4%BB%BB%E5%8A%A1">2.2 &#x8FD0;&#x884C;gulp&#x4EFB;&#x52A1;</a></li>
+</ul>
+</li>
+<li><a href="#3-gulp%E7%9A%84api%E4%BB%8B%E7%BB%8D">3&#x3001;gulp&#x7684;API&#x4ECB;&#x7ECD;</a>
+<ul>
+<li><a href="#31-gulpsrc">3.1 gulp.src()</a></li>
+<li><a href="#32-gulpdest">3.2 gulp.dest()</a></li>
+<li><a href="#33-gulptask">3.3 gulp.task()</a></li>
+<li><a href="#34-gulpwatch">3.4 gulp.watch()</a></li>
+</ul>
+</li>
+<li><a href="#4-%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84gulp%E6%8F%92%E4%BB%B6">4&#x3001;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;gulp&#x63D2;&#x4EF6;</a>
+<ul>
+<li><a href="#41-%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6">4.1 &#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x63D2;&#x4EF6;</a></li>
+<li><a href="#42-%E9%87%8D%E5%91%BD%E5%90%8D">4.2 &#x91CD;&#x547D;&#x540D;</a></li>
+<li><a href="#43-js%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9">4.3 js&#x6587;&#x4EF6;&#x538B;&#x7F29;</a></li>
+<li><a href="#45-html%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9">4.5 html&#x6587;&#x4EF6;&#x538B;&#x7F29;</a></li>
+<li><a href="#46-js%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5">4.6 js&#x4EE3;&#x7801;&#x68C0;&#x67E5;</a></li>
+<li><a href="#47-%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6">4.7 &#x6587;&#x4EF6;&#x5408;&#x5E76;</a></li>
+<li><a href="#48-less%E5%92%8Csass%E7%9A%84%E7%BC%96%E8%AF%91">4.8 less&#x548C;sass&#x7684;&#x7F16;&#x8BD1;</a></li>
+<li><a href="#49-%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9">4.9 &#x56FE;&#x7247;&#x538B;&#x7F29;</a></li>
+<li><a href="#410-%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0">4.10 &#x81EA;&#x52A8;&#x5237;&#x65B0;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E4%B8%89-%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">&#x4E09;&#x3001;&#x793A;&#x4F8B;&#x4EE3;&#x7801;</a></li>
+</ul>
+<h2 class="mume-header" id="%E4%B8%80-%E6%A6%82%E8%BF%B0">&#x4E00;&#x3001;&#x6982;&#x8FF0;</h2>
+
+<p>&#x2002;&#x2002;gulpjs&#x662F;&#x4E00;&#x4E2A;&#x524D;&#x7AEF;&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#xFF0C;&#x4E0E;gruntjs&#x76F8;&#x6BD4;&#xFF0C;gulpjs&#x65E0;&#x9700;&#x5199;&#x4E00;&#x5927;&#x5806;&#x7E41;&#x6742;&#x7684;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#xFF0C;API&#x4E5F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x5B66;&#x4E60;&#x8D77;&#x6765;&#x5F88;&#x5BB9;&#x6613;&#xFF0C;&#x800C;&#x4E14;gulpjs&#x4F7F;&#x7528;&#x7684;&#x662F;nodejs&#x4E2D;stream&#x6765;&#x8BFB;&#x53D6;&#x548C;&#x64CD;&#x4F5C;&#x6570;&#x636E;&#xFF0C;&#x5176;&#x901F;&#x5EA6;&#x66F4;&#x5FEB;&#x3002;&#x5982;&#x679C;&#x4F60;&#x8FD8;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x8FC7;&#x524D;&#x7AEF;&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#xFF0C;&#x6216;&#x8005;&#x89C9;&#x5F97;gruntjs&#x592A;&#x96BE;&#x7528;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x5C31;&#x5C1D;&#x8BD5;&#x4E00;&#x4E0B;gulp&#x5427;&#x3002;</p>
+<h2 class="mume-header" id="%E4%BA%8C-%E5%AE%89%E8%A3%85">&#x4E8C;&#x3001;&#x5B89;&#x88C5;</h2>
+
+<h3 class="mume-header" id="1-gulp%E7%9A%84%E5%AE%89%E8%A3%85">1&#x3001;gulp&#x7684;&#x5B89;&#x88C5;</h3>
+
+<p>&#x9996;&#x5148;&#x786E;&#x4FDD;&#x4F60;&#x5DF2;&#x7ECF;&#x6B63;&#x786E;&#x5B89;&#x88C5;&#x4E86;nodejs&#x73AF;&#x5883;&#x3002;&#x7136;&#x540E;&#x4EE5;&#x5168;&#x5C40;&#x65B9;&#x5F0F;&#x5B89;&#x88C5;gulp&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">npm install <span class="token operator">-</span>g gulp
+</pre><p>&#x5168;&#x5C40;&#x5B89;&#x88C5;gulp&#x540E;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x5728;&#x6BCF;&#x4E2A;&#x8981;&#x4F7F;&#x7528;gulp&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x90FD;&#x5355;&#x72EC;&#x5B89;&#x88C5;&#x4E00;&#x6B21;&#x3002;&#x628A;&#x76EE;&#x5F55;&#x5207;&#x6362;&#x5230;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x6267;&#x884C;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">npm install gulp
+</pre><p>&#x5982;&#x679C;&#x60F3;&#x5728;&#x5B89;&#x88C5;&#x7684;&#x65F6;&#x5019;&#x628A;gulp&#x5199;&#x8FDB;&#x9879;&#x76EE;package.json&#x6587;&#x4EF6;&#x7684;&#x4F9D;&#x8D56;&#x4E2D;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;--save-dev&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">npm install <span class="token operator">--</span>save<span class="token operator">-</span>dev gulp
+</pre><p>&#x8FD9;&#x6837;&#x5C31;&#x5B8C;&#x6210;&#x4E86;gulp&#x7684;&#x5B89;&#x88C5;&#x3002;&#x81F3;&#x4E8E;&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x5168;&#x5C40;&#x5B89;&#x88C5;gulp&#x540E;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x672C;&#x5730;&#x5B89;&#x88C5;&#x4E00;&#x6B21;&#xFF0C;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x53EF;&#x4EE5;&#x770B;&#x4E0B;stackoverflow&#x4E0A;&#x6709;&#x4EBA;&#x505A;&#x51FA;&#x7684;&#x56DE;&#x7B54;&#xFF1A;<a href="http://stackoverflow.com/questions/22115400/why-do-we-need-to-install-gulp-globally-and-locally" target="_blank">why-do-we-need-to-install-gulp-globally-and-locally</a>&#x3001;<a href="https://stackoverflow.com/questions/25713618/what-is-the-point-of-double-install-in-gulp" target="_blank">what-is-the-point-of-double-install-in-gulp</a>&#x3002;&#x5927;&#x4F53;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x7248;&#x672C;&#x7684;&#x7075;&#x6D3B;&#x6027;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x6CA1;&#x7406;&#x89E3;&#x90A3;&#x4E5F;&#x4E0D;&#x5FC5;&#x592A;&#x53BB;&#x7EA0;&#x7ED3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x77E5;&#x9053;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x662F;&#x8981;&#x8FD9;&#x6837;&#x505A;&#x5C31;&#x884C;&#x4E86;&#x3002;</p>
+<h3 class="mume-header" id="2-%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8gulp">2&#x3001;&#x5F00;&#x59CB;&#x4F7F;&#x7528;gulp</h3>
+
+<h4 class="mume-header" id="21-%E5%BB%BA%E7%AB%8Bgulpfilejs%E6%96%87%E4%BB%B6">2.1 &#x5EFA;&#x7ACB;gulpfile.js&#x6587;&#x4EF6;</h4>
+
+<p>&#x5C31;&#x50CF;gruntjs&#x9700;&#x8981;&#x4E00;&#x4E2A;Gruntfile.js&#x6587;&#x4EF6;&#x4E00;&#x6837;&#xFF0C;gulp&#x4E5F;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x5B83;&#x7684;&#x4E3B;&#x6587;&#x4EF6;&#xFF0C;&#x5728;gulp&#x4E2D;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x53EB;&#x505A;gulpfile.js&#x3002;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x540D;&#x4E3A;gulpfile.js&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x653E;&#x5230;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x76EE;&#x5F55;&#x4E2D;&#x3002;&#x4E4B;&#x540E;&#x8981;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x5C31;&#x662F;&#x5728;gulpfile.js&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;&#x6211;&#x4EEC;&#x7684;&#x4EFB;&#x52A1;&#x4E86;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x6700;&#x7B80;&#x5355;&#x7684;gulpfile.js&#x6587;&#x4EF6;&#x5185;&#x5BB9;&#x793A;&#x4F8B;&#xFF0C;&#x5B83;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x7684;&#x4EFB;&#x52A1;&#x3002;</p>
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token keyword">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;default&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token builtin">console</span><span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;hello world&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x6B64;&#x65F6;&#x6211;&#x4EEC;&#x7684;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x662F;&#x8FD9;&#x6837;&#x5B50;&#x7684;&#xFF1A;</p>
+<p>&#x251C;&#x2500;&#x2500; gulpfile.js<br>
+&#x251C;&#x2500;&#x2500; node_modules<br>
+&#x2502; &#x2514;&#x2500;&#x2500; gulp<br>
+&#x2514;&#x2500;&#x2500; package.json</p>
+<h4 class="mume-header" id="22-%E8%BF%90%E8%A1%8Cgulp%E4%BB%BB%E5%8A%A1">2.2 &#x8FD0;&#x884C;gulp&#x4EFB;&#x52A1;</h4>
+
+<p>&#x8981;&#x8FD0;&#x884C;gulp&#x4EFB;&#x52A1;&#xFF0C;&#x53EA;&#x9700;&#x5207;&#x6362;&#x5230;&#x5B58;&#x653E;gulpfile.js&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;(windows&#x5E73;&#x53F0;&#x8BF7;&#x4F7F;&#x7528;cmd&#x6216;&#x8005;Power Shell&#x7B49;&#x5DE5;&#x5177;)&#xFF0C;&#x7136;&#x540E;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x6267;&#x884C;gulp&#x547D;&#x4EE4;&#x5C31;&#x884C;&#x4E86;&#xFF0C;gulp&#x540E;&#x9762;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#x540D;&#xFF0C;&#x4F8B;&#x5982;gulp task1&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x6307;&#x5B9A;&#x4EFB;&#x52A1;&#x540D;&#xFF0C;&#x5219;&#x4F1A;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x540D;&#x4E3A;default&#x7684;&#x9ED8;&#x8BA4;&#x4EFB;&#x52A1;&#x3002;</p>
+<h3 class="mume-header" id="3-gulp%E7%9A%84api%E4%BB%8B%E7%BB%8D">3&#x3001;gulp&#x7684;API&#x4ECB;&#x7ECD;</h3>
+
+<p>&#x4F7F;&#x7528;gulp&#xFF0C;&#x4EC5;&#x9700;&#x77E5;&#x9053;4&#x4E2A;API&#x5373;&#x53EF;&#xFF1A;gulp.task(),gulp.src(),gulp.dest(),gulp.watch()&#xFF0C;&#x6240;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x5C31;&#x80FD;&#x638C;&#x63E1;&#xFF0C;&#x4F46;&#x6709;&#x51E0;&#x4E2A;&#x5730;&#x65B9;&#x9700;&#x7406;&#x89E3;&#x900F;&#x5F7B;&#x624D;&#x884C;&#xFF0C;&#x6211;&#x4F1A;&#x5728;&#x4E0B;&#x9762;&#x4E00;&#x4E00;&#x8BF4;&#x660E;&#x3002;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x7406;&#x89E3;&#x504F;&#x5DEE;&#xFF0C;&#x5EFA;&#x8BAE;&#x5148;&#x770B;&#x4E00;&#x904D;<a href target="_blank">&#x5B98;&#x65B9;&#x6587;&#x6863;</a>&#x3002;</p>
+<h4 class="mume-header" id="31-gulpsrc">3.1 gulp.src()</h4>
+
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>globs<span class="token punctuation">[</span><span class="token punctuation">,</span> options<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</pre><p>globs&#x53C2;&#x6570;&#x662F;&#x6587;&#x4EF6;&#x5339;&#x914D;&#x6A21;&#x5F0F;(&#x7C7B;&#x4F3C;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;)&#xFF0C;&#x7528;&#x6765;&#x5339;&#x914D;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;(&#x5305;&#x62EC;&#x6587;&#x4EF6;&#x540D;)&#xFF0C;&#x5F53;&#x7136;&#x8FD9;&#x91CC;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;&#x5F53;&#x6709;&#x591A;&#x4E2A;&#x5339;&#x914D;&#x6A21;&#x5F0F;&#x65F6;&#xFF0C;&#x8BE5;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x3002;<br>
+options&#x4E3A;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x3002;&#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x5230;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x91CD;&#x70B9;&#x8BF4;&#x8BF4;Gulp&#x7528;&#x5230;&#x7684;glob&#x7684;&#x5339;&#x914D;&#x89C4;&#x5219;&#x4EE5;&#x53CA;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x5339;&#x914D;&#x6280;&#x5DE7;&#x3002;<br>
+Gulp&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E86;node-glob&#x6A21;&#x5757;&#x6765;&#x5B9E;&#x73B0;&#x5176;&#x6587;&#x4EF6;&#x5339;&#x914D;&#x529F;&#x80FD;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x8FD9;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#x5B57;&#x7B26;&#x6765;&#x5339;&#x914D;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x7684;&#x6587;&#x4EF6;&#xFF1A;</p>
+<blockquote>
+<p>* &#x5339;&#x914D;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;0&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x7B26;&#xFF0C;&#x4F46;&#x4E0D;&#x4F1A;&#x5339;&#x914D;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x9664;&#x975E;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;&#x51FA;&#x73B0;&#x5728;&#x672B;&#x5C3E;<br>
+** &#x5339;&#x914D;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;0&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x76EE;&#x5F55;&#x53CA;&#x5176;&#x5B50;&#x76EE;&#x5F55;,&#x9700;&#x8981;&#x5355;&#x72EC;&#x51FA;&#x73B0;&#xFF0C;&#x5373;&#x5B83;&#x5DE6;&#x53F3;&#x4E0D;&#x80FD;&#x6709;&#x5176;&#x4ED6;&#x4E1C;&#x897F;&#x4E86;&#x3002;&#x5982;&#x679C;&#x51FA;&#x73B0;&#x5728;&#x672B;&#x5C3E;&#xFF0C;&#x4E5F;&#x80FD;&#x5339;&#x914D;&#x6587;&#x4EF6;&#x3002;<br>
+? &#x5339;&#x914D;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;(&#x4E0D;&#x4F1A;&#x5339;&#x914D;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;)<br>
+[...] &#x5339;&#x914D;&#x65B9;&#x62EC;&#x53F7;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x5B57;&#x7B26;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#xFF0C;&#x5F53;&#x65B9;&#x62EC;&#x53F7;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;^&#x6216;!&#x65F6;&#xFF0C;&#x5219;&#x8868;&#x793A;&#x4E0D;&#x5339;&#x914D;&#x65B9;&#x62EC;&#x53F7;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x5176;&#x4ED6;&#x5B57;&#x7B26;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#xFF0C;&#x7C7B;&#x4F3C;js&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x4E2D;&#x7684;&#x7528;&#x6CD5;<br>
+!(pattern|pattern|pattern) &#x5339;&#x914D;&#x4EFB;&#x4F55;&#x4E0E;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;&#x90FD;&#x4E0D;&#x5339;&#x914D;&#x7684;<br>
+?(pattern|pattern|pattern) &#x5339;&#x914D;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;0&#x6B21;&#x6216;1&#x6B21;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;js&#x6B63;&#x5219;&#x4E2D;&#x7684;(pattern|pattern|pattern)?<br>
++(pattern|pattern|pattern) &#x5339;&#x914D;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;&#x81F3;&#x5C11;1&#x6B21;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;js&#x6B63;&#x5219;&#x4E2D;&#x7684;(pattern|pattern|pattern)+<br>
+<em>(pattern|pattern|pattern) &#x5339;&#x914D;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;0&#x6B21;&#x6216;&#x591A;&#x6B21;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;js&#x6B63;&#x5219;&#x4E2D;&#x7684;(pattern|pattern|pattern)</em><br>
+@(pattern|pattern|pattern) &#x5339;&#x914D;&#x62EC;&#x53F7;&#x4E2D;&#x7ED9;&#x5B9A;&#x7684;&#x4EFB;&#x4E00;&#x6A21;&#x5F0F;1&#x6B21;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;js&#x6B63;&#x5219;&#x4E2D;&#x7684;(pattern|pattern|pattern)</p>
+</blockquote>
+<p>&#x4E0B;&#x9762;&#x4EE5;&#x4E00;&#x7CFB;&#x5217;&#x4F8B;&#x5B50;&#x6765;&#x52A0;&#x6DF1;&#x7406;&#x89E3;</p>
+<pre data-role="codeBlock" data-info class="language-"><code>* &#x80FD;&#x5339;&#x914D; a.js,x.y,abc,abc/,&#x4F46;&#x4E0D;&#x80FD;&#x5339;&#x914D;a/b.js
+*.* &#x80FD;&#x5339;&#x914D; a.js,style.css,a.b,x.y
+*/*/*.js &#x80FD;&#x5339;&#x914D; a/b/c.js,x/y/z.js,&#x4E0D;&#x80FD;&#x5339;&#x914D;a/b.js,a/b/c/d.js
+** &#x80FD;&#x5339;&#x914D; abc,a/b.js,a/b/c.js,x/y/z,x/y/z/a.b,&#x80FD;&#x7528;&#x6765;&#x5339;&#x914D;&#x6240;&#x6709;&#x7684;&#x76EE;&#x5F55;&#x548C;&#x6587;&#x4EF6;
+**/*.js &#x80FD;&#x5339;&#x914D; foo.js,a/foo.js,a/b/foo.js,a/b/c/foo.js
+a/**/z &#x80FD;&#x5339;&#x914D; a/z,a/b/z,a/b/c/z,a/d/g/h/j/k/z
+a/**b/z &#x80FD;&#x5339;&#x914D; a/b/z,a/sb/z,&#x4F46;&#x4E0D;&#x80FD;&#x5339;&#x914D;a/x/sb/z,&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x5355;**&#x5355;&#x72EC;&#x51FA;&#x73B0;&#x624D;&#x80FD;&#x5339;&#x914D;&#x591A;&#x7EA7;&#x76EE;&#x5F55;
+?.js &#x80FD;&#x5339;&#x914D; a.js,b.js,c.js
+a?? &#x80FD;&#x5339;&#x914D; a.b,abc,&#x4F46;&#x4E0D;&#x80FD;&#x5339;&#x914D;ab/,&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x4F1A;&#x5339;&#x914D;&#x8DEF;&#x5F84;&#x5206;&#x9694;&#x7B26;
+[xyz].js &#x53EA;&#x80FD;&#x5339;&#x914D; x.js,y.js,z.js,&#x4E0D;&#x4F1A;&#x5339;&#x914D;xy.js,xyz.js&#x7B49;,&#x6574;&#x4E2A;&#x4E2D;&#x62EC;&#x53F7;&#x53EA;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;
+[^xyz].js &#x80FD;&#x5339;&#x914D; a.js,b.js,c.js&#x7B49;,&#x4E0D;&#x80FD;&#x5339;&#x914D;x.js,y.js,z.js
+</code></pre><p>&#x5F53;&#x6709;&#x591A;&#x79CD;&#x5339;&#x914D;&#x6A21;&#x5F0F;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6570;&#x7EC4;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token comment">//&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5339;&#x914D;&#x591A;&#x79CD;&#x6587;&#x4EF6;</span>
+gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;js/*.js&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;css/*.css&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;*.html&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</pre><p>&#x4F7F;&#x7528;&#x6570;&#x7EC4;&#x7684;&#x65B9;&#x5F0F;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x597D;&#x5904;&#x5C31;&#x662F;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x4F7F;&#x7528;&#x6392;&#x9664;&#x6A21;&#x5F0F;&#xFF0C;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5355;&#x4E2A;&#x5339;&#x914D;&#x6A21;&#x5F0F;&#x524D;&#x52A0;&#x4E0A;!&#x5373;&#x662F;&#x6392;&#x9664;&#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x4F1A;&#x5728;&#x5339;&#x914D;&#x7684;&#x7ED3;&#x679C;&#x4E2D;&#x6392;&#x9664;&#x8FD9;&#x4E2A;&#x5339;&#x914D;&#xFF0C;&#x8981;&#x6CE8;&#x610F;&#x4E00;&#x70B9;&#x7684;&#x662F;&#x4E0D;&#x80FD;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4E2D;&#x4F7F;&#x7528;&#x6392;&#x9664;&#x6A21;&#x5F0F;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">*</span><span class="token punctuation">.</span>js<span class="token punctuation">,</span><span class="token string">&apos;!b*.js&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">//&#x5339;&#x914D;&#x6240;&#x6709;js&#x6587;&#x4EF6;&#xFF0C;&#x4F46;&#x6392;&#x9664;&#x6389;&#x4EE5;b&#x5F00;&#x5934;&#x7684;js&#x6587;&#x4EF6;</span>
+gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">&apos;!b*.js&apos;</span><span class="token punctuation">,</span><span class="token operator">*</span><span class="token punctuation">.</span>js<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">//&#x4E0D;&#x4F1A;&#x6392;&#x9664;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;&#xFF0C;&#x56E0;&#x4E3A;&#x6392;&#x9664;&#x6A21;&#x5F0F;&#x4E0D;&#x80FD;&#x51FA;&#x73B0;&#x5728;&#x6570;&#x7EC4;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x4E2D;</span>
+</pre><p>&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5C55;&#x5F00;&#x6A21;&#x5F0F;&#x3002;&#x5C55;&#x5F00;&#x6A21;&#x5F0F;&#x4EE5;&#x82B1;&#x62EC;&#x53F7;&#x4F5C;&#x4E3A;&#x5B9A;&#x754C;&#x7B26;&#xFF0C;&#x6839;&#x636E;&#x5B83;&#x91CC;&#x9762;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4F1A;&#x5C55;&#x5F00;&#x4E3A;&#x591A;&#x4E2A;&#x6A21;&#x5F0F;&#xFF0C;&#x6700;&#x540E;&#x5339;&#x914D;&#x7684;&#x7ED3;&#x679C;&#x4E3A;&#x6240;&#x6709;&#x5C55;&#x5F00;&#x7684;&#x6A21;&#x5F0F;&#x76F8;&#x52A0;&#x8D77;&#x6765;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x5C55;&#x5F00;&#x7684;&#x4F8B;&#x5B50;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">a<span class="token punctuation">{</span>b<span class="token punctuation">,</span>c<span class="token punctuation">}</span>d &#x4F1A;&#x5C55;&#x5F00;&#x4E3A; abd<span class="token punctuation">,</span>acd
+a<span class="token punctuation">{</span>b<span class="token punctuation">,</span><span class="token punctuation">}</span>c &#x4F1A;&#x5C55;&#x5F00;&#x4E3A; abc<span class="token punctuation">,</span>ac
+a<span class="token punctuation">{</span><span class="token number">0.</span><span class="token number">.3</span><span class="token punctuation">}</span>d &#x4F1A;&#x5C55;&#x5F00;&#x4E3A; a0d<span class="token punctuation">,</span>a1d<span class="token punctuation">,</span>a2d<span class="token punctuation">,</span>a3d
+a<span class="token punctuation">{</span>b<span class="token punctuation">,</span>c<span class="token punctuation">{</span>d<span class="token punctuation">,</span>e<span class="token punctuation">}</span>f<span class="token punctuation">}</span>g &#x4F1A;&#x5C55;&#x5F00;&#x4E3A; abg<span class="token punctuation">,</span>acdfg<span class="token punctuation">,</span>acefg
+a<span class="token punctuation">{</span>b<span class="token punctuation">,</span>c<span class="token punctuation">}</span>d<span class="token punctuation">{</span>e<span class="token punctuation">,</span>f<span class="token punctuation">}</span>g &#x4F1A;&#x5C55;&#x5F00;&#x4E3A; abdeg<span class="token punctuation">,</span>acdeg<span class="token punctuation">,</span>abdeg<span class="token punctuation">,</span>abdfg
+</pre><h4 class="mume-header" id="32-gulpdest">3.2 gulp.dest()</h4>
+
+<p>gulp.dest()&#x65B9;&#x6CD5;&#x662F;&#x7528;&#x6765;&#x5199;&#x6587;&#x4EF6;&#x7684;&#xFF0C;&#x5176;&#x8BED;&#x6CD5;&#x4E3A;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span>path<span class="token punctuation">[</span><span class="token punctuation">,</span>options<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</pre><p>path&#x4E3A;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;<br>
+options&#x4E3A;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x5230;</p>
+<p>&#x8981;&#x60F3;&#x4F7F;&#x7528;&#x597D;gulp.dest()&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x8981;&#x7406;&#x89E3;&#x7ED9;&#x5B83;&#x4F20;&#x5165;&#x7684;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x4E0E;&#x6700;&#x7EC8;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x5173;&#x7CFB;&#x3002;<br>
+gulp&#x7684;&#x4F7F;&#x7528;&#x6D41;&#x7A0B;&#x4E00;&#x822C;&#x662F;&#x8FD9;&#x6837;&#x5B50;&#x7684;&#xFF1A;&#x9996;&#x5148;&#x901A;&#x8FC7;gulp.src()&#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5904;&#x7406;&#x7684;&#x6587;&#x4EF6;&#x6D41;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6587;&#x4EF6;&#x6D41;&#x901A;&#x8FC7;pipe&#x65B9;&#x6CD5;&#x5BFC;&#x5165;&#x5230;gulp&#x7684;&#x63D2;&#x4EF6;&#x4E2D;&#xFF0C;&#x6700;&#x540E;&#x628A;&#x7ECF;&#x8FC7;&#x63D2;&#x4EF6;&#x5904;&#x7406;&#x540E;&#x7684;&#x6D41;&#x518D;&#x901A;&#x8FC7;pipe&#x65B9;&#x6CD5;&#x5BFC;&#x5165;&#x5230;gulp.dest()&#x4E2D;&#xFF0C;gulp.dest()&#x65B9;&#x6CD5;&#x5219;&#x628A;&#x6D41;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5199;&#x5165;&#x5230;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x8FD9;&#x91CC;&#x9996;&#x5148;&#x9700;&#x8981;&#x5F04;&#x6E05;&#x695A;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7ED9;gulp.dest()&#x4F20;&#x5165;&#x7684;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#xFF0C;&#x53EA;&#x80FD;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x8981;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x800C;&#x4E0D;&#x80FD;&#x6307;&#x5B9A;&#x751F;&#x6210;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5B83;&#x751F;&#x6210;&#x6587;&#x4EF6;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x5BFC;&#x5165;&#x5230;&#x5B83;&#x7684;&#x6587;&#x4EF6;&#x6D41;&#x81EA;&#x8EAB;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x6240;&#x4EE5;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x662F;&#x7531;&#x5BFC;&#x5165;&#x5230;&#x5B83;&#x7684;&#x6587;&#x4EF6;&#x6D41;&#x51B3;&#x5B9A;&#x7684;&#xFF0C;&#x5373;&#x4F7F;&#x6211;&#x4EEC;&#x7ED9;&#x5B83;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5B83;&#x4E5F;&#x4F1A;&#x628A;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x540D;&#x5F53;&#x505A;&#x662F;&#x76EE;&#x5F55;&#x540D;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;script/jquery.js&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist/foo.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&#x6700;&#x7EC8;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; dist/foo.js/jquery.js,&#x800C;&#x4E0D;&#x662F;dist/foo.js</span>
+</pre><p>&#x8981;&#x60F3;&#x6539;&#x53D8;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x63D2;&#x4EF6;gulp-rename</p>
+<p>&#x4E0B;&#x9762;&#x8BF4;&#x8BF4;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E0E;&#x6211;&#x4EEC;&#x7ED9;gulp.dest()&#x65B9;&#x6CD5;&#x4F20;&#x5165;&#x7684;&#x8DEF;&#x5F84;&#x53C2;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3002;<br>
+gulp.dest(path)&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x662F;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x7684;path&#x53C2;&#x6570;&#x540E;&#x9762;&#x518D;&#x52A0;&#x4E0A;gulp.src()&#x4E2D;&#x6709;&#x901A;&#x914D;&#x7B26;&#x5F00;&#x59CB;&#x51FA;&#x73B0;&#x7684;&#x90A3;&#x90E8;&#x5206;&#x8DEF;&#x5F84;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">reruire</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&#x6709;&#x901A;&#x914D;&#x7B26;&#x5F00;&#x59CB;&#x51FA;&#x73B0;&#x7684;&#x90A3;&#x90E8;&#x5206;&#x8DEF;&#x5F84;&#x4E3A; **/*.js</span>
+gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;script/**/*.js&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x6700;&#x540E;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; dist/**/*.js</span>
+<span class="token comment">//&#x5982;&#x679C; **/*.js &#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x4E3A; jquery/jquery.js ,&#x5219;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; dist/jquery/jquery.js</span>
+&#x518D;&#x4E3E;&#x66F4;&#x591A;&#x4E00;&#x70B9;&#x7684;&#x4F8B;&#x5B50;
+
+gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;script/avalon/avalon.js&apos;</span><span class="token punctuation">)</span> <span class="token comment">//&#x6CA1;&#x6709;&#x901A;&#x914D;&#x7B26;&#x51FA;&#x73B0;&#x7684;&#x60C5;&#x51B5;</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x6700;&#x540E;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; dist/avalon.js</span>
+
+<span class="token comment">//&#x6709;&#x901A;&#x914D;&#x7B26;&#x5F00;&#x59CB;&#x51FA;&#x73B0;&#x7684;&#x90A3;&#x90E8;&#x5206;&#x8DEF;&#x5F84;&#x4E3A; **/underscore.js</span>
+gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;script/**/underscore.js&apos;</span><span class="token punctuation">)</span>
+    <span class="token comment">//&#x5047;&#x8BBE;&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x4E3A;script/util/underscore.js</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x5219;&#x6700;&#x540E;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; dist/util/underscore.js</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;script/*&apos;</span><span class="token punctuation">)</span> <span class="token comment">//&#x6709;&#x901A;&#x914D;&#x7B26;&#x51FA;&#x73B0;&#x7684;&#x90A3;&#x90E8;&#x5206;&#x8DEF;&#x5F84;&#x4E3A; *</span>
+    <span class="token operator">/</span><span class="token operator">/</span>&#x5047;&#x8BBE;&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x4E3A;script<span class="token operator">/</span>zepto<span class="token punctuation">.</span>js    
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">/</span><span class="token operator">/</span>&#x5219;&#x6700;&#x540E;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; dist<span class="token operator">/</span>zepto<span class="token punctuation">.</span>js
+</pre><p>&#x901A;&#x8FC7;&#x6307;&#x5B9A;gulp.src()&#x65B9;&#x6CD5;&#x914D;&#x7F6E;&#x53C2;&#x6570;&#x4E2D;&#x7684;base&#x5C5E;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x66F4;&#x7075;&#x6D3B;&#x7684;&#x6765;&#x6539;&#x53D8;gulp.dest()&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x3002;<br>
+&#x5F53;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x5728;gulp.src()&#x65B9;&#x6CD5;&#x4E2D;&#x914D;&#x7F6E;base&#x5C5E;&#x6027;&#x65F6;&#xFF0C;base&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;&#x901A;&#x914D;&#x7B26;&#x5F00;&#x59CB;&#x51FA;&#x73B0;&#x4E4B;&#x524D;&#x90A3;&#x90E8;&#x5206;&#x8DEF;&#x5F84;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;app/src/**/*.css&apos;</span><span class="token punctuation">)</span> <span class="token comment">//&#x6B64;&#x65F6;base&#x7684;&#x503C;&#x4E3A; app/src</span>
+</pre><p>&#x4E0A;&#x9762;&#x6211;&#x4EEC;&#x8BF4;&#x7684;gulp.dest()&#x6240;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x5176;&#x5B9E;&#x4E5F;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x6210;&#xFF0C;&#x7528;&#x6211;&#x4EEC;&#x7ED9;gulp.dest()&#x4F20;&#x5165;&#x7684;&#x8DEF;&#x5F84;&#x66FF;&#x6362;&#x6389;gulp.src()&#x4E2D;&#x7684;base&#x8DEF;&#x5F84;&#xFF0C;&#x6700;&#x7EC8;&#x5F97;&#x5230;&#x751F;&#x6210;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;&#x3002;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;app/src/**/*.css&apos;</span><span class="token punctuation">)</span> <span class="token comment">//&#x6B64;&#x65F6;base&#x7684;&#x503C;&#x4E3A;app/src,&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5B83;&#x7684;base&#x8DEF;&#x5F84;&#x4E3A;app/src</span>
+     <span class="token comment">//&#x8BBE;&#x8BE5;&#x6A21;&#x5F0F;&#x5339;&#x914D;&#x5230;&#x4E86;&#x6587;&#x4EF6; app/src/css/normal.css</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//&#x7528;dist&#x66FF;&#x6362;&#x6389;base&#x8DEF;&#x5F84;&#xFF0C;&#x6700;&#x7EC8;&#x5F97;&#x5230; dist/css/normal.css</span>
+</pre><p>&#x6240;&#x4EE5;&#x6539;&#x53D8;base&#x8DEF;&#x5F84;&#x540E;&#xFF0C;gulp.dest()&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E5F;&#x4F1A;&#x6539;&#x53D8;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>script<span class="token operator">/</span>lib<span class="token comment">/*.js) //&#x6CA1;&#x6709;&#x914D;&#x7F6E;base&#x53C2;&#x6570;&#xFF0C;&#x6B64;&#x65F6;&#x9ED8;&#x8BA4;&#x7684;base&#x8DEF;&#x5F84;&#x4E3A;script/lib
+    //&#x5047;&#x8BBE;&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x4E3A;script/lib/jquery.js
+    .pipe(gulp.dest(&apos;build&apos;)) //&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; build/jquery.js
+
+gulp.src(script/lib/*.js, {base:&apos;script&apos;}) //&#x914D;&#x7F6E;&#x4E86;base&#x53C2;&#x6570;&#xFF0C;&#x6B64;&#x65F6;base&#x8DEF;&#x5F84;&#x4E3A;script
+    //&#x5047;&#x8BBE;&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x4E3A;script/lib/jquery.js
+    .pipe(gulp.dest(&apos;build&apos;)) //&#x6B64;&#x65F6;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;&#x4E3A; build/lib/jquery.js    
+&#x7528;gulp.dest()&#x628A;&#x6587;&#x4EF6;&#x6D41;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x6587;&#x4EF6;&#x6D41;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#x3002;
+</span></pre><h4 class="mume-header" id="33-gulptask">3.3 gulp.task()</h4>
+
+<p>gulp.task&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x5B9A;&#x4E49;&#x4EFB;&#x52A1;&#xFF0C;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x7684;&#x662F;Orchestrator&#xFF0C;&#x5176;&#x8BED;&#x6CD5;&#x4E3A;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span>name<span class="token punctuation">[</span><span class="token punctuation">,</span> deps<span class="token punctuation">]</span><span class="token punctuation">,</span> fn<span class="token punctuation">)</span>
+</pre><p>name &#x4E3A;&#x4EFB;&#x52A1;&#x540D;<br>
+deps &#x662F;&#x5F53;&#x524D;&#x5B9A;&#x4E49;&#x7684;&#x4EFB;&#x52A1;&#x9700;&#x8981;&#x4F9D;&#x8D56;&#x7684;&#x5176;&#x4ED6;&#x4EFB;&#x52A1;&#xFF0C;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x3002;&#x5F53;&#x524D;&#x5B9A;&#x4E49;&#x7684;&#x4EFB;&#x52A1;&#x4F1A;&#x5728;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x7684;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x540E;&#x624D;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x3002;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x4F9D;&#x8D56;&#xFF0C;&#x5219;&#x53EF;&#x7701;&#x7565;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;<br>
+fn &#x4E3A;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x628A;&#x4EFB;&#x52A1;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x5199;&#x5728;&#x91CC;&#x9762;&#x3002;&#x8BE5;&#x53C2;&#x6570;&#x4E5F;&#x662F;&#x53EF;&#x9009;&#x7684;&#x3002;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;mytask&apos;</span><span class="token punctuation">,</span> gulp<span class="token punctuation">.</span><span class="token function">series</span><span class="token punctuation">(</span><span class="token string">&apos;array&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;of&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;task&apos;</span><span class="token punctuation">,</span> <span class="token string">&apos;names&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">//&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6709;&#x4F9D;&#x8D56;&#x7684;&#x4EFB;&#x52A1;</span>
+  <span class="token comment">// Do something</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>gulp.task()&#x8FD9;&#x4E2A;API&#x6CA1;&#x4EC0;&#x4E48;&#x597D;&#x8BB2;&#x7684;&#xFF0C;&#x4F46;&#x9700;&#x8981;&#x77E5;&#x9053;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#x65F6;&#x600E;&#x4E48;&#x6765;&#x63A7;&#x5236;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x7684;&#x987A;&#x5E8F;&#x3002;<br>
+gulp&#x4E2D;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EFB;&#x52A1;&#x4F9D;&#x8D56;&#x6765;&#x5B9E;&#x73B0;&#x3002;&#x4F8B;&#x5982;&#x6211;&#x60F3;&#x8981;&#x6267;&#x884C;one,two,three&#x8FD9;&#x4E09;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7A7A;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x90A3;&#x4E09;&#x4E2A;&#x4EFB;&#x52A1;&#x5F53;&#x505A;&#x8FD9;&#x4E2A;&#x7A7A;&#x7684;&#x4EFB;&#x52A1;&#x7684;&#x4F9D;&#x8D56;&#x5C31;&#x884C;&#x4E86;&#xFF1A;</p>
+<p>//&#x53EA;&#x8981;&#x6267;&#x884C;default&#x4EFB;&#x52A1;&#xFF0C;&#x5C31;&#x76F8;&#x5F53;&#x4E8E;&#x628A;one,two,three&#x8FD9;&#x4E09;&#x4E2A;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x4E86;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;default&apos;</span><span class="token punctuation">,</span>gulp<span class="token punctuation">.</span><span class="token function">series</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;three&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x5982;&#x679C;&#x4EFB;&#x52A1;&#x76F8;&#x4E92;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x4F9D;&#x8D56;&#xFF0C;&#x4EFB;&#x52A1;&#x4F1A;&#x6309;&#x4F60;&#x4E66;&#x5199;&#x7684;&#x987A;&#x5E8F;&#x6765;&#x6267;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4F9D;&#x8D56;&#x7684;&#x8BDD;&#x5219;&#x4F1A;&#x5148;&#x6267;&#x884C;&#x4F9D;&#x8D56;&#x7684;&#x4EFB;&#x52A1;&#x3002;<br>
+&#x4F46;&#x662F;&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x4EFB;&#x52A1;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x5C31;&#x8981;&#x6CE8;&#x610F;&#x4E86;&#xFF0C;gulp&#x5E76;&#x4E0D;&#x4F1A;&#x7B49;&#x5F85;&#x90A3;&#x4E2A;&#x6240;&#x4F9D;&#x8D56;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x800C;&#x662F;&#x4F1A;&#x63A5;&#x7740;&#x6267;&#x884C;&#x540E;&#x7EED;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">//one&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;one is done&apos;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//two&#x4EFB;&#x52A1;&#x867D;&#x7136;&#x4F9D;&#x8D56;&#x4E8E;one&#x4EFB;&#x52A1;,&#x4F46;&#x5E76;&#x4E0D;&#x4F1A;&#x7B49;&#x5230;one&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x6267;&#x884C;</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">,</span>gulp<span class="token punctuation">.</span><span class="token function">series</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;two is done&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x6211;&#x4EEC;&#x6267;&#x884C;two&#x4EFB;&#x52A1;&#x65F6;&#xFF0C;&#x4F1A;&#x5148;&#x6267;&#x884C;one&#x4EFB;&#x52A1;&#xFF0C;&#x4F46;&#x4E0D;&#x4F1A;&#x53BB;&#x7B49;&#x5F85;one&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x6267;&#x884C;two&#x4EFB;&#x52A1;&#xFF0C;&#x800C;&#x662F;&#x7D27;&#x63A5;&#x7740;&#x6267;&#x884C;two&#x4EFB;&#x52A1;&#x3002;&#x6240;&#x4EE5;two&#x4EFB;&#x52A1;&#x4F1A;&#x5728;one&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x4E4B;&#x524D;&#x5C31;&#x6267;&#x884C;&#x4E86;&#x3002;</p>
+<p>&#x90A3;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x7B49;&#x5F85;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x6267;&#x884C;&#x540E;&#x7EED;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#x5462;&#xFF1F;<br>
+&#x6709;&#x4E09;&#x79CD;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#xFF1A;<br>
+&#x7B2C;&#x4E00;&#xFF1A;&#x5728;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x6765;&#x901A;&#x77E5;gulp&#x8FD9;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;,&#x8FD9;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span><span class="token punctuation">{</span> <span class="token comment">//cb&#x4E3A;&#x4EFB;&#x52A1;&#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x7684;&#x56DE;&#x8C03;&#xFF0C;&#x7528;&#x6765;&#x901A;&#x77E5;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;</span>
+  <span class="token comment">//one&#x662F;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;one is done&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">//&#x6267;&#x884C;&#x56DE;&#x8C03;&#xFF0C;&#x8868;&#x793A;&#x8FD9;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//&#x8FD9;&#x65F6;two&#x4EFB;&#x52A1;&#x4F1A;&#x5728;one&#x4EFB;&#x52A1;&#x4E2D;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x6267;&#x884C;</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">,</span>gulp<span class="token punctuation">.</span><span class="token function">series</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;two is done&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x7B2C;&#x4E8C;&#xFF1A;&#x5B9A;&#x4E49;&#x4EFB;&#x52A1;&#x65F6;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6D41;&#x5BF9;&#x8C61;&#x3002;&#x9002;&#x7528;&#x4E8E;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x64CD;&#x4F5C;gulp.src&#x83B7;&#x53D6;&#x5230;&#x7684;&#x6D41;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> stream <span class="token operator">=</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;client/**/*.js&apos;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">dosomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//dosomething()&#x4E2D;&#x6709;&#x67D0;&#x4E9B;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;build&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> stream<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">,</span>gulp<span class="token punctuation">.</span><span class="token function">series</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;two is done&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x7B2C;&#x4E09;&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;promise&#x5BF9;&#x8C61;&#xFF0C;&#x4F8B;&#x5982;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> <span class="token constant">Q</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;q&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x4E00;&#x4E2A;&#x8457;&#x540D;&#x7684;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x7684;&#x5E93; https://github.com/kriskowal/q</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> deferred <span class="token operator">=</span> <span class="token constant">Q</span><span class="token punctuation">.</span><span class="token function">defer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// &#x505A;&#x4E00;&#x4E9B;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     deferred<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> deferred<span class="token punctuation">.</span>promise<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;two&apos;</span><span class="token punctuation">,</span>gulp<span class="token punctuation">.</span><span class="token function">series</span><span class="token punctuation">(</span><span class="token string">&apos;one&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&apos;two is done&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>gulp.task()&#x5C31;&#x8FD9;&#x4E9B;&#x4E86;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x8981;&#x77E5;&#x9053;&#x5F53;&#x4F9D;&#x8D56;&#x662F;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x65F6;&#x7684;&#x5904;&#x7406;&#x3002;</p>
+<h4 class="mume-header" id="34-gulpwatch">3.4 gulp.watch()</h4>
+
+<p>gulp.watch()&#x7528;&#x6765;&#x76D1;&#x89C6;&#x6587;&#x4EF6;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x5F53;&#x6587;&#x4EF6;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x5B83;&#x6765;&#x6267;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x4F8B;&#x5982;&#x6587;&#x4EF6;&#x538B;&#x7F29;&#x7B49;&#x3002;&#x5176;&#x8BED;&#x6CD5;&#x4E3A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span>glob<span class="token punctuation">[</span><span class="token punctuation">,</span> opts<span class="token punctuation">]</span><span class="token punctuation">,</span> tasks<span class="token punctuation">)</span>
+</pre><p>glob &#x4E3A;&#x8981;&#x76D1;&#x89C6;&#x7684;&#x6587;&#x4EF6;&#x5339;&#x914D;&#x6A21;&#x5F0F;&#xFF0C;&#x89C4;&#x5219;&#x548C;&#x7528;&#x6CD5;&#x4E0E;gulp.src()&#x65B9;&#x6CD5;&#x4E2D;&#x7684;glob&#x76F8;&#x540C;&#x3002;<br>
+opts &#x4E3A;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x7684;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x5230;<br>
+tasks &#x4E3A;&#x6587;&#x4EF6;&#x53D8;&#x5316;&#x540E;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;uglify&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">//do something</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;reload&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token comment">//do something</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">&apos;js/**/*.js&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&apos;uglify&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;reload&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>gulp.watch()&#x8FD8;&#x6709;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x4F7F;&#x7528;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span>glob<span class="token punctuation">[</span><span class="token punctuation">,</span> opts<span class="token punctuation">,</span> cb<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</pre><p>glob&#x548C;opts&#x53C2;&#x6570;&#x4E0E;&#x7B2C;&#x4E00;&#x79CD;&#x7528;&#x6CD5;&#x76F8;&#x540C;<br>
+cb&#x53C2;&#x6570;&#x4E3A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x6BCF;&#x5F53;&#x76D1;&#x89C6;&#x7684;&#x6587;&#x4EF6;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;,&#x5E76;&#x4E14;&#x4F1A;&#x7ED9;&#x5B83;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x5305;&#x542B;&#x4E86;&#x6587;&#x4EF6;&#x53D8;&#x5316;&#x7684;&#x4E00;&#x4E9B;&#x4FE1;&#x606F;&#xFF0C;type&#x5C5E;&#x6027;&#x4E3A;&#x53D8;&#x5316;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;added,changed,deleted&#xFF1B;path&#x5C5E;&#x6027;&#x4E3A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">&apos;js/**/*.js&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>type<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x53D8;&#x5316;&#x7C7B;&#x578B; added&#x4E3A;&#x65B0;&#x589E;,deleted&#x4E3A;&#x5220;&#x9664;&#xFF0C;changed&#x4E3A;&#x6539;&#x53D8; </span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>event<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x53D8;&#x5316;&#x7684;&#x6587;&#x4EF6;&#x7684;&#x8DEF;&#x5F84;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+</pre><h3 class="mume-header" id="4-%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E7%9A%84gulp%E6%8F%92%E4%BB%B6">4&#x3001;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;gulp&#x63D2;&#x4EF6;</h3>
+
+<p>gulp&#x7684;&#x63D2;&#x4EF6;&#x6570;&#x91CF;&#x867D;&#x7136;&#x6CA1;&#x6709;grunt&#x90A3;&#x4E48;&#x591A;&#xFF0C;&#x4F46;&#x4E5F;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x5E94;&#x6709;&#x5C3D;&#x6709;&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x5217;&#x4E3E;&#x4E00;&#x4E9B;&#x5E38;&#x7528;&#x7684;&#x63D2;&#x4EF6;&#x3002;</p>
+<h4 class="mume-header" id="41-%E8%87%AA%E5%8A%A8%E5%8A%A0%E8%BD%BD%E6%8F%92%E4%BB%B6">4.1 &#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x63D2;&#x4EF6;</h4>
+
+<p>&#x4F7F;&#x7528;gulp-load-plugins<br>
+&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-load-plugins<br>
+&#x8981;&#x4F7F;&#x7528;gulp&#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x9996;&#x5148;&#x5F97;&#x7528;require&#x6765;&#x628A;&#x63D2;&#x4EF6;&#x52A0;&#x8F7D;&#x8FDB;&#x6765;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x63D2;&#x4EF6;&#x975E;&#x5E38;&#x591A;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x7684;gulpfile.js&#x6587;&#x4EF6;&#x5F00;&#x5934;&#x53EF;&#x80FD;&#x5C31;&#x4F1A;&#x662F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#x7684;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment">//&#x4E00;&#x4E9B;gulp&#x63D2;&#x4EF6;,abcd&#x8FD9;&#x4E9B;&#x547D;&#x540D;&#x53EA;&#x662F;&#x7528;&#x6765;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;</span>
+    a <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-a&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    b <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-b&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    c <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-c&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    d <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-d&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    e <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-e&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    f <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-f&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    g <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-g&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token comment">//&#x66F4;&#x591A;&#x7684;&#x63D2;&#x4EF6;...</span>
+    z <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-z&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   
+</pre><p>&#x867D;&#x7136;&#x8FD9;&#x6CA1;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x4F1A;&#x4F7F;&#x6211;&#x4EEC;&#x7684;gulpfile.js&#x6587;&#x4EF6;&#x53D8;&#x5F97;&#x5F88;&#x5197;&#x957F;&#xFF0C;&#x770B;&#x4E0A;&#x53BB;&#x4E0D;&#x90A3;&#x4E48;&#x8212;&#x670D;&#x3002;gulp-load-plugins&#x63D2;&#x4EF6;&#x6B63;&#x662F;&#x7528;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;<br>
+gulp-load-plugins&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x80FD;&#x81EA;&#x52A8;&#x5E2E;&#x4F60;&#x52A0;&#x8F7D;package.json&#x6587;&#x4EF6;&#x91CC;&#x7684;gulp&#x63D2;&#x4EF6;&#x3002;&#x4F8B;&#x5982;&#x5047;&#x8BBE;&#x4F60;&#x7684;package.json&#x6587;&#x4EF6;&#x91CC;&#x7684;&#x4F9D;&#x8D56;&#x662F;&#x8FD9;&#x6837;&#x7684;:</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token punctuation">{</span>
+  <span class="token string">&quot;devDependencies&quot;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">&quot;gulp&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;~3.6.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;gulp-rename&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;~1.2.0&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;gulp-ruby-sass&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;~0.4.3&quot;</span><span class="token punctuation">,</span>
+    <span class="token string">&quot;gulp-load-plugins&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;~0.5.1&quot;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;gulpfile.js&#x4E2D;&#x4F7F;&#x7528;gulp-load-plugins&#x6765;&#x5E2E;&#x6211;&#x4EEC;&#x52A0;&#x8F7D;&#x63D2;&#x4EF6;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//&#x52A0;&#x8F7D;gulp-load-plugins&#x63D2;&#x4EF6;&#xFF0C;&#x5E76;&#x9A6C;&#x4E0A;&#x8FD0;&#x884C;&#x5B83;</span>
+<span class="token keyword">var</span> plugins <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-load-plugins&apos;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x8981;&#x4F7F;&#x7528;gulp-rename&#x548C;gulp-ruby-sass&#x8FD9;&#x4E24;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;plugins.rename&#x548C;plugins.rubySass&#x6765;&#x4EE3;&#x66FF;&#x4E86;,&#x4E5F;&#x5C31;&#x662F;&#x539F;&#x59CB;&#x63D2;&#x4EF6;&#x540D;&#x53BB;&#x6389;gulp-&#x524D;&#x7F00;&#xFF0C;&#x4E4B;&#x540E;&#x518D;&#x8F6C;&#x6362;&#x4E3A;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x3002;<br>
+&#x5B9E;&#x8D28;&#x4E0A;gulp-load-plugins&#x662F;&#x4E3A;&#x6211;&#x4EEC;&#x505A;&#x4E86;&#x5982;&#x4E0B;&#x7684;&#x8F6C;&#x6362;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript">plugins<span class="token punctuation">.</span>rename <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-rename&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+plugins<span class="token punctuation">.</span>rubySass <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-ruby-sass&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>gulp-load-plugins&#x5E76;&#x4E0D;&#x4F1A;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x52A0;&#x8F7D;&#x6240;&#x6709;package.json&#x91CC;&#x7684;gulp&#x63D2;&#x4EF6;&#xFF0C;&#x800C;&#x662F;&#x5728;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7528;&#x5230;&#x67D0;&#x4E2A;&#x63D2;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x53BB;&#x52A0;&#x8F7D;&#x90A3;&#x4E2A;&#x63D2;&#x4EF6;&#x3002;<br>
+&#x6700;&#x540E;&#x8981;&#x63D0;&#x9192;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;&#x56E0;&#x4E3A;gulp-load-plugins&#x662F;&#x901A;&#x8FC7;&#x4F60;&#x7684;package.json&#x6587;&#x4EF6;&#x6765;&#x52A0;&#x8F7D;&#x63D2;&#x4EF6;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5FC5;&#x987B;&#x8981;&#x4FDD;&#x8BC1;&#x4F60;&#x9700;&#x8981;&#x81EA;&#x52A8;&#x52A0;&#x8F7D;&#x7684;&#x63D2;&#x4EF6;&#x5DF2;&#x7ECF;&#x5199;&#x5165;&#x5230;&#x4E86;package.json&#x6587;&#x4EF6;&#x91CC;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E9B;&#x63D2;&#x4EF6;&#x90FD;&#x662F;&#x5DF2;&#x7ECF;&#x5B89;&#x88C5;&#x597D;&#x4E86;&#x7684;&#x3002;</p>
+<h4 class="mume-header" id="42-%E9%87%8D%E5%91%BD%E5%90%8D">4.2 &#x91CD;&#x547D;&#x540D;</h4>
+
+<p>&#x4F7F;&#x7528;gulp-rename<br>
+&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-rename<br>
+&#x7528;&#x6765;&#x91CD;&#x547D;&#x540D;&#x6587;&#x4EF6;&#x6D41;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x3002;&#x7528;gulp.dest()&#x65B9;&#x6CD5;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x65F6;&#xFF0C;&#x6587;&#x4EF6;&#x540D;&#x4F7F;&#x7528;&#x7684;&#x662F;&#x6587;&#x4EF6;&#x6D41;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5982;&#x679C;&#x8981;&#x60F3;&#x6539;&#x53D8;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x90A3;&#x53EF;&#x4EE5;&#x5728;&#x4E4B;&#x524D;&#x7528;gulp-rename&#x63D2;&#x4EF6;&#x6765;&#x6539;&#x53D8;&#x6587;&#x4EF6;&#x6D41;&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x540D;&#x3002;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    rename <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-rename&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    uglify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-uglify&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;rename&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;js/jquery.js&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">uglify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">//&#x538B;&#x7F29;</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">rename</span><span class="token punctuation">(</span><span class="token string">&apos;jquery.min.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">//&#x4F1A;&#x5C06;jquery.js&#x91CD;&#x547D;&#x540D;&#x4E3A;jquery.min.js</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//&#x5173;&#x4E8E;gulp-rename&#x7684;&#x66F4;&#x591A;&#x5F3A;&#x5927;&#x7684;&#x7528;&#x6CD5;&#x8BF7;&#x53C2;&#x8003;&lt;a href=&quot;https://www.npmjs.com/package/gulp-rename&quot; target=&quot;_blank&quot;&gt;https://www.npmjs.com/package/gulp-rename&lt;/a&gt;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="43-js%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9">4.3 js&#x6587;&#x4EF6;&#x538B;&#x7F29;</h4>
+
+<p>&#x4F7F;&#x7528;gulp-uglify<br>
+&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-uglify<br>
+&#x7528;&#x6765;&#x538B;&#x7F29;js&#x6587;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x662F;uglify&#x5F15;&#x64CE;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    uglify <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-uglify&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;minify-js&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;js/*.js&apos;</span><span class="token punctuation">)</span> <span class="token comment">// &#x8981;&#x538B;&#x7F29;&#x7684;js&#x6587;&#x4EF6;</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">uglify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token operator">/</span><span class="token operator">/</span>&#x4F7F;&#x7528;uglify&#x8FDB;&#x884C;&#x538B;&#x7F29;<span class="token punctuation">,</span>&#x66F4;&#x591A;&#x914D;&#x7F6E;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist/js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">/</span><span class="token operator">/</span>&#x538B;&#x7F29;&#x540E;&#x7684;&#x8DEF;&#x5F84;
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>4.4 css&#x6587;&#x4EF6;&#x538B;&#x7F29;<br>
+&#x4F7F;&#x7528;gulp-minify-css<br>
+&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-minify-css<br>
+&#x8981;&#x538B;&#x7F29;css&#x6587;&#x4EF6;&#x65F6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8BE5;&#x63D2;&#x4EF6;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    minifyCss <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-minify-css&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;minify-css&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;css/*.css&apos;</span><span class="token punctuation">)</span> <span class="token comment">// &#x8981;&#x538B;&#x7F29;&#x7684;css&#x6587;&#x4EF6;</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">minifyCss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span><span class="token operator">/</span>&#x538B;&#x7F29;css
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist/css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="45-html%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9">4.5 html&#x6587;&#x4EF6;&#x538B;&#x7F29;</h4>
+
+<p>&#x4F7F;&#x7528;gulp-minify-html<br>
+&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-minify-html<br>
+&#x7528;&#x6765;&#x538B;&#x7F29;html&#x6587;&#x4EF6;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    minifyHtml <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-minify-html&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;minify-html&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;html/*.html&apos;</span><span class="token punctuation">)</span> <span class="token comment">// &#x8981;&#x538B;&#x7F29;&#x7684;html&#x6587;&#x4EF6;</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">minifyHtml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">/</span><span class="token operator">/</span>&#x538B;&#x7F29;
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist/html&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="46-js%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5">4.6 js&#x4EE3;&#x7801;&#x68C0;&#x67E5;</h4>
+
+<p>&#x4F7F;&#x7528;gulp-jshint<br>
+&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-jshint jshint<br>
+&#x7528;&#x6765;&#x68C0;&#x67E5;js&#x4EE3;&#x7801;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    jshint <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-jshint&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;jsLint&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;js/*.js&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">jshint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>jshint<span class="token punctuation">.</span><span class="token function">reporter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x8F93;&#x51FA;&#x68C0;&#x67E5;&#x7ED3;&#x679C;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="47-%E6%96%87%E4%BB%B6%E5%90%88%E5%B9%B6">4.7 &#x6587;&#x4EF6;&#x5408;&#x5E76;</h4>
+
+<p>&#x4F7F;&#x7528;gulp-concat<br>
+&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-concat<br>
+&#x7528;&#x6765;&#x628A;&#x591A;&#x4E2A;&#x6587;&#x4EF6;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;,&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x6765;&#x5408;&#x5E76;js&#x6216;css&#x6587;&#x4EF6;&#x7B49;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x51CF;&#x5C11;&#x9875;&#x9762;&#x7684;http&#x8BF7;&#x6C42;&#x6570;&#x4E86;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    concat <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-concat&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;concat&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;js/*.js&apos;</span><span class="token punctuation">)</span>  <span class="token comment">//&#x8981;&#x5408;&#x5E76;&#x7684;&#x6587;&#x4EF6;</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">&apos;all.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token operator">/</span><span class="token operator">/</span> &#x5408;&#x5E76;&#x5339;&#x914D;&#x5230;&#x7684;js&#x6587;&#x4EF6;&#x5E76;&#x547D;&#x540D;&#x4E3A; <span class="token string">&quot;all.js&quot;</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist/js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="48-less%E5%92%8Csass%E7%9A%84%E7%BC%96%E8%AF%91">4.8 less&#x548C;sass&#x7684;&#x7F16;&#x8BD1;</h4>
+
+<p>less&#x4F7F;&#x7528;gulp-less,&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-less</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    less <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-less&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;compile-less&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;less/*.less&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">less</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist/css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>sass&#x4F7F;&#x7528;gulp-sass,&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-sass</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    sass <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&quot;gulp-sass&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ 
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;compile-sass&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;sass/*.sass&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">sass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist/css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h4 class="mume-header" id="49-%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9">4.9 &#x56FE;&#x7247;&#x538B;&#x7F29;</h4>
+
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;gulp-imagemin&#x63D2;&#x4EF6;&#x6765;&#x538B;&#x7F29;jpg&#x3001;png&#x3001;gif&#x7B49;&#x56FE;&#x7247;&#x3002;<br>
+&#x5B89;&#x88C5;&#xFF1A;npm install --save-dev gulp-imagemin</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> imagemin <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-imagemin&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> pngquant <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;imagemin-pngquant&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//png&#x56FE;&#x7247;&#x538B;&#x7F29;&#x63D2;&#x4EF6;</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;default&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;src/images/*&apos;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">imagemin</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            progressive<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+            use<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">pngquant</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token comment">//&#x4F7F;&#x7528;pngquant&#x6765;&#x538B;&#x7F29;png&#x56FE;&#x7247;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;dist&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p>gulp-imagemin&#x7684;&#x4F7F;&#x7528;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x4E00;&#x70B9;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x672C;&#x8EAB;&#x4E5F;&#x6709;&#x5F88;&#x591A;&#x63D2;&#x4EF6;&#xFF0C;&#x5EFA;&#x8BAE;&#x53BB;&#x5B83;&#x7684;&#x9879;&#x76EE;&#x4E3B;&#x9875;&#x770B;&#x770B;&#x6587;&#x6863;</p>
+<h4 class="mume-header" id="410-%E8%87%AA%E5%8A%A8%E5%88%B7%E6%96%B0">4.10 &#x81EA;&#x52A8;&#x5237;&#x65B0;</h4>
+
+<p>&#x4F7F;&#x7528;gulp-livereload&#x63D2;&#x4EF6;&#xFF0C;&#x5B89;&#x88C5;:npm install --save-dev gulp-livereload&#x3002;<br>
+&#x5F53;&#x4EE3;&#x7801;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5E2E;&#x6211;&#x4EEC;&#x81EA;&#x52A8;&#x5237;&#x65B0;&#x9875;&#x9762;<br>
+&#x8BE5;&#x63D2;&#x4EF6;&#x6700;&#x597D;&#x914D;&#x5408;&#x8C37;&#x6B4C;&#x6D4F;&#x89C8;&#x5668;&#x6765;&#x4F7F;&#x7528;&#xFF0C;&#x4E14;&#x8981;&#x5B89;&#x88C5;livereload chrome extension&#x6269;&#x5C55;&#x63D2;&#x4EF6;,&#x4E0D;&#x80FD;&#x4E0B;&#x8F7D;&#x7684;&#x8BF7;&#x81EA;&#x884C;&#x7FFB;&#x5899;&#x3002;</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    less <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-less&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    livereload <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-livereload&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;less&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;less/*.less&apos;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">less</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">livereload</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;watch&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  livereload<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x8981;&#x5728;&#x8FD9;&#x91CC;&#x8C03;&#x7528;listen()&#x65B9;&#x6CD5;</span>
+  gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">&apos;less/*.less&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">&apos;less&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h2 class="mume-header" id="%E4%B8%89-%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81">&#x4E09;&#x3001;&#x793A;&#x4F8B;&#x4EE3;&#x7801;</h2>
+
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token keyword">var</span> gulp<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> uglify<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-uglify&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> minifyCss<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-minify-css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> minifyHtml<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-minify-html&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> rename<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-rename&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> jshint<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-jshint&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> concat<span class="token operator">=</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;gulp-concat&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;hint-js&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	<span class="token keyword">var</span> stream<span class="token operator">=</span>gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;src/js/*.js&apos;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">jshint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>jshint<span class="token punctuation">.</span><span class="token function">reporter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> stream<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;concat-js&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;src/js/*.js&apos;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">&apos;custom.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">uglify</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">rename</span><span class="token punctuation">(</span><span class="token string">&apos;custom.min.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;bin/js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;concat-css&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;src/css/*.css&apos;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">concat</span><span class="token punctuation">(</span><span class="token string">&apos;custom.css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">minifyCss</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">rename</span><span class="token punctuation">(</span><span class="token string">&apos;custom.min.css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;bin/css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// gulp.task(&apos;minify-js&apos;,function(cb){</span>
+<span class="token operator">/</span><span class="token operator">/</span> 	gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;src/js/*.js&apos;</span><span class="token punctuation">)</span>
+<span class="token comment">// 	.pipe(uglify())</span>
+<span class="token operator">/</span><span class="token operator">/</span> 	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">rename</span><span class="token punctuation">(</span><span class="token string">&apos;custom.min.js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">/</span><span class="token operator">/</span> 	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;bin/js&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">/</span><span class="token operator">/</span> 	<span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">/</span><span class="token operator">/</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token operator">/</span><span class="token operator">/</span> gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;minify-css&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+<span class="token operator">/</span><span class="token operator">/</span> 	gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;src/css/*.css&apos;</span><span class="token punctuation">)</span>
+<span class="token comment">// 	.pipe(minifyCss())</span>
+<span class="token operator">/</span><span class="token operator">/</span> 	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">rename</span><span class="token punctuation">(</span><span class="token string">&apos;custom.min.css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token operator">/</span><span class="token operator">/</span> 	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;bin/css&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">/</span><span class="token operator">/</span> 	<span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">/</span><span class="token operator">/</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;minify-html&apos;</span><span class="token punctuation">,</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">cb</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	gulp<span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span><span class="token string">&apos;src/index.html&apos;</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">minifyHtml</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span><span class="token string">&apos;bin&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">&apos;default&apos;</span><span class="token punctuation">,</span>gulp<span class="token punctuation">.</span><span class="token function">series</span><span class="token punctuation">(</span><span class="token string">&apos;hint-js&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;concat-js&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;concat-css&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;minify-html&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
