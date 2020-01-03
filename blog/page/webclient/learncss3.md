@@ -1201,3 +1201,95 @@ flex: auto | initial | none | inherit |  [ flex-grow ] || [ flex-shrink ] || [ f
 
 2）多行
 设置该元素 css 属性：display: table-cell; vertical-align: middle;，还需设置该元素的父级元素 css 属性：display: table;。
+## 十四、CSS3多媒体查询
+**CSS3 多媒体查询**
+CSS3 的多媒体查询继承了 CSS2 多媒体类型的所有思想： 取代了查找设备的类型，CSS3 根据设置自适应显示。
+媒体查询可用于检测很多事情，例如：
+* viewport(视窗) 的宽度与高度
+* 设备的宽度与高度
+* 朝向 (智能手机横屏，竖屏) 。
+* 分辨率
+
+目前很多针对苹果手机，Android 手机，平板等设备都会使用到多媒体查询。
+
+**多媒体查询语法**
+多媒体查询由多种媒体组成，可以包含一个或多个表达式，表达式根据条件是否成立返回 true 或 false。
+```css
+@media not|only mediatype and (expressions) {
+    CSS 代码...;
+}
+```
+除非你使用了 not 或 only 操作符，否则所有的样式会适应在所有设备上显示效果。
+
+* **not**: not是用来排除掉某些特定的设备的，比如 @media not print（非打印设备）。
+
+* **only**: 用来定某种特别的媒体类型。对于支持Media Queries的移动设备来说，如果存在only关键字，移动设备的Web浏览器会忽略only关键字并直接根据后面的表达式应用样式文件。对于不支持Media Queries的设备但能够读取Media Type类型的Web浏览器，遇到only关键字时会忽略这个样式文件。
+
+* **all**: 所有设备，这个应该经常看到。
+你也可以在不同的媒体上使用不同的样式文件：
+```css
+<link rel="stylesheet" media="mediatype and|not|only (expressions)" href="print.css">
+```
+**CSS3 多媒体类型**
+<table class="reference">
+  <tbody><tr>
+    <th style="width:25%">值</th>
+    <th>描述</th>
+  </tr>  
+  <tr>
+    <td>all</td>
+    <td>用于所有多媒体类型设备</td>
+  </tr>
+  <tr>
+    <td>print</td>
+    <td>用于打印机</td>
+  </tr>
+    <tr>
+    <td>screen</td>
+    <td>用于电脑屏幕，平板，智能手机等。</td>
+    </tr>
+  <tr>
+    <td>speech</td>
+    <td>用于屏幕阅读器</td>
+  </tr>
+  </tbody></table>
+
+**多媒体查询简单实例**
+使用多媒体查询可以在指定的设备上使用对应的样式替代原有的样式。
+以下实例中在屏幕可视窗口尺寸小于 480 像素的设备上修改背景颜色:
+```css
+media screen and (max-width: 480px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+```
+以下实例在屏幕可视窗口尺寸大于 480 像素时将菜单浮动到页面左侧：
+```css
+@media screen and (min-width: 480px) {
+    #leftsidebar {width: 200px; float: left;}
+    #main {margin-left:216px;}
+}
+```
+```css
+@media screen and (max-width: 699px) and (min-width: 520px) {
+    ul li a {
+        padding-left: 30px;
+        background: url(email-icon.png) left center no-repeat;
+    }
+}
+```
+
+**大于 1151px 宽度 - 添加图标**
+当浏览器的宽度大于 1001px 时，会在人名前添加图标。
+
+实例中，我们没有编写额外的查询块，我们可以在已有的查询媒体后使用逗号分隔来添加其他媒体查询 (类似 OR 操作符):
+
+```css
+@media screen and (max-width: 699px) and (min-width: 520px), (min-width: 1151px) {
+    ul li a {
+        padding-left: 30px;
+        background: url(email-icon.png) left center no-repeat;
+    }
+}
+```
