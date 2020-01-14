@@ -621,7 +621,7 @@ Jumbotron（超大屏幕）会创建一个大的灰色背景框，里面可以�
 ```html
 <div class="jumbotron">
   <h1>菜鸟教程</h1> 
-  <p>学的不仅是技术，更是梦想！！！</p> 
+  学的不仅是技术，更是梦想！！！
 </div>
 ```
 **全屏幕的 Jumbotron**
@@ -636,3 +636,254 @@ Jumbotron（超大屏幕）会创建一个大的灰色背景框，里面可以�
 ```
 ## 7、Bootstrap4 信息提示框
 Bootstrap 4 可以很容易实现信息提示框。
+提示框可以使用 .alert 类, 后面加上 .alert-success, .alert-info, .alert-warning, .alert-danger, .alert-primary, .alert-secondary, .alert-light 或 .alert-dark 类来实现:
+```html
+<div class="alert alert-success">
+  <strong>成功!</strong> 指定操作成功提示信息。
+</div>
+```
+**提示框添加链接**
+提示框中在链接的标签上添加 alert-link 类来设置匹配提示框颜色的链接：
+```html
+<div class="alert alert-success">
+  <strong>成功!</strong> 你应该认真阅读 <a href="#" class="alert-link">这条信息</a>。
+</div>
+```
+**关闭提示框**
+我们可以在提示框中的 div 中添加 .alert-dismissible 类，然后在关闭按钮的链接上添加 class="close" 和 data-dismiss="alert" 类来设置提示框的关闭操作。
+```html
+<div class="alert alert-success alert-dismissible">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <strong>成功!</strong> 指定操作成功提示信息。
+</div>
+```
+提示: \&times; (×) 是 HTML 实体字符，来表示关闭操作，而不是字母 "x"。
+**提示框动画**
+.fade 和 .show 类用于设置提示框在关闭时的淡出和淡入效果：
+```html
+<div class="alert alert-danger alert-dismissible fade show">
+```
+## 8、Bootstrap4 按钮
+Bootstrap 4 提供了不同样式的按钮。
+```html
+<button type="button" class="btn">基本按钮</button>
+<button type="button" class="btn btn-primary">主要按钮</button>
+<button type="button" class="btn btn-secondary">次要按钮</button>
+<button type="button" class="btn btn-success">成功</button>
+<button type="button" class="btn btn-info">信息</button>
+<button type="button" class="btn btn-warning">警告</button>
+<button type="button" class="btn btn-danger">危险</button>
+<button type="button" class="btn btn-dark">黑色</button>
+<button type="button" class="btn btn-light">浅色</button>
+<button type="button" class="btn btn-link">链接</button>
+```
+按钮类可用于 \<a>, \<button>, 或 \<input> 元素上:
+```html
+<a href="#" class="btn btn-info" role="button">链接按钮</a>
+<button type="button" class="btn btn-info">按钮</button>
+<input type="button" class="btn btn-info" value="输入框按钮">
+<input type="submit" class="btn btn-info" value="提交按钮">
+```
+**按钮设置边框**
+```html
+<button type="button" class="btn btn-outline-primary">主要按钮</button>
+<button type="button" class="btn btn-outline-secondary">次要按钮</button>
+<button type="button" class="btn btn-outline-success">成功</button>
+<button type="button" class="btn btn-outline-info">信息</button>
+<button type="button" class="btn btn-outline-warning">警告</button>
+<button type="button" class="btn btn-outline-danger">危险</button>
+<button type="button" class="btn btn-outline-dark">黑色</button>
+<button type="button" class="btn btn-outline-light text-dark">浅色</button>
+```
+**不同大小的按钮**
+Bootstrap 4 可以设置按钮的大小：
+```html
+<button type="button" class="btn btn-primary btn-lg">大号按钮</button>
+<button type="button" class="btn btn-primary">默认按钮</button>
+<button type="button" class="btn btn-primary btn-sm">小号按钮</button>
+```
+**块级按钮**
+通过添加 .btn-block 类可以设置块级按钮：
+```html
+<button type="button" class="btn btn-primary btn-block">按钮 1</button>
+```
+**激活和禁用的按钮**
+按钮可设置为激活或者禁止点击的状态。
+.active 类可以设置按钮是可用的， disabled 属性可以设置按钮是不可点击的。 注意 \<a> 元素不支持 disabled 属性，你可以通过添加 .disabled 类来禁止链接的点击。
+```html
+<button type="button" class="btn btn-primary active">点击后的按钮</button>
+<button type="button" class="btn btn-primary" disabled>禁止点击的按钮</button>
+<a href="#" class="btn btn-primary disabled">禁止点击的链接</a>
+```
+## 9、Bootstrap4 按钮组
+Bootstrap 4 中允许我们将按钮放在同一行上。
+可以在 \<div> 元素上添加 .btn-group 类来创建按钮组。
+```html
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+```
+提示: 我们可以使用 .btn-group-lg|sm 类来设置按钮组的大小。
+```html
+<div class="btn-group btn-group-lg">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+```
+**垂直按钮组**
+可以使用 .btn-group-vertical 类来创建垂直的按钮组：
+```html
+<div class="btn-group-vertical">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <button type="button" class="btn btn-primary">Sony</button>
+</div>
+```
+**内嵌按钮组及下拉菜单**
+我们可以在按钮组内设置下拉菜单：
+```html
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       Sony
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Tablet</a>
+      <a class="dropdown-item" href="#">Smartphone</a>
+    </div>
+  </div>
+</div>
+```
+**拆分按钮下拉菜单**
+```html
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Sony</button>
+  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Tablet</a>
+    <a class="dropdown-item" href="#">Smartphone</a>
+  </div>
+</div>
+```
+**垂直按钮组及下拉菜单**
+```html
+<div class="btn-group-vertical">
+  <button type="button" class="btn btn-primary">Apple</button>
+  <button type="button" class="btn btn-primary">Samsung</button>
+  <div class="btn-group">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+       Sony
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Tablet</a>
+      <a class="dropdown-item" href="#">Smartphone</a>
+    </div>
+  </div>
+</div>
+```
+## 10、Bootstrap4 徽章（Badges）
+徽章（Badges）主要用于突出显示新的或未读的项。如需使用徽章，只需要将 .badge 类加上带有指定意义的颜色类 (如 .badge-secondary) 添加到 \<span> 元素上即可。 徽章可以根据父元素的大小的变化而变化。
+**各种颜色类型的徽章**
+以下列出了所有颜色类型的徽章:
+```html
+<span class="badge badge-primary">主要</span>
+<span class="badge badge-secondary">次要</span>
+<span class="badge badge-success">成功</span>
+<span class="badge badge-danger">危险</span>
+<span class="badge badge-warning">警告</span>
+<span class="badge badge-info">信息</span>
+<span class="badge badge-light">浅色</span>
+<span class="badge badge-dark">深色</span>
+```
+**药丸形状徽章**
+使用 .badge-pill 类来设置药丸形状徽章:
+```html
+<span class="badge badge-pill badge-default">默认</span>
+<span class="badge badge-pill badge-primary">主要</span>
+<span class="badge badge-pill badge-success">成功</span>
+<span class="badge badge-pill badge-info">信息</span>
+<span class="badge badge-pill badge-warning">警告</span>
+<span class="badge badge-pill badge-danger">危险</span>
+```
+**徽章插入到元素内**
+以下实例将徽章嵌入到按钮内：
+```html
+<button type="button" class="btn btn-primary">
+  Messages <span class="badge badge-light">4</span>
+</button>
+```
+## 11、Bootstrap4 进度条
+进度条可以显示用户任务的完成过程。
+创建一个基本的进度条的步骤如下：
+* 添加一个带有 .progress 类的 \<div>。
+* 接着，在上面的 \<div> 内，添加一个带有 class .progress-bar 的空的 \<div>。
+* 添加一个带有百分比表示的宽度的 style 属性，例如 style="width:70%" 表示进度条在 70% 的位置。
+
+**进度条高度**
+进度条高度默认为 16px。我们可以使用 CSS 的 height 属性来修改他：
+```html
+<div class="progress" style="height:20px;">
+  <div class="progress-bar" style="width:40%;"></div>
+</div>
+```
+**进度条标签**
+可以在进度条内添加文本，如进度的百分比：
+```html
+<div class="progress">
+  <div class="progress-bar" style="width:70%">70%</div>
+</div>
+```
+**不同颜色的进度条**
+默认情况下进度条为蓝色，Bootstrap4 还提供了以下颜色的进度条：
+```html
+<div class="progress">
+  <div class="progress-bar bg-success" style="width:40%"></div>
+</div>
+ 
+<div class="progress">
+  <div class="progress-bar bg-info" style="width:50%"></div>
+</div>
+ 
+<div class="progress">
+  <div class="progress-bar bg-warning" style="width:60%"></div>
+</div>
+ 
+<div class="progress">
+  <div class="progress-bar bg-danger" style="width:70%"></div>
+</div>
+```
+**条纹的进度条**
+可以使用 .progress-bar-striped 类来设置条纹进度条：
+```html
+<div class="progress">
+  <div class="progress-bar progress-bar-striped" style="width:40%"></div>
+</div>
+```
+**动画进度条**
+使用 .progress-bar-animated 类可以为进度条添加动画：
+```html
+<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 40%"></div>
+```
+**混合色彩进度条**
+进度条可以设置多种颜色：
+```html
+<div class="progress">
+  <div class="progress-bar bg-success" style="width:40%">
+    Free Space
+  </div>
+  <div class="progress-bar bg-warning" style="width:10%">
+    Warning
+  </div>
+  <div class="progress-bar bg-danger" style="width:20%">
+    Danger
+  </div>
+</div>
+```
+## 12、Bootstrap4 分页
