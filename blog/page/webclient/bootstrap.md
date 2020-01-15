@@ -887,3 +887,205 @@ Bootstrap 4 中允许我们将按钮放在同一行上。
 </div>
 ```
 ## 12、Bootstrap4 分页
+网页开发过程，如果碰到内容过多，一般都会做分页处理。
+Bootstrap 4 可以很简单的实现分页效果。
+要创建一个基本的分页可以在 \<ul> 元素上添加 .pagination 类。然后在 \<li> 元素上添加 .page-item 类：:
+```html
+<ul class="pagination">
+  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
+```
+**当前页页码状态**
+当前页可以使用 .active 类来高亮显示：
+```html
+<ul class="pagination">
+  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item active"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
+```
+**不可点击的分页链接**
+.disabled 类可以设置分页链接不可点击:
+```html
+<ul class="pagination">
+  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
+```
+**分页显示大小**
+可以将分页条目设置为不同的大小。
+.pagination-lg 类设置大字体的分页条目，.pagination-sm 类设置小字体的分页条目:
+```html
+<ul class="pagination pagination-lg">
+  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
+ 
+<ul class="pagination pagination-sm">
+  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+  <li class="page-item"><a class="page-link" href="#">1</a></li>
+  <li class="page-item"><a class="page-link" href="#">2</a></li>
+  <li class="page-item"><a class="page-link" href="#">3</a></li>
+  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+</ul>
+```
+**面包屑导航**
+.breadcrumb 和 .breadcrumb-item 类用于设置面包屑导航：
+```html
+<ul class="breadcrumb">
+  <li class="breadcrumb-item"><a href="#">Photos</a></li>
+  <li class="breadcrumb-item"><a href="#">Summer 2017</a></li>
+  <li class="breadcrumb-item"><a href="#">Italy</a></li>
+  <li class="breadcrumb-item active">Rome</li>
+</ul>
+```
+## 13、Bootstrap4 列表组
+大部分基础列表组都是无序的。
+要创建列表组，可以在 \<ul> 元素上添加 .list-group 类, 在 \<li> 元素上添加 .list-group-item 类:
+```html
+<ul class="list-group">
+  <li class="list-group-item">First item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+```
+**激活状态的列表项**
+通过添加 .active 类来设置激活状态的列表项:
+```html
+<ul class="list-group">
+  <li class="list-group-item active">Active item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+```
+
+**禁用的列表项**
+.disabled 类用于设置禁用的列表项:
+```html
+<ul class="list-group">
+  <li class="list-group-item disabled">Disabled item</li>
+  <li class="list-group-item">Second item</li>
+  <li class="list-group-item">Third item</li>
+</ul>
+```
+**链接列表项**
+要创建一个链接的列表项，可以将 \<ul> 替换为 \<div> ， \<a> 替换 \<li>。如果你想鼠标悬停显示灰色背景就添加.list-group-item-action 类:
+```html
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action">First item</a>
+  <a href="#" class="list-group-item list-group-item-action">Second item</a>
+  <a href="#" class="list-group-item list-group-item-action">Third item</a>
+</div>
+```
+**多种颜色列表项**
+列表项目的颜色可以通过以下列来设置： .list-group-item-success, list-group-item-secondary, list-group-item-info, list-group-item-warning, .list-group-item-danger, list-group-item-dark 和 list-group-item-light:
+```html
+<ul class="list-group">
+  <li class="list-group-item list-group-item-success">成功列表项</li>
+  <li class="list-group-item list-group-item-secondary">次要列表项</li>
+  <li class="list-group-item list-group-item-info">信息列表项</li>
+  <li class="list-group-item list-group-item-warning">警告列表项</li>
+  <li class="list-group-item list-group-item-danger">危险列表项</li>
+  <li class="list-group-item list-group-item-primary">主要列表项</li>
+  <li class="list-group-item list-group-item-dark">深灰色列表项</li>
+  <li class="list-group-item list-group-item-light">浅色列表项</li>
+</ul>
+```
+**链接的多种颜色列表项**
+```html
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action">激活列表项</a>
+    <a href="#" class="list-group-item list-group-item-success">成功列表项</a>
+    <a href="#" class="list-group-item list-group-item-secondary">次要列表项</a>
+    <a href="#" class="list-group-item list-group-item-info">信息列表项</a>
+    <a href="#" class="list-group-item list-group-item-warning">警告列表项</a>
+    <a href="#" class="list-group-item list-group-item-danger">危险列表项</a>
+    <a href="#" class="list-group-item list-group-item-primary">主要列表项</a>
+    <a href="#" class="list-group-item list-group-item-dark">深灰色列表项</a>
+    <a href="#" class="list-group-item list-group-item-light">浅色列表项</a>
+</div>
+```
+## 14、Bootstrap4 卡片
+**简单的卡片**
+我们可以通过 Bootstrap4 的 .card 与 .card-body 类来创建一个简单的卡片，实例如下:
+```html
+<div class="card">
+  <div class="card-body">简单的卡片</div>
+</div>
+```
+*Bootstrap4 的卡片类似 Bootstrap 3 中的面板、图片缩略图、well。*
+**头部和底部**
+.card-header类用于创建卡片的头部样式， .card-footer 类用于创建卡片的底部样式：
+```html
+<div class="card">
+  <div class="card-header">头部</div>
+  <div class="card-body">内容</div> 
+  <div class="card-footer">底部</div>
+</div>
+```
+**多种颜色卡片**
+Bootstrap 4 提供了多种卡片的背景颜色类： .bg-primary, .bg-success, .bg-info, .bg-warning, .bg-danger, .bg-secondary, .bg-dark 和 .bg-light。
+```html
+<div class="container">
+  <h2>多种颜色卡片</h2>
+  <div class="card">
+    <div class="card-body">Basic card</div>
+  </div>
+  <br>
+  <div class="card bg-primary text-white">
+    <div class="card-body">Primary card</div>
+  </div>
+  <br>
+  <div class="card bg-success text-white">
+    <div class="card-body">Success card</div>
+  </div>
+  <br>
+  <div class="card bg-info text-white">
+    <div class="card-body">Info card</div>
+  </div>
+  <br>
+  <div class="card bg-warning text-white">
+    <div class="card-body">Warning card</div>
+  </div>
+  <br>
+  <div class="card bg-danger text-white">
+    <div class="card-body">Danger card</div>
+  </div>
+  <br>
+  <div class="card bg-secondary text-white">
+    <div class="card-body">Secondary card</div>
+  </div>
+  <br>
+  <div class="card bg-dark text-white">
+    <div class="card-body">Dark card</div>
+  </div>
+  <br>
+  <div class="card bg-light text-dark">
+    <div class="card-body">Light card</div>
+  </div>
+</div>
+```
+**标题、文本和链接**
+我们可以在头部元素上使用 .card-title 类来设置卡片的标题 。 .card-text 类用于设置卡片正文的内容。 .card-link 类用于给链接设置颜色。
+```html
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Card title</h4>
+    <p class="card-text">Some example text. Some example text.
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+```
