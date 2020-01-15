@@ -1089,3 +1089,384 @@ Bootstrap 4 提供了多种卡片的背景颜色类： .bg-primary, .bg-success,
   </div>
 </div>
 ```
+**图片卡片**
+我们可以给 \<img> 添加 .card-img-top（图片在文字上方） 或 .card-img-bottom（图片在文字下方 来设置图片卡片：
+```html
+<div class="card" style="width:400px">
+  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+```
+如果图片要设置为背景，可以使用 .card-img-overlay 类:
+```html
+<div class="card" style="width:500px">
+  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+  <div class="card-img-overlay">
+    <h4 class="card-title">John Doe</h4>
+    <p class="card-text">Some example text.
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+```
+## 15、Bootstrap4 下拉菜单
+Bootstrap4 下拉菜单依赖于 popper.min.js。
+下拉菜单是可切换的，是以列表格式显示链接的上下文菜单。
+```html
+<div class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Link 1</a>
+    <a class="dropdown-item" href="#">Link 2</a>
+    <a class="dropdown-item" href="#">Link 3</a>
+  </div>
+</div>
+```
+**实例解析**
+.dropdown 类用来指定一个下拉菜单。
+我们可以使用一个按钮或链接来打开下拉菜单， 按钮或链接需要添加 .dropdown-toggle 和 data-toggle="dropdown" 属性。
+\<div> 元素上添加 .dropdown-menu 类来设置实际下拉菜单，然后在下拉菜单的选项中添加 .dropdown-item 类。
+我们也可以在 \<a> 标签中使用：
+```html
+<div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown link
+  </a>
+ 
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+```
+**下拉菜单中的分割线**
+.dropdown-divider 类用于在下拉菜单中创建一个水平的分割线：
+```html
+<div class="dropdown-divider"></div>
+```
+**下拉菜单中的标题**
+.dropdown-header 类用于在下拉菜单中添加标题：
+```html
+<div class="dropdown-header">Dropdown header 1</div>
+```
+**下拉菜单中的可用项与禁用项**
+.active 类会让下拉菜单的选项高亮显示 (添加蓝色背景)。
+如果要禁用下拉菜单的选项，可以使用.disabled 类。
+```html
+<a class="dropdown-item active" href="#">Active</a>
+<a class="dropdown-item disabled" href="#">Disabled</a>
+```
+**下拉菜单的定位**
+如果我们想让下拉菜单右对齐，可以在元素上的 .dropdown-menu 类后添加 .dropdown-menu-right 类。
+```html
+<div class="dropdown-menu dropdown-menu-right">
+```
+**下拉菜单弹出方向设置**
+下拉菜单弹出方向默认为向下，当然我们也可以设置不同的方向。
+**指定向右弹出的下拉菜单**
+如果你希望下拉菜单向右弹出，可以在 div 元素上添加 "dropright" 类:
+```html
+<!-- Default dropright button -->
+<div class="btn-group dropright">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropright
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+  </div>
+</div>
+ 
+<!-- Split dropright button -->
+<div class="btn-group dropright">
+  <button type="button" class="btn btn-secondary">
+    Split dropright
+  </button>
+  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropright</span>
+  </button>
+  <div class="dropdown-menu">
+    <!-- Dropdown menu links -->
+  </div>
+</div>
+```
+**指定向上弹出的上拉菜单**
+如果你希望上拉菜单向上弹出，可以在 div 元素上添加 "dropup" 类
+**指定向左边弹出的下拉菜单**
+如果你希望下拉菜单向上弹出，可以在 div 元素上添加 "dropleft" 类
+**按钮中设置下拉菜单**
+我们可以在按钮中添加下拉菜单
+```html
+<div class="btn-group">
+  <button type="button" class="btn btn-primary">Sony</button>
+  <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown">
+    <span class="caret"></span>
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Tablet</a>
+    <a class="dropdown-item" href="#">Smartphone</a>
+  </div>
+</div>
+```
+## 16、Bootstrap4 折叠
+Bootstrap4 折叠可以很容易的实现内容的显示与隐藏。
+```html
+<button data-toggle="collapse" data-target="#demo">折叠</button>
+ 
+<div id="demo" class="collapse">
+Lorem ipsum dolor text....
+</div>
+```
+.collapse 类用于指定一个折叠元素 (实例中的 \<div>); 点击按钮后会在隐藏与显示之间切换。
+控制内容的隐藏与显示，需要在 \<a> 或 \<button> 元素上添加 data-toggle="collapse" 属性。 data-target="#id" 属性是对应折叠的内容 (\<div id="demo">)。
+注意: \<a> 元素上你可以使用 href 属性来代替 data-target 属性:
+```html
+<a href="#demo" data-toggle="collapse">Collapsible</a>
+<div id="demo" class="collapse">
+Lorem ipsum dolor text....
+</div>
+```
+默认情况下折叠的内容是隐藏的，你可以添加 .show 类让内容默认显示:
+```html
+<div id="demo" class="collapse show">
+Lorem ipsum dolor text....
+</div>
+```
+以下实例通过扩展卡片组件来显示简单的手风琴。
+注意: 使用 data-parent 属性来确保所有的折叠元素在指定的父元素下，这样就能实现在一个折叠选项显示时其他选项就隐藏。
+```html
+<div id="accordion">
+<div class="card">
+  <div class="card-header">
+    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+      选项一
+    </a>
+  </div>
+  <div id="collapseOne" class="collapse show" data-parent="#accordion">
+    <div class="card-body">
+      #1 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+    选项二
+  </a>
+  </div>
+  <div id="collapseTwo" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+      #2 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+    </div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-header">
+    <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+      选项三
+    </a>
+  </div>
+  <div id="collapseThree" class="collapse" data-parent="#accordion">
+    <div class="card-body">
+      #3 内容：菜鸟教程 -- 学的不仅是技术，更是梦想！！！
+    </div>
+  </div>
+</div>
+</div>
+```
+## 17、Bootstrap4 导航
+如果你想创建一个简单的水平导航栏，可以在 \<ul> 元素上添加 .nav类，在每个 \<li> 选项上添加 .nav-item 类，在每个链接上添加 .nav-link 类:
+```html
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+```
+**导航对齐方式**
+.justify-content-center 类设置导航居中显示， .justify-content-end 类设置导航右对齐。
+```html
+<!-- 导航居中 -->
+<ul class="nav justify-content-center">
+ 
+<!-- 导航右对齐 -->
+<ul class="nav justify-content-end">
+</div>
+```
+**垂直导航**
+.flex-column 类用于创建垂直导航：
+```html
+<ul class="nav flex-column">
+```
+**选项卡**
+使用 .nav-tabs 类可以将导航转化为选项卡。然后对于选中的选项使用 .active 类来标记。
+```html
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+```
+**胶囊导航**
+.nav-pills 类可以将导航项设置成胶囊形状。
+```html
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+```
+**导航等宽**
+.nav-justified 类可以设置导航项齐行等宽显示。
+```html
+<ul class="nav nav-pills nav-justified">..</ul>
+<ul class="nav nav-tabs nav-justified">..</ul>
+```
+**胶囊下拉菜单**
+```html
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Dropdown</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Link 1</a>
+      <a class="dropdown-item" href="#">Link 2</a>
+      <a class="dropdown-item" href="#">Link 3</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+```
+**选项卡下拉菜单**
+```html
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Dropdown</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Link 1</a>
+      <a class="dropdown-item" href="#">Link 2</a>
+      <a class="dropdown-item" href="#">Link 3</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" href="#">Disabled</a>
+  </li>
+</ul>
+```
+**动态选项卡**
+如果你要设置选项卡是动态可切换的，可以在每个链接上添加 data-toggle="tab" 属性。 然后在每个选项对应的内容的上添加 .tab-pane 类。
+如果你希望有淡入效果可以在 .tab-pane 后添加 .fade类:
+```html
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu1">Menu 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="tab" href="#menu2">Menu 2</a>
+  </li>
+</ul>
+ 
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active container" id="home">...</div>
+  <div class="tab-pane container" id="menu1">...</div>
+  <div class="tab-pane container" id="menu2">...</div>
+</div>
+```
+**胶囊状动态选项卡**
+胶囊状动态选项卡只需要将以上实例的代码中 data-toggle 属性设置为 data-toggle="pill":
+```html
+<!-- Nav pills -->
+<ul class="nav nav-pills">
+  <li class="nav-item">
+    <a class="nav-link active" data-toggle="pill" href="#home">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="pill" href="#menu1">Menu 1</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" data-toggle="pill" href="#menu2">Menu 2</a>
+  </li>
+</ul>
+ 
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active container" id="home">...</div>
+  <div class="tab-pane container" id="menu1">...</div>
+  <div class="tab-pane container" id="menu2">...</div>
+</div>
+```
+## 18、Bootstrap4 导航栏
+导航栏一般放在页面的顶部。
+我们可以使用 .navbar 类来创建一个标准的导航栏，后面紧跟: .navbar-expand-xl|lg|md|sm 类来创建响应式的导航栏 (大屏幕水平铺开，小屏幕垂直堆叠)。
+导航栏上的选项可以使用 \<ul> 元素并添加 class="navbar-nav" 类。 然后在 \<li> 元素上添加 .nav-item 类， \<a> 元素上使用 .nav-link 类:
+```html
+<!-- 小屏幕上水平导航栏会切换为垂直的 -->
+<nav class="navbar navbar-expand-sm bg-light">
+ 
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 1</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 2</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link 3</a>
+    </li>
+  </ul> 
+</nav>
+```
+**垂直导航栏**
+通过删除 .navbar-expand-xl|lg|md|sm 类来创建垂直导航栏:
+
