@@ -1682,7 +1682,762 @@ Bootstrap 中的面包屑导航是一个简单的带有 .breadcrumb class 的无
   <span class="breadcrumb-item active">Bootstrap</span>
 </nav>
 ```
+## 20、Bootstrap4 表单
+在本章中，我们将学习如何使用 Bootstrap 创建表单。Bootstrap 通过一些简单的 HTML 标签和扩展的类即可创建出不同样式的表单。
+表单元素 \<input>, \<textarea>, 和 \<select> elements 在使用 .form-control 类的情况下，宽度都是设置为 100%。
+**Bootstrap4 表单布局**
+* 堆叠表单 (全屏宽度)：垂直方向
+* 内联表单：水平方向
+Bootstrap 提供了两种类型的表单布局:
+**堆叠表单**
+以下实例使用两个输入框，一个复选框，一个提交按钮来创建堆叠表单：
+```html
+<form>
+  <div class="form-group">
+    <label for="email">Email address:</label>
+    <input type="email" class="form-control" id="email">
+  </div>
+  <div class="form-group">
+    <label for="pwd">Password:</label>
+    <input type="password" class="form-control" id="pwd">
+  </div>
+  <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+**内联表单**
+所有内联表单中的元素都是左对齐的。
+*注意：在屏幕宽度小于 576px 时为垂直堆叠，如果屏幕宽度大于等于576px时表单元素才会显示在同一个水平线上。*
+内联表单需要在 \<form> 元素上添加 .form-inline类。
+以下实例使用两个输入框，一个复选框，一个提交按钮来创建内联表单：
+```html
+<form class="form-inline">
+  <label for="email">Email address:</label>
+  <input type="email" class="form-control" id="email">
+  <label for="pwd">Password:</label>
+  <input type="password" class="form-control" id="pwd">
+  <div class="form-check">
+    <label class="form-check-label">
+      <input class="form-check-input" type="checkbox"> Remember me
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+```
+## 21、Bootstrap4 表单控件
+Bootstrap4 支持以下表单控件：
+* input
+* textarea
+* checkbox
+* radio
+* select
 
+**Bootstrap Input**
+Bootstrap 支持所有的 HTML5 输入类型: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, 以及 color。
+*注意：: 如果 input 的 type 属性未正确声明，输入框的样式将不会显示。*
+以下实例使用两个 input 元素，一个是 text，一个是 password ：
+```html
+<div class="form-group">
+  <label for="usr">用户名:</label>
+  <input type="text" class="form-control" id="usr">
+</div>
+<div class="form-group">
+  <label for="pwd">密码:</label>
+  <input type="password" class="form-control" id="pwd">
+</div>
+```
+**Bootstrap textarea**
+以下实例演示了 textarea 的样式。
+```html
+<div class="form-group">
+  <label for="comment">评论:</label>
+  <textarea class="form-control" rows="5" id="comment"></textarea>
+</div>
+```
+**Bootstrap 复选框(checkbox)**
+复选框用于让用户从一系列预设置的选项中进行选择，可以选一个或多个。
+以下实例包含了三个选项。最后一个是禁用的：
+```html
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 1
+  </label>
+</div>
+<div class="form-check">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 2
+  </label>
+</div>
+<div class="form-check disabled">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="" disabled>Option 3
+  </label>
+</div>
+```
+使用 .form-check-inline 类可以让选项显示在同一行上：
+```html
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 1
+  </label>
+</div>
+<div class="form-check form-check-inline">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="">Option 2
+  </label>
+</div>
+<div class="form-check form-check-inline disabled">
+  <label class="form-check-label">
+    <input type="checkbox" class="form-check-input" value="" disabled>Option 3
+  </label>
+</div>
+```
+**Bootstrap 单选框(Radio)**
+单选框用于让用户从一系列预设置的选项中进行选择，只能选一个。
+以下实例包含了三个选项。最后一个是禁用的：
+```html
+<div class="radio">
+  <label><input type="radio" name="optradio">Option 1</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="optradio">Option 2</label>
+</div>
+<div class="radio disabled">
+  <label><input type="radio" name="optradio" disabled>Option 3</label>
+</div>
+```
+使用 .radio-inline 类可以让选项显示在同一行上：
+```html
+<label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+<label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+<label class="radio-inline"><input type="radio" name="optradio">Option 3</label>
+```
+**Bootstrap select 下拉菜单**
+当您想让用户从多个选项中进行选择，但是默认情况下只能选择一个选项时，则使用选择框。
+以下实例包含了两个下拉菜单：
+```html
+<div class="form-group">
+  <label for="sel1">下拉菜单:</label>
+  <select class="form-control" id="sel1">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+  </select>
+</div>
+```
+## 22、Bootstrap4 输入框组
+我们可以使用 .input-group 类来向表单输入框中添加更多的样式，如图标、文本或者按钮。
+使用 .input-group-prepend 类可以在输入框的的前面添加文本信息， .input-group-append 类添加在输入框的后面。
+最后，我们还需要使用 .input-group-text 类来设置文本的样式。
+```html
+<form>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">@</span>
+    </div>
+    <input type="text" class="form-control" placeholder="Username">
+  </div>
+ 
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Your Email">
+    <div class="input-group-append">
+      <span class="input-group-text">@runoob.com</span>
+    </div>
+  </div>
+</form>
+```
+**输入框大小**
+使用 .input-group-sm 类来设置小的输入框， .input-group-lg 类设置大的输入框：
+```html
+<form>
+  <div class="input-group mb-3 input-group-sm">
+     <div class="input-group-prepend">
+       <span class="input-group-text">Small</span>
+    </div>
+    <input type="text" class="form-control">
+  </div>
+</form>
+<form>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Default</span>
+    </div>
+    <input type="text" class="form-control">
+  </div>
+</form>
+<form>
+  <div class="input-group mb-3 input-group-lg">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Large</span>
+    </div>
+    <input type="text" class="form-control">
+  </div>
+</form>
+```
+**多个输入框和文本**
+```html
+<!-- 多个输入框 -->
+<form>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Person</span>
+    </div>
+    <input type="text" class="form-control" placeholder="First Name">
+    <input type="text" class="form-control" placeholder="Last Name">
+  </div>
+</form>
+ 
+<!-- 多个文本信息 -->
+<form>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">One</span>
+      <span class="input-group-text">Two</span>
+      <span class="input-group-text">Three</span>
+    </div>
+    <input type="text" class="form-control">
+  </div>
+</form>
+```
+**复选框与单选框**
+文本信息可以使用复选框与单选框替代：
+```html
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+      <input type="checkbox"> 
+    </div>
+  </div>
+  <input type="text" class="form-control" placeholder="RUNOOB">
+</div>
+ 
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+      <input type="radio"> 
+    </div>
+  </div>
+  <input type="text" class="form-control" placeholder="GOOGLE">
+</div>
+```
+**输入框添加按钮组**
+```html
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary" type="button">Basic Button</button> 
+  </div>
+  <input type="text" class="form-control" placeholder="Some text">
+</div>
+ 
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Search">
+  <div class="input-group-append">
+    <button class="btn btn-success" type="submit">Go</button> 
+  </div>
+</div>
+ 
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Something clever..">
+  <div class="input-group-append">
+    <button class="btn btn-primary" type="button">OK</button> 
+    <button class="btn btn-danger" type="button">Cancel</button> 
+  </div>
+</div>
+```
+**设置下拉菜单**
+输入框中添加下拉菜单不需要使用 .dropdown 类。
+```html
+<div class="input-group mt-3 mb-3">
+  <div class="input-group-prepend">
+    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+      选择网站
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="https://www.google.com">GOOGLE</a>
+      <a class="dropdown-item" href="https://www.runoob.com">RUNOOB</a>
+      <a class="dropdown-item" href="https://www.taobao.com">TAOBAO</a>
+    </div>
+  </div>
+  <input type="text" class="form-control" placeholder="网站地址">
+</div>
+```
+**输入框组标签**
+在输入框组通过在输入框组外围的 label 来设置标签，标签的 for 属性需要与输入框组的 id 对应，点击标签后可以聚焦输入框：
+```html
+<label for="demo">Write your email here:</label>
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Email" id="demo" name="email">
+  <div class="input-group-append">
+    <span class="input-group-text">@runoob.com</span>
+  </div>
+</div>
+```
+## 23、Bootstrap4 自定义表单
+Bootstrap4 可以自定义一些表单的样式来替换浏览器默认的样式。
+**自定义复选框**
+如果要自定义一个复选框，可以设置 \<div> 为父元素，类为 .custom-control 和 .custom-checkbox，复选框作为子元素放在该 \<div> 里头，然后复选框设置为 type="checkbox"，类为 .custom-control-input。
+复选框的文本使用 label 标签，标签使用 .custom-control-label 类，label 的 for 属性值需要匹配复选框的 id。
+```html
+<form>
+  <div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+    <label class="custom-control-label" for="customCheck">自定义复选框</label>
+  </div>
+</form>
+```
+**自定义单选框**
+如果要自定义一个单选框，可以设置 \<div> 为父元素，类为 .custom-control 和 .custom-radio，单选框作为子元素放在该 \<div> 里头，然后单选框设置为 type="radio"，类为 .custom-control-input。
+单选框的文本使用 label 标签，标签使用 .custom-control-label 类，label 的 for 属性值需要匹配单选框的 id。
+```html
+<form>
+  <div class="custom-control custom-radio">
+    <input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+    <label class="custom-control-label" for="customRadio">自定义单选框</label>
+  </div> 
+</form>
+```
+**自定义控件显示在同一行**
+我们可以在外部元素上使用 .custom-control-inline 类来包裹自定义表单控件，这样自定义表单控件就能显示在同一行：
+```html
+<form>
+  <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+    <label class="custom-control-label" for="customRadio">自定义单选框 1</label>
+  </div>
+  <div class="custom-control custom-radio custom-control-inline">
+    <input type="radio" class="custom-control-input" id="customRadio2" name="example" value="customEx">
+    <label class="custom-control-label" for="customRadio2">自定义单选框 2</label>
+  </div> 
+</form>
+```
+**自定义选择菜单**
+创建自定义选择菜单可以在 \<select> 元素上添加 .custom-select 类:
+```html
+<form>
+  <select name="cars" class="custom-select-sm">
+    <option selected>自定义选择菜单</option>
+    <option value="Google">Google</option>
+    <option value="Runoob">Runoob</option>
+    <option value="Taobao">Taobao</option>
+  </select>
+</form>
+```
+如果我们要设置自定义选择菜单大小，可以使用 .custom-select-sm、.custom-select-lg 来设置它们的大小:
+```html
+<form>
+  <!-- 小 -->
+  <select name="cars" class="custom-select-sm">
+    <option selected>比较小的自定义选择菜单</option>
+    <option value="Google">Google</option>
+    <option value="Runoob">Runoob</option>
+    <option value="Taobao">Taobao</option>
+  </select>
+ 
+  <!-- 大 -->
+  <select name="cars" class="custom-select-lg">
+    <option selected>比较大的自定义选择菜单</option>
+    <option value="Google">Google</option>
+    <option value="Runoob">Runoob</option>
+    <option value="Taobao">Taobao</option>
+  </select>
+</form>
+```
+**自定义滑块控件**
+我们可以在 input 为 type="range" 的输入框中添加 .custom-range 类来设置自定义滑块控件:
+```html
+<form>
+  <label for="customRange">自定义滑块控件</label>
+  <input type="range" class="custom-range" id="customRange" name="points1">
+</form>
+```
+**自定义文件上传控件**
+我们可以在父元素添加 .custom-file 类，然后在 input 设置为 type="file" 并添加 .custom-file-input:
+上传控件的文本使用 label 标签，标签使用 .custom-file-label 类，label 的 for 属性值需要匹配复选框的 id。
+```html
+<form>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="customFile">
+    <label class="custom-file-label" for="customFile">选择文件</label>
+  </div>
+</form>
+```
+## 23、Bootstrap4 轮播
+**如何创建轮播**
+以下实例创建了一个简单的图片轮播效果 ：
+```html
+<div id="demo" class="carousel slide" data-ride="carousel">
+ 
+  <!-- 指示符 -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+  </ul>
+ 
+  <!-- 轮播图片 -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://static.runoob.com/images/mix/img_fjords_wide.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="https://static.runoob.com/images/mix/img_nature_wide.jpg">
+    </div>
+    <div class="carousel-item">
+      <img src="https://static.runoob.com/images/mix/img_mountains_wide.jpg">
+    </div>
+  </div>
+ 
+  <!-- 左右切换按钮 -->
+  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </a>
+  <a class="carousel-control-next" href="#demo" data-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </a>
+</div>
+```
+**轮播图片上添加描述**
+在每个 \<div class="carousel-item"> 内添加 \<div class="carousel-caption"> 来设置轮播图片的描述文本：:
+```html
+<div class="carousel-item">
+  <img src="https://static.runoob.com/images/mix/img_fjords_wide.jpg">
+  <div class="carousel-caption">
+    <h3>第一张图片描述标题</h3>
+    <p>描述文字!
+  </div>
+</div>
+```
+**以上实例中使用的类说明**
+<table class="reference">
+  <tbody><tr>
+    <th style="width:30%;">类</th>
+    <th style="width:70%;">描述</th>
+  </tr>
+  <tr>
+    <td><code>.carousel</code></td>
+    <td>创建一个轮播</td>
+  </tr>
+  <tr>
+    <td><code>.carousel-indicators</code></td>
+    <td>为轮播添加一个指示符，就是轮播图底下的一个个小点，轮播的过程可以显示目前是第几张图。</td>
+  </tr>
+  <tr>
+    <td><code>.carousel-inner</code></td>
+    <td>添加要切换的图片</td>
+  </tr>
+  <tr>
+    <td><code>.carousel-item</code></td>
+    <td>指定每个图片的内容</td>
+  </tr>
+  <tr>
+    <td><code>.carousel-control-prev</code></td>
+    <td>添加左侧的按钮，点击会返回上一张。</td>
+  </tr>
+  <tr>
+    <td><code>.carousel-control-next</code></td>
+    <td>添加右侧按钮，点击会切换到下一张。</td>
+  </tr>
+  <tr>
+    <td><code>.carousel-control-prev-icon</code></td>
+    <td>与 .carousel-control-prev 一起使用，设置左侧的按钮</td>
+  </tr>
+  <tr>
+    <td><code>.carousel-control-next-icon</code></td>
+    <td>与 .carousel-control-next 一起使用，设置右侧的按钮</td>
+  </tr>
+  <tr>
+    <td><code>.slide</code></td>
+    <td>切换图片的过渡和动画效果，如果你不需要这样的效果，可以删除这个类。</td>
+  </tr>
+</tbody></table>
+## 24、Bootstrap4 模态框
+模态框（Modal）是覆盖在父窗体上的子窗体。通常，目的是显示来自一个单独的源的内容，可以在不离开父窗体的情况下有一些互动。子窗体可提供信息交互等。
+**如何创建模态框**
+以下实例创建了一个简单的模态框效果 ：
+```html
+<!-- 按钮：用于打开模态框 -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  打开模态框
+</button>
+ 
+<!-- 模态框 -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+ 
+      <!-- 模态框头部 -->
+      <div class="modal-header">
+        <h4 class="modal-title">模态框头部</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+ 
+      <!-- 模态框主体 -->
+      <div class="modal-body">
+        模态框内容..
+      </div>
+ 
+      <!-- 模态框底部 -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+      </div>
+ 
+    </div>
+  </div>
+</div>
+```
+**模态框尺寸**
+我们可以通过添加 .modal-sm 类来创建一个小模态框，.modal-lg 类可以创建一个大模态框。
+尺寸类放在 \<div>元素的 .modal-dialog 类后 :
+```html
+<!-- 小模态框 -->
+<div class="modal-dialog modal-sm">
+```
+```html
+<!-- 大模态框 -->
+<div class="modal-dialog modal-lg">
+```
 
+## 25、Bootstrap4 提示框
+提示框是一个小小的弹窗，在鼠标移动到元素上显示，鼠标移到元素外就消失。
+**如何创建提示框**
+通过向元素添加 data-toggle="tooltip" 来来创建提示框。
+title 属性的内容为提示框显示的内容：
+```html
+<a href="#" data-toggle="tooltip" title="我是提示内容!">鼠标移动到我这</a>
+```
+注意: 提示框要写在 jQuery 的初始化代码里: 然后在指定的元素上调用 tooltip() 方法。
+以下实例可以在文档的任何地方使用提示框：
+```javascript
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+```
+**指定提示框的位置**
+默认情况下提示框显示在元素上方。
+可以使用 data-placement 属性来设定提示框显示的方向: top, bottom, left 或 right:
+```html
+<a href="#" data-toggle="tooltip" data-placement="top" title="我是提示内容!">鼠标移动到我这</a>
+<a href="#" data-toggle="tooltip" data-placement="bottom" title="我是提示内容!">鼠标移动到我这</a>
+<a href="#" data-toggle="tooltip" data-placement="left" title="我是提示内容!">鼠标移动到我这</a>
+<a href="#" data-toggle="tooltip" data-placement="right" title="我是提示内容!">鼠标移动到我这</a>
+```
+在按钮中使用：
+```html
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+  Tooltip on top
+</button>
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+  Tooltip on right
+</button>
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+  Tooltip on bottom
+</button>
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+  Tooltip on left
+</button>
+```
+提示内容添加 HTML 标签，设置 data-html="true"，内容放在 title 标签里头:
+```html
+<button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+  Tooltip with HTML
+</button>
+```
+禁用按钮：
+```html
+<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Disabled tooltip">
+  <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
+</span>
+```
+## 26、Bootstrap4 弹出框
+弹出框控件类似于提示框，它在鼠标点击到元素后显示，与提示框不同的是它可以显示更多的内容。
+**如何创建弹出框**
+通过向元素添加 data-toggle="popover" 来来创建弹出框。
+title 属性的内容为弹出框的标题，data-content 属性显示了弹出框的文本内容：
+```html
+<a href="#" data-toggle="popover" title="弹出框标题" data-content="弹出框内容">多次点我</a>
+```
+注意: 弹出框要写在 jQuery 的初始化代码里: 然后在指定的元素上调用 popover() 方法。
+以下实例可以在文档的任何地方使用弹出框：
+```javascript
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+```
+**指定弹出框的位置**
+默认情况下弹出框显示在元素右侧。
+可以使用 data-placement 属性来设定弹出框显示的方向: top, bottom, left 或 right:
+```html
+<a href="#" title="Header" data-toggle="popover" data-placement="top" data-content="Content">点我</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="bottom" data-content="Content">点我</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="left" data-content="Content">点我</a>
+<a href="#" title="Header" data-toggle="popover" data-placement="right" data-content="Content">点我</a>
+```
+按钮中使用:
+```html
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on top
+</button>
+ 
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on right
+</button>
+ 
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus
+sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on bottom
+</button>
+ 
+<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Popover on left
+</button>
+```
+**关闭弹出框**
+默认情况下，弹出框在再次点击指定元素后就会关闭，你可以使用 data-trigger="focus" 属性来设置在鼠标点击元素外部区域来关闭弹出框：
+```html
+<a href="#" title="取消弹出框" data-toggle="popover" data-trigger="focus" data-content="点击文档的其他地方关闭我">点我</a>
+```
+提示:如果你想实现在鼠标移动到元素上显示，移除后消失的效果，可以使用 data-trigger 属性，并设置值为 "hover":
+```html
+<a href="#" title="Header" data-toggle="popover" data-trigger="hover" data-content="一些内容">鼠标移动到我这</a>
+```
+## 27、Bootstrap 滚动监听(Scrollspy)
+滚动监听（Scrollspy）插件，即自动更新导航插件，会根据滚动条的位置自动更新对应的导航目标。其基本的实现是随着您的滚动。
+**如何创建滚动监听**
+以下实例演示了如何创建滚动监听：
+```html
+<!-- 可滚动区域 -->
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+...
+  <ul class="navbar-nav">
+    <li><a href="#section1">Section 1</a></li>
+    ...
+</nav>
+<!-- 第一部分内容 -->
+<div id="section1">
+  <h1>Section 1</h1>
+  Try to scroll this page and look at the navigation bar while scrolling!
+</div>
+...
+</body>
+```
+实例解析
+向您想要监听的元素（通常是 body）添加 data-spy="scroll" 。
+然后添加 data-target 属性，它的值为导航栏的 id 或 class (.navbar)。这样就可以联系上可滚动区域。
+注意可滚动项元素上的 id （\<div id="section1">） 必须匹配导航栏上的链接选项 （\<a href="#section1">)。
+可选项data-offset 属性用于计算滚动位置时，距离顶部的偏移像素。 默认为 10 px。
+设置相对定位: 使用 data-spy="scroll" 的元素需要将其 CSS position 属性设置为 "relative" 才能起作用。
+以下实例设置了垂直滚动监听：
+```html
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="col-sm-3 col-4" id="myScrollspy">
+        <ul class="nav nav-pills flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#section1">Section 1</a>
+          </li>
+          ...
+        </ul>
+      </nav>
+      <div class="col-sm-9 col-8">
+        <div id="section1"> 
+          <h1>Section 1</h1>
+          Try to scroll this page and look at the navigation list while scrolling!
+        </div> 
+        ...
+      </div>
+    </div>
+  </div>
+</body>
+```
+## 28、Bootstrap4 小工具
+Bootstrap4 提供了一些小工具，可以让我们不用写 CSS 代码就能实现想要的效果。
+**边框**
+使用 border 类可以添加或移除边框:
+```html
+<span class="border"></span>
+<span class="border border-0"></span>
+<span class="border border-top-0"></span>
+<span class="border border-right-0"></span>
+<span class="border border-bottom-0"></span>
+<span class="border border-left-0"></span>
+```
+**边框颜色**
+Bootstrap4 提供了一些类来设置边框颜色:
+```html
+<span class="border border-primary"></span>
+<span class="border border-secondary"></span>
+<span class="border border-success"></span>
+<span class="border border-danger"></span>
+<span class="border border-warning"></span>
+<span class="border border-info"></span>
+<span class="border border-light"></span>
+<span class="border border-dark"></span>
+<span class="border border-white"></span>
+```
+**边框圆角设置**
+使用rounded 类可以添加圆角边框:
+```html
+<span class="rounded"></span>
+<span class="rounded-top"></span>
+<span class="rounded-right"></span>
+<span class="rounded-bottom"></span>
+<span class="rounded-left"></span>
+<span class="rounded-circle"></span>
+<span class="rounded-0"></span>
+```
+浮动
+.float-right 类用于设置元素右浮动， .float-left 设置元素左浮动, .clearfix 类用于清除浮动:
+```html
+<div class="clearfix">
+  <span class="float-left">左浮动</span>
+  <span class="float-right">右浮动</span>
+</div>
+```
+**响应式浮动**
+我们看可以设置浮动 (.float-*-left|right - * 为 sm, md, lg 或 xl)的方向依赖于屏幕的大小:
+```html
+<div class="float-sm-right">在大于小屏幕尺寸上右浮动</div><br>
+<div class="float-md-right">在大于中等屏幕尺寸上右浮动</div><br>
+<div class="float-lg-right">在大于大屏幕尺寸上右浮动</div><br>
+<div class="float-xl-right">在大于超大屏幕尺寸上右浮动</div><br>
+<div class="float-none">没有浮动</div>
+```
+**居中对齐**
+使用 .mx-auto 类来设置居中对齐:
+```html
+<div class="mx-auto bg-warning" style="width:150px">居中显示</div>
+```
+**宽度**
+元素上使用 w-* 类 (.w-25, .w-50, .w-75, .w-100, .mw-100) 来设置宽度:
+```html
+<div class="w-25 bg-warning">宽度 25%</div>
+<div class="w-50 bg-warning">宽度 50%</div>
+<div class="w-75 bg-warning">宽度 75%</div>
+<div class="w-100 bg-warning">宽度 100%</div>
+<div class="mw-100 bg-warning">最大宽度 100%</div>
+```
+**高度**
+元素上使用 h-* 类 (.h-25, .h-50, .h-75, .h-100, .mh-100) 来设置高度:
+```html
+<div style="height:200px;background-color:#ddd">
+    <div class="h-25 bg-warning">高度 25%</div>
+    <div class="h-50 bg-warning">高度 50%</div>
+    <div class="h-75 bg-warning">高度 75%</div>
+    <div class="h-100 bg-warning">高度 100%</div>
+    <div class="mh-100 bg-warning" style="height:500px">最大高度 100%</div>
+</div>
+```
+## 29、Bootstrap 4 Flex（弹性）布局
 
+参考：https://www.runoob.com/bootstrap4/bootstrap4-flex.html
 
+## 30、Bootstrap 4 多媒体对象
+参考： https://www.runoob.com/bootstrap4/bootstrap4-media-objects.html
