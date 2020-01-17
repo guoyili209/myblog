@@ -1,4 +1,4 @@
-<p align='center'>Bootstrap教程
+<p align='center'>Bootstrap教程</p>
 =
 
 [toc]
