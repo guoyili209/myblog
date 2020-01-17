@@ -326,7 +326,23 @@ Vue.js v-bind 在处理 class 和 style 时， 专门增强了它。表达式的
 我们可以为 v-bind:class 设置一个对象，从而动态的切换 class:
 ```html
 <!-- 实例中将 isActive 设置为 true 显示了一个绿色的 div 块，如果设置为 false 则不显示： -->
+<head>
+<style>
+.active {
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+</style>
+</head>
 <div v-bind:class="{ active: isActive }"></div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    isActive: true
+  }
+})
 ```
 **以上实例 div class 为：**
 ```html
@@ -347,9 +363,30 @@ Vue.js v-bind 在处理 class 和 style 时， 专门增强了它。表达式的
 我们也可以直接绑定数据里的一个对象：
 ```html
 <!-- text-danger 类背景颜色覆盖了 active 类的背景色： -->
+<style>
+.active {
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+.text-danger {
+	background: red;
+}
+</style>
 <div id="app">
   <div v-bind:class="classObject"></div>
 </div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    classObject: {
+      active: true,
+      'text-danger': true
+    }
+  }
+})
+</script>
 ```
 实例 3 与 实例 2 的渲染结果是一样的。
 此外，我们也可以在这里绑定返回对象的计算属性。这是一个常用且强大的模式：
@@ -377,7 +414,26 @@ new Vue({
 **数组语法**
 我们可以把一个数组传给 v-bind:class ，实例如下：
 ```html
+<style>
+.active {
+	width: 100px;
+	height: 100px;
+	background: green;
+}
+.text-danger {
+	background: red;
+}
+</style>
 <div v-bind:class="[activeClass, errorClass]"></div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    activeClass: 'active',
+    errorClass: 'text-danger'
+  }
+})
+</script>
 ```
 以上实例 div class 为：
 ```html
@@ -394,6 +450,15 @@ new Vue({
 <div id="app">
     <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">菜鸟教程</div>
 </div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    activeColor: 'green',
+	fontSize: 30
+  }
+})
+</script>
 ```
 以上实例 div style 为：
 ```html
@@ -404,12 +469,37 @@ new Vue({
 <div id="app">
   <div v-bind:style="styleObject">菜鸟教程</div>
 </div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    styleObject: {
+      color: 'green',
+      fontSize: '30px'
+    }
+  }
+})
+</script>
 ```
 v-bind:style 可以使用数组将多个样式对象应用到一个元素上：
 ```html
 <div id="app">
   <div v-bind:style="[baseStyles, overridingStyles]">菜鸟教程</div>
 </div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    baseStyles: {
+      color: 'green',
+      fontSize: '30px'
+    },
+	overridingStyles: {
+      'font-weight': 'bold'
+    }
+  }
+})
+</script>
 ```
 *注意：当 v-bind:style 使用需要特定前缀的 CSS 属性时，如 transform ，Vue.js 会自动侦测并添加相应的前缀。*
 ## 6、Vue.js 事件处理器
