@@ -744,5 +744,443 @@ new Vue({
 <input v-model.trim="msg">
 ```
 ## 8、Vue.js 组件
+注册一个全局组件语法格式如下：
+```javascript
+Vue.component(tagName, options)
+```
+tagName 为组件名，options 为配置选项。注册后，我们可以使用以下方式来调用组件：
+```html
+<tagName></tagName>
+```
+**全局组件**
+所有实例都能用全局组件。
+```html
+<!-- 注册一个简单的全局组件 runoob，并使用它： -->
+<div id="app">
+    <runoob></runoob>
+</div>
+ 
+<script>
+// 注册
+Vue.component('runoob', {
+  template: '<h1>自定义组件!</h1>'
+})
+// 创建根实例
+new Vue({
+  el: '#app'
+})
+</script>
+```
 
+**局部组件**
+我们也可以在实例选项中注册局部组件，这样组件只能在这个实例中使用：
+```html
+<!-- 注册一个简单的局部组件 runoob，并使用它： -->
+<div id="app">
+    <runoob></runoob>
+</div>
+<script>
+var Child = {
+  template: '<h1>自定义组件!</h1>'
+}
+// 创建根实例
+new Vue({
+  el: '#app',
+  components: {
+    // <runoob> 将只在父模板可用
+    'runoob': Child
+  }
+})
+</script>
+```
+**Prop**
+prop 是子组件用来接受父组件传递过来的数据的一个自定义属性。
+父组件的数据需要通过 props 把数据传给子组件，子组件需要显式地用 props 选项声明 "prop"：
+```html
+<div id="app">
+    <child message="hello!"></child>
+</div>
+<script>
+// 注册
+Vue.component('child', {
+  // 声明 props
+  props: ['message'],
+  // 同样也可以在 vm 实例中像 "this.message" 这样使用
+  template: '<span>{{ message }}</span>'
+})
+// 创建根实例
+new Vue({
+  el: '#app'
+})
+</script>
+```
+**动态 Prop**
+类似于用 v-bind 绑定 HTML 特性到一个表达式，也可以用 v-bind 动态绑定 props 的值到父组件的数据中。每当父组件的数据变化时，该变化也会传导给子组件：
+```html
+<div id="app">
+    <div>
+      <input v-model="parentMsg">
+      <br>
+      <child v-bind:message="parentMsg"></child>
+    </div>
+</div>
+ 
+<script>
+// 注册
+Vue.component('child', {
+  // 声明 props
+  props: ['message'],
+  // 同样也可以在 vm 实例中像 "this.message" 这样使用
+  template: '<span>{{ message }}</span>'
+})
+// 创建根实例
+new Vue({
+  el: '#app',
+  data: {
+    parentMsg: '父组件内容'
+  }
+})
+</script>
+```
+以下实例中使用 v-bind 指令将 todo 传到每一个重复的组件中：
+```html
+<div id="app">
+    <ol>
+    <todo-item v-for="item in sites" v-bind:todo="item"></todo-item>
+      </ol>
+</div>
+<script>
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.text }}</li>'
+})
+new Vue({
+  el: '#app',
+  data: {
+    sites: [
+      { text: 'Runoob' },
+      { text: 'Google' },
+      { text: 'Taobao' }
+    ]
+  }
+})
+</script>
+```
+注意: prop 是单向绑定的：当父组件的属性变化时，将传导给子组件，但是不会反过来。
+**Prop 验证**
+组件可以为 props 指定验证要求。
+为了定制 prop 的验证方式，你可以为 props 中的值提供一个带有验证需求的对象，而不是一个字符串数组。例如：
+```javascript
+Vue.component('my-component', {
+  props: {
+    // 基础的类型检查 (`null` 和 `undefined` 会通过任何类型验证)
+    propA: Number,
+    // 多个可能的类型
+    propB: [String, Number],
+    // 必填的字符串
+    propC: {
+      type: String,
+      required: true
+    },
+    // 带有默认值的数字
+    propD: {
+      type: Number,
+      default: 100
+    },
+    // 带有默认值的对象
+    propE: {
+      type: Object,
+      // 对象或数组默认值必须从一个工厂函数获取
+      default: function () {
+        return { message: 'hello' }
+      }
+    },
+    // 自定义验证函数
+    propF: {
+      validator: function (value) {
+        // 这个值必须匹配下列字符串中的一个
+        return ['success', 'warning', 'danger'].indexOf(value) !== -1
+      }
+    }
+  }
+})
+```
+当 prop 验证失败的时候，(开发环境构建版本的) Vue 将会产生一个控制台的警告。
+type 可以是下面原生构造器：
+* String
+* Number
+* Boolean
+* Array
+* Object
+* Date
+* Function
+* Symbol
+
+type 也可以是一个自定义构造器，使用 instanceof 检测。
+
+**自定义事件**
+父组件是使用 props 传递数据给子组件，但如果子组件要把数据传递回去，就需要使用自定义事件！
+我们可以使用 v-on 绑定自定义事件, 每个 Vue 实例都实现了事件接口(Events interface)，即：
+使用 $on(eventName) 监听事件
+使用 $emit(eventName) 触发事件
+另外，父组件可以在使用子组件的地方直接用 v-on 来监听子组件触发的事件。
+以下实例中子组件已经和它外部完全解耦了。它所做的只是触发一个父组件关心的内部事件。
+```html
+<div id="app">
+    <div id="counter-event-example">
+      <p>{{ total }}</p>
+      <button-counter v-on:increment="incrementTotal"></button-counter>
+      <button-counter v-on:increment="incrementTotal"></button-counter>
+    </div>
+</div>
+ 
+<script>
+Vue.component('button-counter', {
+  template: '<button v-on:click="incrementHandler">{{ counter }}</button>',
+  data: function () {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    incrementHandler: function () {
+      this.counter += 1
+      this.$emit('increment')
+    }
+  },
+})
+new Vue({
+  el: '#counter-event-example',
+  data: {
+    total: 0
+  },
+  methods: {
+    incrementTotal: function () {
+      this.total += 1
+    }
+  }
+})
+</script>
+```
+如果你想在某个组件的根元素上监听一个原生事件。可以使用 .native 修饰 v-on 。例如：
+```html
+<my-component v-on:click.native="doTheThing"></my-component>
+```
+**data 必须是一个函数**
+上面例子中，可以看到 button-counter 组件中的 data 不是一个对象，而是一个函数：
+```javascript
+data: function () {
+  return {
+    count: 0
+  }
+}
+```
+这样的好处就是每个实例可以维护一份被返回对象的独立的拷贝，如果 data 是一个对象则会影响到其他实例，如下所示：
+```html
+<div id="components-demo3" class="demo">
+    <button-counter2></button-counter2>
+    <button-counter2></button-counter2>
+    <button-counter2></button-counter2>
+</div>
+ 
+<script>
+var buttonCounter2Data = {
+  count: 0
+}
+Vue.component('button-counter2', {
+    /*
+    data: function () {
+        // data 选项是一个函数，组件不相互影响
+        return {
+            count: 0
+        }
+    },
+    */
+    data: function () {
+        // data 选项是一个对象，会影响到其他实例
+        return buttonCounter2Data
+    },
+    template: '<button v-on:click="count++">点击了 {{ count }} 次。</button>'
+})
+new Vue({ el: '#components-demo3' })
+</script>
+```
+## 9、Vue.js 自定义指令
+除了默认设置的核心指令( v-model 和 v-show ), Vue 也允许注册自定义指令。
+下面我们注册一个全局指令 v-focus, 该指令的功能是在页面加载时，元素获得焦点：
+```html
+<div id="app">
+    <p>页面载入时，input 元素自动获取焦点：</p>
+    <input v-focus>
+</div>
+<script>
+// 注册一个全局自定义指令 v-focus
+Vue.directive('focus', {
+  // 当绑定元素插入到 DOM 中。
+  inserted: function (el) {
+    // 聚焦元素
+    el.focus()
+  }
+})
+// 创建根实例
+new Vue({
+  el: '#app'
+})
+</script>
+```
+我们也可以在实例使用 directives 选项来注册局部指令，这样指令只能在这个实例中使用：
+```html
+<div id="app">
+  <p>页面载入时，input 元素自动获取焦点：</p>
+  <input v-focus>
+</div>
+ 
+<script>
+// 创建根实例
+new Vue({
+  el: '#app',
+  directives: {
+    // 注册一个局部的自定义指令 v-focus
+    focus: {
+      // 指令的定义
+      inserted: function (el) {
+        // 聚焦元素
+        el.focus()
+      }
+    }
+  }
+})
+</script>
+```
+**钩子**
+**钩子函数**
+指令定义函数提供了几个钩子函数（可选）：
+* bind: 只调用一次，指令第一次绑定到元素时调用，用这个钩子函数可以定义一个在绑定时执行一次的初始化动作。
+* inserted: 被绑定元素插入父节点时调用（父节点存在即可调用，不必存在于 document 中）。
+* update: 被绑定元素所在的模板更新时调用，而不论绑定值是否变化。通过比较更新前后的绑定值，可以忽略不必要的模板更新（详细的钩子函数参数见下）。
+* componentUpdated: 被绑定元素所在模板完成一次更新周期时调用。
+* unbind: 只调用一次， 指令与元素解绑时调用。
+**钩子函数参数**
+钩子函数的参数有：
+* el: 指令所绑定的元素，可以用来直接操作 DOM 。
+* binding: 一个对象，包含以下属性：
+  * name: 指令名，不包括 v- 前缀。
+  * value: 指令的绑定值， 例如： v-my-directive="1 + 1", value 的值是 2。
+  * oldValue: 指令绑定的前一个值，仅在 update 和 * componentUpdated 钩子中可用。无论值是否改变都可用。
+  * expression: 绑定值的表达式或变量名。 例如 v-my-directive="1 + 1" ， expression 的值是 "1 + 1"。
+  * arg: 传给指令的参数。例如 v-my-directive:foo， arg 的值是 "foo"。
+  * modifiers: 一个包含修饰符的对象。 例如： v-my-directive.foo.bar, 修饰符对象 modifiers 的值是 { foo: true, bar: true }。
+  * vnode: Vue 编译生成的虚拟节点。
+  * oldVnode: 上一个虚拟节点，仅在 update 和 componentUpdated 钩子中可用。
+
+以下实例演示了这些参数的使用：
+```html
+<div id="app"  v-runoob:hello.a.b="message">
+</div>
+ 
+<script>
+Vue.directive('runoob', {
+  bind: function (el, binding, vnode) {
+    var s = JSON.stringify
+    el.innerHTML =
+      'name: '       + s(binding.name) + '<br>' +
+      'value: '      + s(binding.value) + '<br>' +
+      'expression: ' + s(binding.expression) + '<br>' +
+      'argument: '   + s(binding.arg) + '<br>' +
+      'modifiers: '  + s(binding.modifiers) + '<br>' +
+      'vnode keys: ' + Object.keys(vnode).join(', ')
+  }
+})
+new Vue({
+  el: '#app',
+  data: {
+    message: '菜鸟教程!'
+  }
+})
+</script>
+```
+有时候我们不需要其他钩子函数，我们可以简写函数，如下格式：
+```javascript
+Vue.directive('runoob', function (el, binding) {
+  // 设置指令的背景颜色
+  el.style.backgroundColor = binding.value.color
+})
+```
+指令函数可接受所有合法的 JavaScript 表达式，以下实例传入了 JavaScript 对象：
+```html
+<div id="app">
+    <div v-runoob="{ color: 'green', text: '菜鸟教程!' }"></div>
+</div>
+ 
+<script>
+Vue.directive('runoob', function (el, binding) {
+    // 简写方式设置文本及背景颜色
+    el.innerHTML = binding.value.text
+    el.style.backgroundColor = binding.value.color
+})
+new Vue({
+  el: '#app'
+})
+</script>
+```
+## 10、Vue.js 响应接口
+**Vue.set**
+Vue.set 方法用于设置对象的属性，它可以解决 Vue 无法检测添加属性的限制，语法格式如下：
+```javascript
+Vue.set( target, key, value )
+```
+参数说明：
+* target: 可以是对象或数组
+* key : 可以是字符串或数字
+* value: 可以是任何类型
+```html
+<div id = "app">
+<p style = "font-size:25px;">计数器: {{ products.id }}</p>
+<button @click = "products.id++" style = "font-size:25px;">点我</button>
+</div>
+<script type = "text/javascript">
+var myproduct = {"id":1, name:"book", "price":"20.00"};
+var vm = new Vue({
+   el: '#app',
+   data: {
+      products: myproduct
+   }
+});
+//动态添加属性
+Vue.set(myproduct, 'qty', 1);
+console.log(vm);
+vm.$watch('products.id', function(nval, oval) {
+   alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+});
+</script>
+```
+**Vue.delete**
+Vue.delete 用于删除动态添加的属性 语法格式：
+```javascript
+Vue.delete( target, key )
+```
+参数说明：
+* target: 可以是对象或数组
+* key : 可以是字符串或数字
+
+```html
+<div id = "app">
+   <p style = "font-size:25px;">计数器: {{ products.id }}</p>
+   <button @click = "products.id++" style = "font-size:25px;">点我</button>
+</div>
+<script type = "text/javascript">
+var myproduct = {"id":1, name:"book", "price":"20.00"};
+var vm = new Vue({
+   el: '#app',
+   data: {
+      products: myproduct
+   }
+});
+Vue.delete(myproduct, 'price');
+console.log(vm);
+vm.$watch('products.id', function(nval, oval) {
+   alert('计数器值的变化 :' + oval + ' 变为 ' + nval + '!');
+});
+</script>
+```
 
