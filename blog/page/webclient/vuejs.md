@@ -503,3 +503,246 @@ new Vue({
 ```
 *注意：当 v-bind:style 使用需要特定前缀的 CSS 属性时，如 transform ，Vue.js 会自动侦测并添加相应的前缀。*
 ## 6、Vue.js 事件处理器
+事件监听可以使用 v-on 指令：
+```html
+<div id="app">
+  <button v-on:click="counter += 1">增加 1</button>
+  <p>这个按钮被点击了 {{ counter }} 次。</p>
+</div>
+ 
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    counter: 0
+  }
+})
+</script>
+```
+通常情况下，我们需要使用一个方法来调用 JavaScript 方法。
+v-on 可以接收一个定义的方法来调用。
+```html
+<div id="app">
+   <!-- `greet` 是在下面定义的方法名 -->
+  <button v-on:click="greet">Greet</button>
+</div>
+ 
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    name: 'Vue.js'
+  },
+  // 在 `methods` 对象中定义方法
+  methods: {
+    greet: function (event) {
+      // `this` 在方法里指当前 Vue 实例
+      alert('Hello ' + this.name + '!')
+      // `event` 是原生 DOM 事件
+      if (event) {
+          alert(event.target.tagName)
+      }
+    }
+  }
+})
+// 也可以用 JavaScript 直接调用方法
+app.greet() // -> 'Hello Vue.js!'
+</script>
+```
+除了直接绑定到一个方法，也可以用内联 JavaScript 语句：
+```html
+<div id="app">
+  <button v-on:click="say('hi')">Say hi</button>
+  <button v-on:click="say('what')">Say what</button>
+</div>
+ 
+<script>
+new Vue({
+  el: '#app',
+  methods: {
+    say: function (message) {
+      alert(message)
+    }
+  }
+})
+</script>
+```
+**事件修饰符**
+Vue.js 为 v-on 提供了事件修饰符来处理 DOM 事件细节，如：event.preventDefault() 或 event.stopPropagation()。
+Vue.js通过由点(.)表示的指令后缀来调用修饰符。
+* .stop
+* .prevent
+* .capture
+* .self
+* .once
+```html
+<!-- 阻止单击事件冒泡 -->
+<a v-on:click.stop="doThis"></a>
+<!-- 提交事件不再重载页面 -->
+<form v-on:submit.prevent="onSubmit"></form>
+<!-- 修饰符可以串联  -->
+<a v-on:click.stop.prevent="doThat"></a>
+<!-- 只有修饰符 -->
+<form v-on:submit.prevent></form>
+<!-- 添加事件侦听器时使用事件捕获模式 -->
+<div v-on:click.capture="doThis">...</div>
+<!-- 只当事件在该元素本身（而不是子元素）触发时触发回调 -->
+<div v-on:click.self="doThat">...</div>
+<!-- click 事件只能点击一次，2.1.4版本新增 -->
+<a v-on:click.once="doThis"></a>
+```
+**按键修饰符**
+Vue 允许为 v-on 在监听键盘事件时添加按键修饰符：
+```html
+<!-- 只有在 keyCode 是 13 时调用 vm.submit() -->
+<input v-on:keyup.13="submit">
+```
+记住所有的 keyCode 比较困难，所以 Vue 为最常用的按键提供了别名：
+```html
+<!-- 同上 -->
+<input v-on:keyup.enter="submit">
+<!-- 缩写语法 -->
+<input @keyup.enter="submit">
+```
+全部的按键别名：
+* .enter
+* .tab
+* .delete (捕获 "删除" 和 "退格" 键)
+* .esc
+* .space
+* .up
+* .down
+* .left
+* .right
+* .ctrl
+* .alt
+* .shift
+* .meta
+```html
+<p><!-- Alt + C -->
+<input @keyup.alt.67="clear">
+<!-- Ctrl + Click -->
+<div @click.ctrl="doSomething">Do something</div>
+```
+## 7、Vue.js 表单
+这节我们为大家介绍 Vue.js 表单上的应用。
+你可以用 v-model 指令在表单控件元素上创建双向数据绑定。
+<img src='assets/vue1.png' alt='vue表单'/>
+v-model 会根据控件类型自动选取正确的方法来更新元素。
+**输入框**
+实例中演示了 input 和 textarea 元素中使用 v-model 实现双向数据绑定：
+```html
+<div id="app">
+  <p>input 元素：</p>
+  <input v-model="message" placeholder="编辑我……">
+  <p>消息是: {{ message }}</p>
+    
+  <p>textarea 元素：</p>
+  <p style="white-space: pre">{{ message2 }}</p>
+  <textarea v-model="message2" placeholder="多行文本输入……"></textarea>
+</div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Runoob',
+    message2: '菜鸟教程\r\nhttp://www.runoob.com'
+  }
+})
+</script>
+```
+**复选框**
+复选框如果是一个为逻辑值，如果是多个则绑定到同一个数组：
+```html
+以下实例中演示了复选框的双向数据绑定：
+
+<div id="app">
+  <p>单个复选框：</p>
+  <input type="checkbox" id="checkbox" v-model="checked">
+  <label for="checkbox">{{ checked }}</label>
+    
+  <p>多个复选框：</p>
+  <input type="checkbox" id="runoob" value="Runoob" v-model="checkedNames">
+  <label for="runoob">Runoob</label>
+  <input type="checkbox" id="google" value="Google" v-model="checkedNames">
+  <label for="google">Google</label>
+  <input type="checkbox" id="taobao" value="Taobao" v-model="checkedNames">
+  <label for="taobao">taobao</label>
+  <br>
+  <span>选择的值为: {{ checkedNames }}</span>
+</div> 
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    checked : false,
+    checkedNames: []
+  }
+})
+</script>
+```
+**单选按钮**
+以下实例中演示了单选按钮的双向数据绑定：
+```html
+<div id="app">
+  <input type="radio" id="runoob" value="Runoob" v-model="picked">
+  <label for="runoob">Runoob</label>
+  <br>
+  <input type="radio" id="google" value="Google" v-model="picked">
+  <label for="google">Google</label>
+  <br>
+  <span>选中值为: {{ picked }}</span>
+</div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    picked : 'Runoob'
+  }
+})
+</script>
+```
+**select 列表**
+以下实例中演示了下拉列表的双向数据绑定：
+```html
+<div id="app">
+  <select v-model="selected" name="fruit">
+    <option value="">选择一个网站</option>
+    <option value="www.runoob.com">Runoob</option>
+    <option value="www.google.com">Google</option>
+  </select>
+ 
+  <div id="output">
+      选择的网站是: {{selected}}
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    selected: '' 
+  }
+})
+</script>
+```
+**修饰符**
+.lazy
+在默认情况下， v-model 在 input 事件中同步输入框的值与数据，但你可以添加一个修饰符 lazy ，从而转变为在 change 事件中同步：
+```html
+<!-- 在 "change" 而不是 "input" 事件中更新 -->
+<input v-model.lazy="msg" >
+```
+**.number**
+如果想自动将用户的输入值转为 Number 类型（如果原值的转换结果为 NaN 则返回原值），可以添加一个修饰符 number 给 v-model 来处理输入值：
+```html
+<input v-model.number="age" type="number">
+```
+这通常很有用，因为在 type="number" 时 HTML 中输入的值也总是会返回字符串类型。
+**.trim**
+如果要自动过滤用户输入的首尾空格，可以添加 trim 修饰符到 v-model 上过滤输入：
+```html
+<input v-model.trim="msg">
+```
+## 8、Vue.js 组件
+
+
