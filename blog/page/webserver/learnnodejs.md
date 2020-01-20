@@ -146,4 +146,34 @@ $ npm publish
 
 版本号有了这个保证后，在申明第三方包依赖时，除了可依赖于一个固定版本号外，还可依赖于某个范围的版本号。例如"argv": "0.0.x"表示依赖于0.0.x系列的最新版argv。
 NPM支持的所有版本号范围指定方式可以查看官方文档。
+
 **NPM 常用命令**
+除了本章介绍的部分外，NPM还提供了很多功能，package.json里也有很多其它有用的字段。
+除了可以在npmjs.org/doc/查看官方文档外，这里再介绍一些NPM常用命令。
+* NPM提供了很多命令，例如install和publish，使用npm help可查看所有命令。
+* 使用npm help \<command>可查看某条命令的详细帮助，例如npm help install。
+* 在package.json所在目录下使用npm install . -g可先在本地安装当前命令行程序，可用于发布前的本地测试。
+* 使用npm update \<package>可以把当前目录下node_modules子目录里边的对应模块更新至最新版本。
+* 使用npm update \<package> -g可以把全局安装的对应命令行程序更新至最新版。
+* 使用npm cache clear可以清空NPM本地缓存，用于对付使用相同版本号发布新版本代码的人。
+* 使用npm unpublish \<package>@\<version>可以撤销发布自己发布过的某个版本代码。
+
+**使用淘宝 NPM 镜像**
+大家都知道国内直接使用 npm 的官方镜像是非常慢的，这里推荐使用淘宝 NPM 镜像。
+淘宝 NPM 镜像是一个完整 npmjs.org 镜像，你可以用此代替官方版本(只读)，同步频率目前为 10分钟 一次以保证尽量与官方服务同步。
+你可以使用淘宝定制的 cnpm (gzip 压缩支持) 命令行工具代替默认的 npm:
+```javascript
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+这样就可以使用 cnpm 命令来安装模块了：
+```javascript
+$ cnpm install [name]
+```
+***提示***
+如果你遇到了使用 npm 安 装node_modules 总是提示报错：报错: npm resource busy or locked.....。
+可以先删除以前安装的 node_modules :
+```javascript
+npm cache clean
+npm install
+```
+## 2、Node.js 回调函数
