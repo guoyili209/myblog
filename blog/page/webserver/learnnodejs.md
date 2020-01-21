@@ -276,3 +276,400 @@ emitter.emit('error');
 ## 4、Node.js Buffer(缓冲区)
 JavaScript 语言自身只有字符串数据类型，没有二进制数据类型。
 但在处理像TCP流或文件流时，必须使用到二进制数据。因此在 Node.js中，定义了一个 Buffer 类，该类用来创建一个专门存放二进制数据的缓存区。
+*在v6.0之前创建Buffer对象直接使用new Buffer()构造函数来创建对象实例，但是Buffer对内存的权限操作相比很大，可以直接捕获一些敏感信息，所以在v6.0以后，官方文档里面建议使用 Buffer.from() 接口去创建Buffer对象。*
+**Buffer 与字符编码**
+Buffer 实例一般用于表示编码字符的序列，比如 UTF-8 、 UCS2 、 Base64 、或十六进制编码的数据。 通过使用显式的字符编码，就可以在 Buffer 实例与普通的 JavaScript 字符串之间进行相互转换。
+```javascript
+const buf = Buffer.from('runoob', 'ascii');
+// 输出 72756e6f6f62
+console.log(buf.toString('hex'));
+// 输出 cnVub29i
+console.log(buf.toString('base64'));
+```
+**Node.js 目前支持的字符编码包括：**
+* ascii - 仅支持 7 位 ASCII 数据。如果设置去掉高位的话，这种编码是非常快的。
+* utf8 - 多字节编码的 Unicode 字符。许多网页和其他文档格式都使用 UTF-8 。
+* utf16le - 2 或 4 个字节，小字节序编码的 Unicode 字符。支持代理对（U+10000 至 U+10FFFF）。
+* ucs2 - utf16le 的别名。
+* base64 - Base64 编码。
+* latin1 - 一种把 Buffer 编码成一字节编码的字符串的方式。
+* binary - latin1 的别名。
+* hex - 将每个字节编码为两个十六进制字符。
+
+**创建 Buffer 类**
+Buffer 提供了以下 API 来创建 Buffer 类：
+* Buffer.alloc(size[, fill[, encoding]])： 返回一个指定大小的 Buffer 实例，如果没有设置 fill，则默认填满 0
+* Buffer.allocUnsafe(size)： 返回一个指定大小的      
+* Buffer 实例，但是它不会被初始化，所以它可能包含敏感的数据
+* Buffer.allocUnsafeSlow(size)
+* Buffer.from(array)： 返回一个被 array 的值初始化的新的 Buffer 实例（传入的 array 的元素只能是数字，不然就会自动被 0 覆盖）
+* Buffer.from(arrayBuffer[, byteOffset[, length]])： 返回一个新建的与给定的 ArrayBuffer 共享同一内存的 Buffer。
+* Buffer.from(buffer)： 复制传入的 Buffer 实例的数据，并返回一个新的 Buffer 实例
+* Buffer.from(string[, encoding])： 返回一个被 string 的值初始化的新的 Buffer 实例
+```javascript
+// 创建一个长度为 10、且用 0 填充的 Buffer。
+const buf1 = Buffer.alloc(10);
+// 创建一个长度为 10、且用 0x1 填充的 Buffer。 
+const buf2 = Buffer.alloc(10, 1);
+// 创建一个长度为 10、且未初始化的 Buffer。
+// 这个方法比调用 Buffer.alloc() 更快，
+// 但返回的 Buffer 实例可能包含旧数据，
+// 因此需要使用 fill() 或 write() 重写。
+const buf3 = Buffer.allocUnsafe(10);
+// 创建一个包含 [0x1, 0x2, 0x3] 的 Buffer。
+const buf4 = Buffer.from([1, 2, 3]);
+// 创建一个包含 UTF-8 字节 [0x74, 0xc3, 0xa9, 0x73, 0x74] 的 Buffer。
+const buf5 = Buffer.from('tést');
+// 创建一个包含 Latin-1 字节 [0x74, 0xe9, 0x73, 0x74] 的 Buffer。
+const buf6 = Buffer.from('tést', 'latin1');
+```
+**写入缓冲区**
+写入 Node 缓冲区的语法如下所示：
+```javascript
+buf.write(string[, offset[, length]][, encoding])
+```
+**参数**
+参数描述如下：
+* string - 写入缓冲区的字符串。
+* offset - 缓冲区开始写入的索引值，默认为 0 。
+* length - 写入的字节数，默认为 buffer.length
+* encoding - 使用的编码。默认为 'utf8' 。
+
+根据 encoding 的字符编码写入 string 到 buf 中的 offset 位置。 length 参数是写入的字节数。 如果 buf 没有足够的空间保存整个字符串，则只会写入 string 的一部分。 只部分解码的字符不会被写入。
+**返回值**
+返回实际写入的大小。如果 buffer 空间不足， 则只会写入部分字符串。
+```javascript
+buf = Buffer.alloc(256);
+len = buf.write("www.runoob.com");
+console.log("写入字节数 : "+  len);
+```
+**从缓冲区读取数据**
+读取 Node 缓冲区数据的语法如下所示：
+```javascript
+buf.toString([encoding[, start[, end]]])
+```
+参数描述如下：
+* encoding - 使用的编码。默认为 'utf8' 。
+* start - 指定开始读取的索引位置，默认为 0。
+* end - 结束位置，默认为缓冲区的末尾。
+
+**返回值**
+解码缓冲区数据并使用指定的编码返回字符串。
+```javascript
+buf = Buffer.alloc(26);
+for (var i = 0 ; i < 26 ; i++) {
+  buf[i] = i + 97;
+}
+console.log( buf.toString('ascii'));       // 输出: abcdefghijklmnopqrstuvwxyz
+console.log( buf.toString('ascii',0,5));   //使用 'ascii' 编码, 并输出: abcde
+console.log( buf.toString('utf8',0,5));    // 使用 'utf8' 编码, 并输出: abcde
+console.log( buf.toString(undefined,0,5)); // 使用默认的 'utf8' 编码, 并输出: abcde
+```
+**将 Buffer 转换为 JSON 对象**
+将 Node Buffer 转换为 JSON 对象的函数语法格式如下：
+```javascript
+buf.toJSON()
+```
+当字符串化一个 Buffer 实例时，JSON.stringify() 会隐式地调用该 toJSON()。
+**返回值**
+返回 JSON 对象。
+```javascript
+const buf = Buffer.from([0x1, 0x2, 0x3, 0x4, 0x5]);
+const json = JSON.stringify(buf);
+// 输出: {"type":"Buffer","data":[1,2,3,4,5]}
+console.log(json);
+const copy = JSON.parse(json, (key, value) => {
+  return value && value.type === 'Buffer' ?
+    Buffer.from(value.data) :
+    value;
+});
+// 输出: <Buffer 01 02 03 04 05>
+console.log(copy);
+```
+**缓冲区合并**
+Node 缓冲区合并的语法如下所示：
+```javascript
+Buffer.concat(list[, totalLength])
+```
+参数描述如下：
+* list - 用于合并的 Buffer 对象数组列表。
+* totalLength - 指定合并后Buffer对象的总长度。
+
+**返回值**
+返回一个多个成员合并的新 Buffer 对象。
+```javascript
+var buffer1 = Buffer.from(('菜鸟教程'));
+var buffer2 = Buffer.from(('www.runoob.com'));
+var buffer3 = Buffer.concat([buffer1,buffer2]);
+console.log("buffer3 内容: " + buffer3.toString());
+```
+缓冲区比较
+Node Buffer 比较的函数语法如下所示, 该方法在 Node.js v0.12.2 版本引入：
+```javascript
+var buffer1 = Buffer.from('ABC');
+var buffer2 = Buffer.from('ABCD');
+var result = buffer1.compare(buffer2);
+if(result < 0) {
+   console.log(buffer1 + " 在 " + buffer2 + "之前");
+}else if(result == 0){
+   console.log(buffer1 + " 与 " + buffer2 + "相同");
+}else {
+   console.log(buffer1 + " 在 " + buffer2 + "之后");
+}
+```
+**拷贝缓冲区**
+Node 缓冲区拷贝语法如下所示：
+```javascript
+buf.copy(targetBuffer[, targetStart[, sourceStart[, sourceEnd]]])
+```
+```javascript
+var buf1 = Buffer.from('abcdefghijkl');
+var buf2 = Buffer.from('RUNOOB');
+//将 buf2 插入到 buf1 指定位置上
+buf2.copy(buf1, 2);
+console.log(buf1.toString());
+```
+**缓冲区裁剪**
+Node 缓冲区裁剪语法如下所示：
+```javascript
+buf.slice([start[, end]])
+```
+**返回值**
+返回一个新的缓冲区，它和旧缓冲区指向同一块内存，但是从索引 start 到 end 的位置剪切。
+```javascript
+var buffer1 = Buffer.from('runoob');
+// 剪切缓冲区
+var buffer2 = buffer1.slice(0,2);
+console.log("buffer2 content: " + buffer2.toString());
+```
+**缓冲区长度**
+Node 缓冲区长度计算语法如下所示：
+```javascript
+buf.length;
+```
+**返回值**
+返回 Buffer 对象所占据的内存长度。
+```javascript
+var buffer = Buffer.from('www.runoob.com');
+//  缓冲区长度
+console.log("buffer length: " + buffer.length);
+```
+## 5、Node.js Stream(流)
+**从流中读取数据**
+```javascript
+var fs = require("fs");
+var data = '';
+// 创建可读流
+var readerStream = fs.createReadStream('input.txt');
+// 设置编码为 utf8。
+readerStream.setEncoding('UTF8');
+// 处理流事件 --> data, end, and error
+readerStream.on('data', function(chunk) {
+   data += chunk;
+});
+readerStream.on('end',function(){
+   console.log(data);
+});
+readerStream.on('error', function(err){
+   console.log(err.stack);
+});
+console.log("程序执行完毕");
+```
+**写入流**
+```javascript
+var fs = require("fs");
+var data = '菜鸟教程官网地址：www.runoob.com';
+// 创建一个可以写入的流，写入到文件 output.txt 中
+var writerStream = fs.createWriteStream('output.txt');
+// 使用 utf8 编码写入数据
+writerStream.write(data,'UTF8');
+// 标记文件末尾
+writerStream.end();
+// 处理流事件 --> data, end, and error
+writerStream.on('finish', function() {
+    console.log("写入完成。");
+});
+writerStream.on('error', function(err){
+   console.log(err.stack);
+});
+console.log("程序执行完毕");
+```
+**管道流**
+```javascript
+var fs = require("fs");
+// 创建一个可读流
+var readerStream = fs.createReadStream('input.txt');
+// 创建一个可写流
+var writerStream = fs.createWriteStream('output.txt');
+// 管道读写操作
+// 读取 input.txt 文件内容，并将内容写入到 output.txt 文件中
+readerStream.pipe(writerStream);
+console.log("程序执行完毕");
+```
+**链式流**
+链式是通过连接输出流到另外一个流并创建多个流操作链的机制。链式流一般用于管道操作。
+接下来我们就是用管道和链式来压缩和解压文件。
+```javascript
+var fs = require("fs");
+var zlib = require('zlib');
+// 压缩 input.txt 文件为 input.txt.gz
+fs.createReadStream('input.txt')
+  .pipe(zlib.createGzip())
+  .pipe(fs.createWriteStream('input.txt.gz'));
+  
+console.log("文件压缩完成。");
+```
+执行完以上操作后，我们可以看到当前目录下生成了 input.txt 的压缩文件 input.txt.gz。
+接下来，让我们来解压该文件，创建 decompress.js 文件，代码如下：
+```javascript
+var fs = require("fs");
+var zlib = require('zlib');
+// 解压 input.txt.gz 文件为 input.txt
+fs.createReadStream('input.txt.gz')
+  .pipe(zlib.createGunzip())
+  .pipe(fs.createWriteStream('input.txt'));
+  
+console.log("文件解压完成。");
+```
+## 6、Node.js模块系统
+```javascript
+//hello.js 
+function Hello() { 
+    var name; 
+    this.setName = function(thyName) { 
+        name = thyName; 
+    }; 
+    this.sayHello = function() { 
+        console.log('Hello ' + name); 
+    }; 
+}; 
+module.exports = Hello;
+```
+```javascript
+//main.js 
+var Hello = require('./hello'); 
+hello = new Hello(); 
+hello.setName('BYVoid'); 
+hello.sayHello(); 
+```
+## 7、Node.js 函数
+```javascript
+var http = require("http");
+http.createServer(function(request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("Hello World");
+  response.end();
+}).listen(8888);
+```
+```javascript
+var http = require("http");
+function onRequest(request, response) {
+  response.writeHead(200, {"Content-Type": "text/plain"});
+  response.write("Hello World");
+  response.end();
+}
+http.createServer(onRequest).listen(8888);
+```
+## 8、Node.js 全局对象
+**全局对象与全局变量**
+global 最根本的作用是作为全局变量的宿主。按照 ECMAScript 的定义，满足以下条 件的变量是全局变量：
+* 在最外层定义的变量；
+* 全局对象的属性；
+* 隐式定义的变量（未定义直接赋值的变量）。
+
+当你定义一个全局变量时，这个变量同时也会成为全局对象的属性，反之亦然。需要注 意的是，在 Node.js 中你不可能在最外层定义变量，因为所有用户代码都是属于当前模块的， 而模块本身不是最外层上下文。
+**注意：** 最好不要使用 var 定义变量以避免引入全局变量，因为全局变量会污染命名空间，提高代码的耦合风险。
+
+**__filename**
+__filename 表示当前正在执行的脚本的文件名。它将输出文件所在位置的绝对路径，且和命令行参数所指定的文件名不一定相同。 如果在模块中，返回的值是模块文件的路径。
+```javascript
+// 输出全局变量 __filename 的值
+console.log( __filename );
+```
+**__dirname**
+__dirname 表示当前执行脚本所在的目录。
+```javascript
+// 输出全局变量 __dirname 的值
+console.log( __dirname );
+```
+**setTimeout(cb, ms)**
+setTimeout(cb, ms) 全局函数在指定的毫秒(ms)数后执行指定函数(cb)。：setTimeout() 只执行一次指定函数。
+返回一个代表定时器的句柄值。
+```javascript
+function printHello(){
+   console.log( "Hello, World!");
+}
+// 两秒后执行以上函数
+setTimeout(printHello, 2000);
+```
+**clearTimeout(t)**
+clearTimeout( t ) 全局函数用于停止一个之前通过 setTimeout() 创建的定时器。 参数 t 是通过 setTimeout() 函数创建的定时器。
+```javascript
+unction printHello(){
+   console.log( "Hello, World!");
+}
+// 两秒后执行以上函数
+var t = setTimeout(printHello, 2000);
+// 清除定时器
+clearTimeout(t);
+```
+**setInterval(cb, ms)**
+setInterval(cb, ms) 全局函数在指定的毫秒(ms)数后执行指定函数(cb)。
+返回一个代表定时器的句柄值。可以使用 clearInterval(t) 函数来清除定时器。
+setInterval() 方法会不停地调用函数，直到 clearInterval() 被调用或窗口被关闭。
+```javascript
+function printHello(){
+   console.log( "Hello, World!");
+}
+// 两秒后执行以上函数
+setInterval(printHello, 2000);
+```
+**console 方法**
+<table class="reference">
+<tbody><tr><th>序号</th><th>方法 &amp; 描述</th></tr>
+<tr><td>1</td><td><b>console.log([data][, ...])</b><br>向标准输出流打印字符并以换行符结束。该方法接收若干 个参数，如果只有一个参数，则输出这个参数的字符串形式。如果有多个参数，则 以类似于C 语言 printf() 命令的格式输出。 </td></tr>
+<tr><td>2</td><td><b>console.info([data][, ...])</b><br>该命令的作用是返回信息性消息，这个命令与console.log差别并不大，除了在chrome中只会输出文字外，其余的会显示一个蓝色的惊叹号。</td></tr>
+<tr><td>3</td><td><b>console.error([data][, ...])</b><br>输出错误消息的。控制台在出现错误时会显示是红色的叉子。</td></tr>
+<tr><td>4</td><td><b>console.warn([data][, ...])</b><br>输出警告消息。控制台出现有黄色的惊叹号。</td></tr>
+<tr><td>5</td><td><b>console.dir(obj[, options])</b><br>用来对一个对象进行检查（inspect），并以易于阅读和打印的格式显示。</td></tr>
+<tr><td>6</td><td><b>console.time(label)</b><br>输出时间，表示计时开始。</td></tr>
+<tr><td>7</td><td><b>console.timeEnd(label)</b><br>结束时间，表示计时结束。</td></tr>
+<tr><td>8</td><td><b>console.trace(message[, ...])</b><br>当前执行的代码在堆栈中的调用路径，这个测试函数运行很有帮助，只要给想测试的函数里面加入 console.trace 就行了。</td></tr>
+<tr><td>9</td><td><b>console.assert(value[, message][, ...])</b><br>用于判断某个表达式或变量是否为真，接收两个参数，第一个参数是表达式，第二个参数是字符串。只有当第一个参数为false，才会输出第二个参数，否则不会有任何结果。</td></tr>
+</tbody></table>
+
+**process**
+process 是一个全局变量，即 global 对象的属性。
+它用于描述当前Node.js 进程状态的对象，提供了一个与操作系统的简单接口。通常在你写本地命令行程序的时候，少不了要 和它打交道。下面将会介绍 process 对象的一些最常用的成员方法。
+<table class="reference">
+<tbody><tr><th>序号</th><th>事件 &amp; 描述</th></tr>
+<tr><td>1</td><td><b>exit</b><br>当进程准备退出时触发。</td></tr>
+<tr><td>2</td><td><b>beforeExit</b><br>当 node 清空事件循环，并且没有其他安排时触发这个事件。通常来说，当没有进程安排时 node 退出，但是 'beforeExit' 的监听器可以异步调用，这样 node 就会继续执行。</td></tr>
+<tr><td>3</td><td><b>uncaughtException</b><br>当一个异常冒泡回到事件循环，触发这个事件。如果给异常添加了监视器，默认的操作（打印堆栈跟踪信息并退出）就不会发生。</td></tr>
+<tr><td>4</td><td><b>Signal 事件</b><br>当进程接收到信号时就触发。信号列表详见标准的 POSIX 信号名，如 SIGINT、SIGUSR1 等。</td></tr>
+</tbody></table>
+
+```javascript
+process.on('exit', function(code) {
+  // 以下代码永远不会执行
+  setTimeout(function() {
+    console.log("该代码不会执行");
+  }, 0);
+  
+  console.log('退出码为:', code);
+});
+console.log("程序执行结束");
+```
+**退出状态码**
+略
+**Process 属性**
+略
+
+## 9、Node.js 常用工具
+util 是一个Node.js 核心模块，提供常用函数的集合，用于弥补核心 JavaScript 的功能 过于精简的不足。
+使用方法如下：
+```javascript
+const util = require('util');
+```
+**util.callbackify**
+util.callbackify(original) 将 async 异步函数（或者一个返回值为 Promise 的函数）转换成遵循异常优先的回调风格的函数
