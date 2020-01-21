@@ -177,3 +177,102 @@ npm cache clean
 npm install
 ```
 ## 2、Node.js 回调函数
+Node.js 异步编程的直接体现就是回调。
+异步编程依托于回调来实现，但不能说使用了回调后程序就异步化了。
+回调函数在完成任务后就会被调用，Node 使用了大量的回调函数，Node 所有 API 都支持回调函数。
+例如，我们可以一边读取文件，一边执行其他命令，在文件读取完成后，我们将文件内容作为回调函数的参数返回。这样在执行代码时就没有阻塞或等待文件 I/O 操作。这就大大提高了 Node.js 的性能，可以处理大量的并发请求。
+回调函数一般作为函数的最后一个参数出现：
+```javascript
+function foo1(name, age, callback) { }
+function foo2(value, callback1, callback2) { }
+```
+**阻塞代码实例**
+创建 main.js 文件, 代码如下：
+```javascript
+var fs = require("fs");
+var data = fs.readFileSync('input.txt');
+console.log(data.toString());
+console.log("程序执行结束!");
+```
+**非阻塞代码实例**
+创建 main.js 文件, 代码如下：
+```javascript
+var fs = require("fs");
+fs.readFile('input.txt', function (err, data) {
+    if (err) return console.error(err);
+    console.log(data.toString());
+});
+console.log("程序执行结束!");
+```
+以上两个实例我们了解了阻塞与非阻塞调用的不同。第一个实例在文件读取完后才执行程序。 第二个实例我们不需要等待文件读取完，这样就可以在读取文件时同时执行接下来的代码，大大提高了程序的性能。
+因此，阻塞是按顺序执行的，而非阻塞是不需要按顺序的，所以如果需要处理回调函数的参数，我们就需要写在回调函数内。
+## 3、Node.js EventEmitter
+Node.js 里面的许多对象都会分发事件：一个 net.Server 对象会在每次有新连接时触发一个事件， 一个 fs.readStream 对象会在文件被打开的时候触发一个事件。 所有这些产生事件的对象都是 events.EventEmitter 的实例。
+**EventEmitter 类**
+events 模块只提供了一个对象： events.EventEmitter。EventEmitter 的核心就是事件触发与事件监听器功能的封装。
+你可以通过require("events");来访问该模块。
+```javascript
+// 引入 events 模块
+var events = require('events');
+// 创建 eventEmitter 对象
+var eventEmitter = new events.EventEmitter();
+```
+EventEmitter 对象如果在实例化时发生错误，会触发 error 事件。当添加新的监听器时，newListener 事件会触发，当监听器被移除时，removeListener 事件被触发。
+下面我们用一个简单的例子说明 EventEmitter 的用法：
+```javascript
+//event.js 文件
+var EventEmitter = require('events').EventEmitter; 
+var event = new EventEmitter(); 
+event.on('some_event', function() { 
+    console.log('some_event 事件触发'); 
+}); 
+setTimeout(function() { 
+    event.emit('some_event'); 
+}, 1000); 
+```
+实例：
+```javascript
+var events = require('events');
+var eventEmitter = new events.EventEmitter();
+// 监听器 #1
+var listener1 = function listener1() {
+   console.log('监听器 listener1 执行。');
+}
+// 监听器 #2
+var listener2 = function listener2() {
+  console.log('监听器 listener2 执行。');
+}
+// 绑定 connection 事件，处理函数为 listener1 
+eventEmitter.addListener('connection', listener1);
+// 绑定 connection 事件，处理函数为 listener2
+eventEmitter.on('connection', listener2);
+var eventListeners = eventEmitter.listenerCount('connection');
+console.log(eventListeners + " 个监听器监听连接事件。");
+// 处理 connection 事件 
+eventEmitter.emit('connection');
+// 移除监绑定的 listener1 函数
+eventEmitter.removeListener('connection', listener1);
+console.log("listener1 不再受监听。");
+// 触发连接事件
+eventEmitter.emit('connection');
+eventListeners = eventEmitter.listenerCount('connection');
+console.log(eventListeners + " 个监听器监听连接事件。");
+console.log("程序执行完毕。");
+```
+**error 事件**
+EventEmitter 定义了一个特殊的事件 error，它包含了错误的语义，我们在遇到 异常的时候通常会触发 error 事件。
+当 error 被触发时，EventEmitter 规定如果没有响 应的监听器，Node.js 会把它当作异常，退出程序并输出错误信息。
+我们一般要为会触发 error 事件的对象设置监听器，避免遇到错误后整个程序崩溃。例如：
+```javascript
+var events = require('events'); 
+var emitter = new events.EventEmitter(); 
+emitter.emit('error'); 
+```
+**继承 EventEmitter**
+大多数时候我们不会直接使用 EventEmitter，而是在对象中继承它。包括 fs、net、 http 在内的，只要是支持事件响应的核心模块都是 EventEmitter 的子类。
+为什么要这样做呢？原因有两点：
+首先，具有某个实体功能的对象实现事件符合语义， 事件的监听和发生应该是一个对象的方法。
+其次 JavaScript 的对象机制是基于原型的，支持 部分多重继承，继承 EventEmitter 不会打乱对象原有的继承关系。
+## 4、Node.js Buffer(缓冲区)
+JavaScript 语言自身只有字符串数据类型，没有二进制数据类型。
+但在处理像TCP流或文件流时，必须使用到二进制数据。因此在 Node.js中，定义了一个 Buffer 类，该类用来创建一个专门存放二进制数据的缓存区。
