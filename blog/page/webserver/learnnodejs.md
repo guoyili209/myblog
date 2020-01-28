@@ -673,3 +673,880 @@ const util = require('util');
 ```
 **util.callbackify**
 util.callbackify(original) 将 async 异步函数（或者一个返回值为 Promise 的函数）转换成遵循异常优先的回调风格的函数
+
+**util.inherits**
+util.inherits(constructor, superConstructor) 是一个实现对象间原型继承的函数。
+
+**util.inspect**
+util.inspect(object,[showHidden],[depth],[colors]) 是一个将任意对象转换 为字符串的方法，通常用于调试和错误输出。它至少接受一个参数 object，即要转换的对象。
+
+**util.isArray(object)**
+如果给定的参数 "object" 是一个数组返回 true，否则返回 false。
+
+**util.isRegExp(object)**
+如果给定的参数 "object" 是一个正则表达式返回true，否则返回false。
+
+**util.isDate(object)**
+如果给定的参数 "object" 是一个日期返回true，否则返回false。
+
+## 10、Node.js 文件系统
+Node.js 提供一组类似 UNIX（POSIX）标准的文件操作API。 Node 导入文件系统模块(fs)语法如下所示：
+```javascript
+var fs = require("fs")
+```
+文件读取：
+```javascript
+var fs = require("fs");
+
+// 异步读取
+fs.readFile('input.txt', function (err, data) {
+   if (err) {
+       return console.error(err);
+   }
+   console.log("异步读取: " + data.toString());
+});
+
+// 同步读取
+var data = fs.readFileSync('input.txt');
+console.log("同步读取: " + data.toString());
+
+console.log("程序执行完毕。");
+```
+打开文件：
+```javascript
+var fs = require("fs");
+
+// 异步打开文件
+console.log("准备打开文件！");
+fs.open('input.txt', 'r+', function(err, fd) {
+   if (err) {
+       return console.error(err);
+   }
+  console.log("文件打开成功！");     
+});
+```
+fs.stat(path)执行后，会将stats类的实例返回给其回调函数。可以通过stats类中的提供方法判断文件的相关属性。例如判断是否为文件：
+```javascript
+var fs = require('fs');
+
+fs.stat('/Users/liuht/code/itbilu/demo/fs.js', function (err, stats) {
+    console.log(stats.isFile());         //true
+})
+```
+## 11、Node.js GET/POST请求
+
+**获取GET请求内容**
+```javascript
+var http = require('http');
+var url = require('url');
+var util = require('util');
+ 
+http.createServer(function(req, res){
+    res.writeHead(200, {'Content-Type': 'text/plain; charset=utf-8'});
+    res.end(util.inspect(url.parse(req.url, true)));
+}).listen(3000);
+```
+**获取 URL 的参数**
+我们可以使用 url.parse 方法来解析 URL 中的参数，代码如下：
+```javascript
+var http = require('http');
+var url = require('url');
+var util = require('util');
+ 
+http.createServer(function(req, res){
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+ 
+    // 解析 url 参数
+    var params = url.parse(req.url, true).query;
+    res.write("网站名：" + params.name);
+    res.write("\n");
+    res.write("网站 URL：" + params.url);
+    res.end();
+ 
+}).listen(3000);
+```
+**获取 POST 请求内容**
+```javascript
+var http = require('http');
+var querystring = require('querystring');
+var util = require('util');
+ 
+http.createServer(function(req, res){
+    // 定义了一个post变量，用于暂存请求体的信息
+    var post = '';     
+ 
+    // 通过req的data事件监听函数，每当接受到请求体的数据，就累加到post变量中
+    req.on('data', function(chunk){    
+        post += chunk;
+    });
+ 
+    // 在end事件触发后，通过querystring.parse将post解析为真正的POST请求格式，然后向客户端返回。
+    req.on('end', function(){    
+        post = querystring.parse(post);
+        res.end(util.inspect(post));
+    });
+}).listen(3000);
+```
+## 12、Node.js 工具模块
+<table class="reference">
+<tbody><tr><th>序号</th><th>模块名 &amp; 描述</th></tr>
+<tr><td>1</td><td><a href="/nodejs/nodejs-os-module.html" alt="OS 模块"><b>OS 模块</b></a><br> 提供基本的系统操作函数。</td></tr>
+<tr><td>2</td><td><a href="/nodejs/nodejs-path-module.html" alt="Path 模块"><b>Path 模块</b></a><br>提供了处理和转换文件路径的工具。</td></tr>
+<tr><td>3</td><td><a href="/nodejs/nodejs-net-module.html" alt="Net 模块"><b>Net 模块</b></a><br> 用于底层的网络通信。提供了服务端和客户端的的操作。</td></tr>
+<tr><td>4</td><td><a href="/nodejs/nodejs-dns-module.html" alt="DNS 模块"><b>DNS 模块</b></a><br> 用于解析域名。</td></tr>
+<tr><td>5</td><td><a href="/nodejs/nodejs-domain-module.html" alt="Domain 模块"><b>Domain 模块</b></a><br> 简化异步代码的异常处理，可以捕捉处理try catch无法捕捉的。</td></tr>
+</tbody></table>	
+## 13、Node.js Web 模块
+**使用 Node 创建 Web 服务器**
+```javascript
+var http = require('http');
+```
+示例：
+``` javascript
+var http = require('http');
+var fs = require('fs');
+var url = require('url');
+ 
+// 创建服务器
+http.createServer( function (request, response) {  
+   // 解析请求，包括文件名
+   var pathname = url.parse(request.url).pathname;
+   
+   // 输出请求的文件名
+   console.log("Request for " + pathname + " received.");
+   
+   // 从文件系统中读取请求的文件内容
+   fs.readFile(pathname.substr(1), function (err, data) {
+      if (err) {
+         console.log(err);
+         // HTTP 状态码: 404 : NOT FOUND
+         // Content Type: text/html
+         response.writeHead(404, {'Content-Type': 'text/html'});
+      }else{             
+         // HTTP 状态码: 200 : OK
+         // Content Type: text/html
+         response.writeHead(200, {'Content-Type': 'text/html'});    
+         
+         // 响应文件内容
+         response.write(data.toString());        
+      }
+      //  发送响应数据
+      response.end();
+   });   
+}).listen(8080);
+ 
+// 控制台会输出以下信息
+console.log('Server running at http://127.0.0.1:8080/');
+```
+## 14、Node.js Express 框架
+Express 框架核心特性：
+* 可以设置中间件来响应 HTTP 请求。
+* 定义了路由表用于执行不同的 HTTP 请求动作。
+* 可以通过向模板传递参数来动态渲染 HTML 页面。
+
+**安装 Express**
+安装 Express 并将其保存到依赖列表中：
+```javascript
+$ cnpm install express --save
+```
+以上命令会将 Express 框架安装在当前目录的 node_modules 目录中， node_modules 目录下会自动创建 express 目录。以下几个重要的模块是需要与 express 框架一起安装的：
+* body-parser - node.js 中间件，用于处理 JSON, Raw, Text 和 URL 编码的数据。
+* cookie-parser - 这就是一个解析Cookie的工具。通过req.cookies可以取到传过来的cookie，并把它们转成对象。
+* multer - node.js 中间件，用于处理 enctype="multipart/form-data"（设置表单的MIME编码）的表单数据。
+```javascript
+$ cnpm install body-parser --save
+$ cnpm install cookie-parser --save
+$ cnpm install multer --save
+```
+安装完后，我们可以查看下 express 使用的版本号：
+```javascript
+$ cnpm list express
+/data/www/node
+└── express@4.15.2  -> /Users/tianqixin/www/node/node_modules/.4.15.2@express
+```
+**第一个 Express 框架实例**
+接下来我们使用 Express 框架来输出 "Hello World"。
+以下实例中我们引入了 express 模块，并在客户端发起请求后，响应 "Hello World" 字符串。
+创建 express_demo.js 文件，代码如下所示：
+```javascript
+//express_demo.js 文件
+var express = require('express');
+var app = express();
+ 
+app.get('/', function (req, res) {
+   res.send('Hello World');
+})
+ 
+var server = app.listen(8081, function () {
+ 
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+})
+```
+**请求和响应**
+Express 应用使用回调函数的参数： request 和 response 对象来处理请求和响应的数据。
+```javascript
+app.get('/', function (req, res) {
+   // --
+})
+```
+<p><b>request</b> 和 <b>response</b> 对象的具体介绍：</p>
+
+<p><b>Request 对象</b> -  request 对象表示 HTTP 请求，包含了请求查询字符串，参数，内容，HTTP 头部等属性。常见属性有： </p>
+<ol>
+<li>req.app：当callback为外部文件时，用req.app访问express的实例</li>
+<li>req.baseUrl：获取路由当前安装的URL路径</li>
+<li>req.body / req.cookies：获得「请求主体」/ Cookies</li>
+<li>req.fresh / req.stale：判断请求是否还「新鲜」</li>
+<li>req.hostname / req.ip：获取主机名和IP地址</li>
+<li>req.originalUrl：获取原始请求URL</li>
+<li>req.params：获取路由的parameters</li>
+<li>req.path：获取请求路径</li>
+<li>req.protocol：获取协议类型</li>
+<li>req.query：获取URL的查询参数串</li>
+<li>req.route：获取当前匹配的路由</li>
+<li>req.subdomains：获取子域名</li>
+<li>req.accepts()：检查可接受的请求的文档类型</li>
+<li>req.acceptsCharsets / req.acceptsEncodings / req.acceptsLanguages：返回指定字符集的第一个可接受字符编码</li>
+<li>req.get()：获取指定的HTTP请求头</li>
+<li>req.is()：判断请求头Content-Type的MIME类型</li>
+</ol>
+
+<p><strong>Response 对象</strong>  - response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP 响应数据。常见属性有：</p>
+<ol>
+<li>res.app：同req.app一样</li>
+<li>res.append()：追加指定HTTP头</li>
+<li>res.set()在res.append()后将重置之前设置的头</li>
+<li>res.cookie(name，value [，option])：设置Cookie</li>
+<li>opition: domain / expires / httpOnly / maxAge / path / secure / signed</li>
+<li>res.clearCookie()：清除Cookie</li>
+<li>res.download()：传送指定路径的文件</li>
+<li>res.get()：返回指定的HTTP头</li>
+<li>res.json()：传送JSON响应</li>
+<li>res.jsonp()：传送JSONP响应</li>
+<li>res.location()：只设置响应的Location HTTP头，不设置状态码或者close response</li>
+<li>res.redirect()：设置响应的Location HTTP头，并且设置状态码302</li>
+<li>res.render(view,[locals],callback)：渲染一个view，同时向callback传递渲染后的字符串，如果在渲染过程中有错误发生next(err)将会被自动调用。callback将会被传入一个可能发生的错误以及渲染后的页面，这样就不会自动输出了。</li>
+<li>res.send()：传送HTTP响应</li>
+<li>res.sendFile(path [，options] [，fn])：传送指定路径的文件
+-会自动根据文件extension设定Content-Type</li>
+<li>res.set()：设置HTTP头，传入object可以一次设置多个头</li>
+<li>res.status()：设置HTTP状态码</li>
+<li>res.type()：设置Content-Type的MIME类型</li>
+</ol>
+
+**路由**
+我们已经了解了 HTTP 请求的基本应用，而路由决定了由谁(指定脚本)去响应客户端请求。
+
+在HTTP请求中，我们可以通过路由提取出请求的URL以及GET/POST参数。
+
+接下来我们扩展 Hello World，添加一些功能来处理更多类型的 HTTP 请求。
+```javascript
+var express = require('express');
+var app = express();
+ 
+//  主页输出 "Hello World"
+app.get('/', function (req, res) {
+   console.log("主页 GET 请求");
+   res.send('Hello GET');
+})
+ 
+ 
+//  POST 请求
+app.post('/', function (req, res) {
+   console.log("主页 POST 请求");
+   res.send('Hello POST');
+})
+ 
+//  /del_user 页面响应
+app.get('/del_user', function (req, res) {
+   console.log("/del_user 响应 DELETE 请求");
+   res.send('删除页面');
+})
+ 
+//  /list_user 页面 GET 请求
+app.get('/list_user', function (req, res) {
+   console.log("/list_user GET 请求");
+   res.send('用户列表页面');
+})
+ 
+// 对页面 abcd, abxcd, ab123cd, 等响应 GET 请求
+app.get('/ab*cd', function(req, res) {   
+   console.log("/ab*cd GET 请求");
+   res.send('正则匹配');
+})
+ 
+ 
+var server = app.listen(8081, function () {
+ 
+  var host = server.address().address
+  var port = server.address().port
+ 
+  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+ 
+})
+```
+**静态文件**
+Express 提供了内置的中间件 express.static 来设置静态文件如：图片， CSS, JavaScript 等。
+
+你可以使用 express.static 中间件来设置静态文件路径。例如，如果你将图片， CSS, JavaScript 文件放在 public 目录下，你可以这么写：
+```javascript
+app.use('/public', express.static('public'));
+```
+```javascript
+var express = require('express');
+var app = express();
+ 
+app.use('/public', express.static('public'));
+ 
+app.get('/', function (req, res) {
+   res.send('Hello World');
+})
+ 
+var server = app.listen(8081, function () {
+ 
+  var host = server.address().address
+  var port = server.address().port
+ 
+  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+ 
+})
+```
+## 15、Node.js RESTful API
+REST即表述性状态传递（英文：Representational State Transfer，简称REST）是Roy Fielding博士在2000年他的博士论文中提出来的一种软件架构风格。
+
+表述性状态转移是一组架构约束条件和原则。满足这些约束条件和原则的应用程序或设计就是RESTful。需要注意的是，REST是设计风格而不是标准。REST通常基于使用HTTP，URI，和XML（标准通用标记语言下的一个子集）以及HTML（标准通用标记语言下的一个应用）这些现有的广泛流行的协议和标准。REST 通常使用 JSON 数据格式。
+**HTTP 方法**
+以下为 REST 基本架构的四个方法：
+* GET - 用于获取数据。
+
+* PUT - 用于更新或添加数据。
+
+* DELETE - 用于删除数据。
+
+* POST - 用于添加数据。
+
+**RESTful Web Services**
+Web service是一个平台独立的，低耦合的，自包含的、基于可编程的web的应用程序，可使用开放的XML（标准通用标记语言下的一个子集）标准来描述、发布、发现、协调和配置这些应用程序，用于开发分布式的互操作的应用程序。
+
+基于 REST 架构的 Web Services 即是 RESTful。
+**创建 RESTful**
+首先，创建一个 json 数据资源文件 users.json，内容如下：
+```json
+{
+   "user1" : {
+      "name" : "mahesh",
+      "password" : "password1",
+      "profession" : "teacher",
+      "id": 1
+   },
+   "user2" : {
+      "name" : "suresh",
+      "password" : "password2",
+      "profession" : "librarian",
+      "id": 2
+   },
+   "user3" : {
+      "name" : "ramesh",
+      "password" : "password3",
+      "profession" : "clerk",
+      "id": 3
+   }
+}
+```
+基于以上数据，我们创建以下 RESTful API：
+<table class="reference">
+<tbody><tr><th>序号</th><th>URI</th><th>HTTP 方法</th><th>发送内容</th><th>结果</th>
+</tr><tr><td>1</td><td>listUsers</td><td>GET</td><td>空</td><td>显示所有用户列表</td>
+</tr><tr><td>2</td><td>addUser</td><td>POST</td><td>JSON 字符串</td><td>添加新用户</td>
+</tr><tr><td>3</td><td>deleteUser</td><td>DELETE</td><td>JSON 字符串</td><td>删除用户</td>
+</tr><tr><td>4</td><td>:id</td><td>GET</td><td>空</td><td>显示用户详细信息</td>
+</tr></tbody></table>
+
+**获取用户列表：**
+以下代码，我们创建了 RESTful API listUsers，用于读取用户的信息列表， server.js 文件代码如下所示：
+```javascript
+var express = require('express');
+var app = express();
+var fs = require("fs");
+
+app.get('/listUsers', function (req, res) {
+   fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+       console.log( data );
+       res.end( data );
+   });
+})
+
+var server = app.listen(8081, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+
+})
+```
+**添加用户**
+以下代码，我们创建了 RESTful API addUser， 用于添加新的用户数据，server.js 文件代码如下所示：
+```javascript
+var express = require('express');
+var app = express();
+var fs = require("fs");
+
+//添加的新用户数据
+var user = {
+   "user4" : {
+      "name" : "mohit",
+      "password" : "password4",
+      "profession" : "teacher",
+      "id": 4
+   }
+}
+
+app.get('/addUser', function (req, res) {
+   // 读取已存在的数据
+   fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+       data = JSON.parse( data );
+       data["user4"] = user["user4"];
+       console.log( data );
+       res.end( JSON.stringify(data));
+   });
+})
+
+var server = app.listen(8081, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+
+})
+```
+**显示用户详情**
+以下代码，我们创建了 RESTful API :id（用户id）， 用于读取指定用户的详细信息，server.js 文件代码如下所示：
+```javascript
+var express = require('express');
+var app = express();
+var fs = require("fs");
+
+app.get('/:id', function (req, res) {
+   // 首先我们读取已存在的用户
+   fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+       data = JSON.parse( data );
+       var user = data["user" + req.params.id] 
+       console.log( user );
+       res.end( JSON.stringify(user));
+   });
+})
+
+var server = app.listen(8081, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+
+})
+```
+**删除用户**
+以下代码，我们创建了 RESTful API deleteUser， 用于删除指定用户的详细信息，以下实例中，用户 id 为 2，server.js 文件代码如下所示：
+```javascript
+var express = require('express');
+var app = express();
+var fs = require("fs");
+
+var id = 2;
+
+app.get('/deleteUser', function (req, res) {
+
+   // First read existing users.
+   fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+       data = JSON.parse( data );
+       delete data["user" + id];
+       
+       console.log( data );
+       res.end( JSON.stringify(data));
+   });
+})
+
+var server = app.listen(8081, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+  console.log("应用实例，访问地址为 http://%s:%s", host, port)
+
+})
+```
+## 16、Node.js 多进程
+我们都知道 Node.js 是以单线程的模式运行的，但它使用的是事件驱动来处理并发，这样有助于我们在多核 cpu 的系统上创建多个子进程，从而提高性能。
+
+每个子进程总是带有三个流对象：child.stdin, child.stdout 和child.stderr。他们可能会共享父进程的 stdio 流，或者也可以是独立的被导流的流对象。
+
+Node 提供了 child_process 模块来创建子进程，方法有：
+
+exec - child_process.exec 使用子进程执行命令，缓存子进程的输出，并将子进程的输出以回调函数参数的形式返回。
+
+spawn - child_process.spawn 使用指定的命令行参数创建新进程。
+
+fork - child_process.fork 是 spawn()的特殊形式，用于在子进程中运行的模块，如 fork('./son.js') 相当于 spawn('node', ['./son.js']) 。与spawn方法不同的是，fork会在父进程与子进程之间，建立一个通信管道，用于进程之间的通信。
+support.js 文件代码：
+```javascript
+console.log("进程 " + process.argv[2] + " 执行。" );
+```
+master.js 文件代码：
+```javascript
+const fs = require('fs');
+const child_process = require('child_process');
+ 
+for(var i=0; i<3; i++) {
+    var workerProcess = child_process.exec('node support.js '+i, function (error, stdout, stderr) {
+        if (error) {
+            console.log(error.stack);
+            console.log('Error code: '+error.code);
+            console.log('Signal received: '+error.signal);
+        }
+        console.log('stdout: ' + stdout);
+        console.log('stderr: ' + stderr);
+    });
+ 
+    workerProcess.on('exit', function (code) {
+        console.log('子进程已退出，退出码 '+code);
+    });
+}
+```
+spawn()方法
+```javascript
+const fs = require('fs');
+const child_process = require('child_process');
+ 
+for(var i=0; i<3; i++) {
+   var workerProcess = child_process.spawn('node', ['support.js', i]);
+ 
+   workerProcess.stdout.on('data', function (data) {
+      console.log('stdout: ' + data);
+   });
+ 
+   workerProcess.stderr.on('data', function (data) {
+      console.log('stderr: ' + data);
+   });
+ 
+   workerProcess.on('close', function (code) {
+      console.log('子进程已退出，退出码 '+code);
+   });
+}
+```
+fork()方法
+```javascript
+const fs = require('fs');
+const child_process = require('child_process');
+ 
+for(var i=0; i<3; i++) {
+   var worker_process = child_process.fork("support.js", [i]);    
+ 
+   worker_process.on('close', function (code) {
+      console.log('子进程已退出，退出码 ' + code);
+   });
+}
+```
+## 17、Node.js JXcore 打包
+略
+## 18、Node.js 连接 MySQL
+略
+## 19、Node.js 连接 MongoDB
+MongoDB是一种文档导向数据库管理系统，由C++撰写而成。
+安装驱动
+本教程使用了淘宝定制的 cnpm 命令进行安装：
+```javascript
+$ cnpm install mongodb
+```
+**创建数据库**
+要在 MongoDB 中创建一个数据库，首先我们需要创建一个 MongoClient 对象，然后配置好指定的 URL 和 端口号。
+
+如果数据库不存在，MongoDB 将创建数据库并建立连接。
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/runoob";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+  if (err) throw err;
+  console.log("数据库已创建!");
+  db.close();
+});
+```
+**创建集合**
+我们可以使用 createCollection() 方法来创建集合：
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = 'mongodb://localhost:27017/runoob';
+MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
+    if (err) throw err;
+    console.log('数据库已创建');
+    var dbase = db.db("runoob");
+    dbase.createCollection('site', function (err, res) {
+        if (err) throw err;
+        console.log("创建集合!");
+        db.close();
+    });
+});
+```
+**数据库操作( CURD )**
+与 MySQL 不同的是 MongoDB 会自动创建数据库和集合，所以使用前我们不需要手动去创建。
+**插入数据**
+以下实例我们连接数据库 runoob 的 site 表，并插入一条数据条数据，使用 insertOne()：
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    var myobj = { name: "菜鸟教程", url: "www.runoob" };
+    dbo.collection("site").insertOne(myobj, function(err, res) {
+        if (err) throw err;
+        console.log("文档插入成功");
+        db.close();
+    });
+});
+```
+**插入多条数据**
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    var myobj =  [
+        { name: '菜鸟工具', url: 'https://c.runoob.com', type: 'cn'},
+        { name: 'Google', url: 'https://www.google.com', type: 'en'},
+        { name: 'Facebook', url: 'https://www.google.com', type: 'en'}
+       ];
+    dbo.collection("site").insertMany(myobj, function(err, res) {
+        if (err) throw err;
+        console.log("插入的文档数量为: " + res.insertedCount);
+        db.close();
+    });
+});
+```
+res.insertedCount 为插入的条数。
+**查询数据**
+可以使用 find() 来查找数据, find() 可以返回匹配条件的所有数据。 如果未指定条件，find() 返回集合中的所有数据。
+```javascript
+//find()
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    dbo.collection("site"). find({}).toArray(function(err, result) { // 返回集合中所有数据
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
+});
+```
+以下实例检索 name 为 "菜鸟教程" 的实例：
+```javascript
+//查询指定条件的数据
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+     var whereStr = {"name":'菜鸟教程'};  // 查询条件
+    dbo.collection("site").find(whereStr).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
+});
+```
+**更新数据**
+我们也可以对数据库的数据进行修改，以下实例将 name 为 "菜鸟教程" 的 url 改为 https://www.runoob.com：
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    var whereStr = {"name":'菜鸟教程'};  // 查询条件
+    var updateStr = {$set: { "url" : "https://www.runoob.com" }};
+    dbo.collection("site").updateOne(whereStr, updateStr, function(err, res) {
+        if (err) throw err;
+        console.log("文档更新成功");
+        db.close();
+    });
+});
+```
+如果要更新所有符合条的文档数据可以使用 updateMany()：
+```javascript
+//更新多条数据
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    var whereStr = {"type":'en'};  // 查询条件
+    var updateStr = {$set: { "url" : "https://www.runoob.com" }};
+    dbo.collection("site").updateMany(whereStr, updateStr, function(err, res) {
+        if (err) throw err;
+         console.log(res.result.nModified + " 条文档被更新");
+        db.close();
+    });
+});
+```
+result.nModified 为更新的条数。
+**删除数据**
+以下实例将 name 为 "菜鸟教程" 的数据删除 :
+```javascript
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    var whereStr = {"name":'菜鸟教程'};  // 查询条件
+    dbo.collection("site").deleteOne(whereStr, function(err, obj) {
+        if (err) throw err;
+        console.log("文档删除成功");
+        db.close();
+    });
+});
+```
+如果要删除多条语句可以使用 deleteMany() 方法
+以下实例将 type 为 en 的所有数据删除 :
+```javascript
+//删除多条数据
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    var whereStr = { type: "en" };  // 查询条件
+    dbo.collection("site").deleteMany(whereStr, function(err, obj) {
+        if (err) throw err;
+        console.log(obj.result.n + " 条文档被删除");
+        db.close();
+    });
+});
+```
+obj.result.n 删除的条数。
+**排序**
+排序 使用 sort() 方法，该方法接受一个参数，规定是升序(1)还是降序(-1)。
+例如：
+```javascript
+{ type: 1 }  // 按 type 字段升序
+{ type: -1 } // 按 type 字段降序
+```
+按 type 升序排列:
+```javascript
+//排序
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    var mysort = { type: 1 };
+    dbo.collection("site").find().sort(mysort).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+    });
+});
+```
+**查询分页**
+如果要设置指定的返回条数可以使用 limit() 方法，该方法只接受一个参数，指定了返回的条数。
+```javascript
+//limit()：读取两条数据
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    dbo.collection("site").find().limit(2).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+  });
+});
+```
+如果要指定跳过的条数，可以使用 skip() 方法。
+```javascript
+//skip(): 跳过前面两条数据，读取两条数据
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    dbo.collection("site").find().skip(2).limit(2).toArray(function(err, result) {
+        if (err) throw err;
+        console.log(result);
+        db.close();
+  });
+});
+```
+**连接操作**
+mongoDB 不是一个关系型数据库，但我们可以使用 $lookup 来实现左连接。
+例如我们有两个集合数据分别为：
+```javascript
+//集合1：orders
+[
+  { _id: 1, product_id: 154, status: 1 }
+]
+//集合2：products
+[
+  { _id: 154, name: '笔记本电脑' },
+  { _id: 155, name: '耳机' },
+  { _id: 156, name: '台式电脑' }
+]
+```
+```javascript
+//$lookup 实现左连接
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://127.0.0.1:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+  if (err) throw err;
+  var dbo = db.db("runoob");
+  dbo.collection('orders').aggregate([
+    { $lookup:
+       {
+         from: 'products',            // 右集合
+         localField: 'product_id',    // 左集合 join 字段
+         foreignField: '_id',         // 右集合 join 字段
+         as: 'orderdetails'           // 新生成字段（类型array）
+       }
+     }
+    ]).toArray(function(err, res) {
+    if (err) throw err;
+    console.log(JSON.stringify(res));
+    db.close();
+  });
+});
+```
+**删除集合**
+我们可以使用 drop() 方法来删除集合：
+```javascript
+//drop()
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
+ 
+MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("runoob");
+    // 删除 test 集合
+    dbo.collection("test").drop(function(err, delOK) {  // 执行成功 delOK 返回 true，否则返回 false
+        if (err) throw err;
+        if (delOK) console.log("集合已删除");
+        db.close();
+    });
+});
+```
