@@ -1034,3 +1034,13 @@ error: The branch 'testing' is not fully merged.
 If you are sure you want to delete it, run 'git branch -D testing'.
 ```
 如果真的想要删除分支并丢掉那些工作，如同帮助信息里所指出的，可以使用 -D 选项强制删除它。
+## 8、Git Vim操作
+<ol>
+<li>按下字母键i或a或o，此时进入到可编辑状态，这时就可以输入你的注释</li>
+<li>当你输入完之后，按下Esc键就可退出编辑状态，回到一般模式。</li>
+<li>最后就是怎么退出vim编辑器并提交commit， 有两种方法：</li>
+<ol>
+<li>输入两字大写字母ZZ（记住是大写）</li>
+<li>输入:wq或:wq!(强行退出)</li>
+</ol>
+</ol>
