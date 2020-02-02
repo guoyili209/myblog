@@ -1,6 +1,24 @@
 window.location.hash = "";
 var files = {
-    "Demo展示": [
+    "web客户端":[
+        {"html教程":"page/webclient/htmllearn.html"},
+        {"js教程":"page/webclient/jslearn.html"},
+        {"css教程":"page/webclient/learncss.html"},
+        {"css3教程":"page/webclient/learncss3.html"},
+        {"html5教程":"page/webclient/learnhtml5.html"},
+        {"Bootstrap教程":"page/webclient/bootstrap.html"},
+        {"vuejs教程":"page/webclient/vuejs.html"}
+    ],
+    "Gulp":[
+        {"Gulp教程":"page/webclient/learngulp.html"}
+    ],
+    "Git":[
+        {"Git Command":"page/webclient/gitcommand.html"}
+    ],
+    "阿里云":[
+        {"阿里云部署心得":"page/webclient/aliyun.html"}
+    ],
+    "游戏Demo展示": [
         { "2D场景3D角色回合制游戏": "http://www.ylyz2019.top/game/realase/" },
         { "3D回合制游戏": "http://www.ylyz2019.top/game/release2/web/" }
     ],
@@ -17,9 +35,6 @@ var files = {
     "特效示例": [
         { "雾化效果": "page/webglfx/fog.html" },
         { "基于Laya引擎实现的粒子效果": "page/webglfx/particle.html" }
-    ],
-    "Gulp":[
-        {"Gulp教程":"page/webclient/learngulp.html"}
     ]
 };
 var panel = document.getElementById('panel');

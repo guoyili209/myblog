@@ -1,0 +1,1431 @@
+<!DOCTYPE html><html><head>
+      <title>learncss3</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\guoyi\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.1\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview {
+  box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.14);
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1><p align="center">CSS3 &#x6559;&#x7A0B;</p></h1>
+<ul>
+<li><a href="#%E4%B8%80-%E7%AE%80%E4%BB%8B">&#x4E00;&#x3001;&#x7B80;&#x4ECB;</a>
+<ul>
+<li><a href="#1-css3%E6%A8%A1%E5%9D%97">1&#x3001;CSS3&#x6A21;&#x5757;</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C-css3%E8%BE%B9%E6%A1%86">&#x4E8C;&#x3001;CSS3&#x8FB9;&#x6846;</a></li>
+<li><a href="#%E4%B8%89-css3%E5%9C%86%E8%A7%92">&#x4E09;&#x3001;CSS3&#x5706;&#x89D2;</a></li>
+<li><a href="#%E5%9B%9B-css3-%E8%83%8C%E6%99%AF">&#x56DB;&#x3001;CSS3 &#x80CC;&#x666F;</a></li>
+<li><a href="#%E4%BA%94-css3-%E6%B8%90%E5%8F%98gradients">&#x4E94;&#x3001;CSS3 &#x6E10;&#x53D8;&#xFF08;Gradients&#xFF09;</a></li>
+<li><a href="#%E5%85%AD-css3%E6%96%87%E6%9C%AC%E6%95%88%E6%9E%9C">&#x516D;&#x3001;CSS3&#x6587;&#x672C;&#x6548;&#x679C;</a></li>
+<li><a href="#%E4%B8%83-css3%E5%AD%97%E4%BD%93">&#x4E03;&#x3001;CSS3&#x5B57;&#x4F53;</a></li>
+<li><a href="#%E5%85%AB-css3-2d-3d%E8%BD%AC%E6%8D%A2-%E8%BF%87%E6%B8%A1-%E5%8A%A8%E7%94%BB-%E5%A4%9A%E5%88%97">&#x516B;&#x3001;CSS3 2D&#x3001;3D&#x8F6C;&#x6362;&#x3001;&#x8FC7;&#x6E21;&#x3001;&#x52A8;&#x753B;&#x3001;&#x591A;&#x5217;</a></li>
+<li><a href="#%E4%B9%9D-css3-%E5%A4%9A%E5%88%97">&#x4E5D;&#x3001;CSS3 &#x591A;&#x5217;</a></li>
+<li><a href="#%E5%8D%81-css3%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2">&#x5341;&#x3001;CSS3&#x7528;&#x6237;&#x754C;&#x9762;</a></li>
+<li><a href="#%E5%8D%81%E4%B8%80-css%E5%9B%BE%E7%89%87">&#x5341;&#x4E00;&#x3001;CSS&#x56FE;&#x7247;</a></li>
+<li><a href="#%E5%8D%81%E4%BA%8C-css3%E6%A1%86%E5%A4%A7%E5%B0%8F">&#x5341;&#x4E8C;&#x3001;CSS3&#x6846;&#x5927;&#x5C0F;</a></li>
+<li><a href="#%E5%8D%81%E4%B8%89-css3-%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90flex-box">&#x5341;&#x4E09;&#x3001;CSS3 &#x5F39;&#x6027;&#x76D2;&#x5B50;(Flex Box)</a></li>
+<li><a href="#%E5%8D%81%E5%9B%9B-css3%E5%A4%9A%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2">&#x5341;&#x56DB;&#x3001;CSS3&#x591A;&#x5A92;&#x4F53;&#x67E5;&#x8BE2;</a></li>
+</ul>
+<h2 class="mume-header" id="%E4%B8%80-%E7%AE%80%E4%BB%8B">&#x4E00;&#x3001;&#x7B80;&#x4ECB;</h2>
+
+<p>CSS &#x7528;&#x4E8E;&#x63A7;&#x5236;&#x7F51;&#x9875;&#x7684;&#x6837;&#x5F0F;&#x548C;&#x5E03;&#x5C40;&#x3002;<br>
+CSS3 &#x662F;&#x6700;&#x65B0;&#x7684; CSS &#x6807;&#x51C6;&#x3002;<br>
+&#x5BF9;CSS3&#x5DF2;&#x5B8C;&#x5168;&#x5411;&#x540E;&#x517C;&#x5BB9;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x5C31;&#x4E0D;&#x5FC5;&#x6539;&#x53D8;&#x73B0;&#x6709;&#x7684;&#x8BBE;&#x8BA1;&#x3002;&#x6D4F;&#x89C8;&#x5668;&#x5C06;&#x6C38;&#x8FDC;&#x652F;&#x6301;CSS2&#x3002;</p>
+<h3 class="mume-header" id="1-css3%E6%A8%A1%E5%9D%97">1&#x3001;CSS3&#x6A21;&#x5757;</h3>
+
+<p>CSS3&#x88AB;&#x62C6;&#x5206;&#x4E3A;&quot;&#x6A21;&#x5757;&quot;&#x3002;&#x65E7;&#x89C4;&#x8303;&#x5DF2;&#x62C6;&#x5206;&#x6210;&#x5C0F;&#x5757;&#xFF0C;&#x8FD8;&#x589E;&#x52A0;&#x4E86;&#x65B0;&#x7684;&#x3002;</p>
+<p>&#x4E00;&#x4E9B;&#x6700;&#x91CD;&#x8981;CSS3&#x6A21;&#x5757;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x9009;&#x62E9;&#x5668;</li>
+<li>&#x76D2;&#x6A21;&#x578B;</li>
+<li>&#x80CC;&#x666F;&#x548C;&#x8FB9;&#x6846;</li>
+<li>&#x6587;&#x5B57;&#x7279;&#x6548;</li>
+<li>2D/3D&#x8F6C;&#x6362;</li>
+<li>&#x52A8;&#x753B;</li>
+<li>&#x591A;&#x5217;&#x5E03;&#x5C40;</li>
+<li>&#x7528;&#x6237;&#x754C;&#x9762;</li>
+</ul>
+<h2 class="mume-header" id="%E4%BA%8C-css3%E8%BE%B9%E6%A1%86">&#x4E8C;&#x3001;CSS3&#x8FB9;&#x6846;</h2>
+
+<p>&#x7528; CSS3&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x5706;&#x89D2;&#x8FB9;&#x6846;&#xFF0C;&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6846;&#xFF0C;&#x5E76;&#x4F5C;&#x4E3A;&#x8FB9;&#x754C;&#x7684;&#x5F62;&#x8C61;&#x800C;&#x4E0D;&#x4F7F;&#x7528;&#x8BBE;&#x8BA1;&#x7A0B;&#x5E8F;&#xFF0C;&#x5982; Photoshop&#x3002;<br>
+&#x5728;&#x672C;&#x7AE0;&#x4E2D;&#xFF0C;&#x60A8;&#x5C06;&#x4E86;&#x89E3;&#x4EE5;&#x4E0B;&#x7684;&#x8FB9;&#x6846;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li>border-radius</li>
+<li>box-shadow</li>
+<li>border-image</li>
+</ul>
+<p><strong>1&#x3001;CSS3&#x5706;&#x89D2;</strong><br>
+&#x5728; CSS2 &#x4E2D;&#x6DFB;&#x52A0;&#x5706;&#x89D2;&#x68D8;&#x624B;&#x3002;&#x6211;&#x4EEC;&#x4E0D;&#x5F97;&#x4E0D;&#x5728;&#x6BCF;&#x4E2A;&#x89D2;&#x843D;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x56FE;&#x50CF;&#x3002;</p>
+<p>&#x5728; CSS3 &#x4E2D;&#xFF0C;&#x5F88;&#x5BB9;&#x6613;&#x521B;&#x5EFA;&#x5706;&#x89D2;&#x3002;</p>
+<p>&#x5728; CSS3 &#x4E2D; border-radius &#x5C5E;&#x6027;&#x88AB;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x5706;&#x89D2;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">div</span> <span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token unit">px</span> solid<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">25</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>2&#x3001;CSS3 &#x76D2;&#x9634;&#x5F71;</strong><br>
+CSS3 &#x4E2D;&#x7684; box-shadow &#x5C5E;&#x6027;&#x88AB;&#x7528;&#x6765;&#x6DFB;&#x52A0;&#x9634;&#x5F71;:</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">div</span> <span class="token punctuation">{</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">5</span><span class="token unit">px</span> <span class="token hexcode">#888888</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>3&#x3001;CSS3 &#x8FB9;&#x754C;&#x56FE;&#x7247;</strong><br>
+&#x6709;&#x4E86; CSS3 &#x7684; border-image &#x5C5E;&#x6027;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x56FE;&#x50CF;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8FB9;&#x6846;&#xFF1A;</p>
+<p>border-image &#x5C5E;&#x6027;&#x5141;&#x8BB8;&#x4F60;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#x4F5C;&#x4E3A;&#x8FB9;&#x6846;&#xFF01; &#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x4E0A;&#x6587;&#x8FB9;&#x6846;&#x7684;&#x539F;&#x59CB;&#x56FE;&#x50CF;&#xFF1A;<br>
+&#x5728; div &#x4E2D;&#x4F7F;&#x7528;&#x56FE;&#x7247;&#x521B;&#x5EFA;&#x8FB9;&#x6846;:</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">div</span> <span class="token punctuation">{</span>
+    <span class="token property">border-image</span><span class="token punctuation">:</span> <span class="token url">url(border.png)</span> <span class="token number">30</span> <span class="token number">30</span> round<span class="token punctuation">;</span>
+    <span class="token property">-webkit-border-image</span><span class="token punctuation">:</span> <span class="token url">url(border.png)</span> <span class="token number">30</span> <span class="token number">30</span> round<span class="token punctuation">;</span>
+    <span class="token comment">/* Safari 5 and older */</span>
+    <span class="token property">-o-border-image</span><span class="token punctuation">:</span> <span class="token url">url(border.png)</span> <span class="token number">30</span> <span class="token number">30</span> round<span class="token punctuation">;</span>
+    <span class="token comment">/* Opera */</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x65B0;&#x8FB9;&#x6846;&#x5C5E;&#x6027;</strong></p>
+<pre class="language-text">&lt;th width=&quot;30%&quot; align=&quot;left&quot;&gt;&#x5C5E;&#x6027;&lt;/th&gt;
+&lt;th width=&quot;65%&quot; align=&quot;left&quot;&gt;&#x8BF4;&#x660E;&lt;/th&gt;
+&lt;th width=&quot;5%&quot; align=&quot;left&quot;&gt;CSS&lt;/th&gt;
+</pre><pre class="language-text">&lt;td&gt;&lt;a href=&quot;/cssref/css3-pr-border-image.html&quot;&gt;border-image&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&#x8BBE;&#x7F6E;&#x6240;&#x6709;&#x8FB9;&#x6846;&#x56FE;&#x50CF;&#x7684;&#x901F;&#x8BB0;&#x5C5E;&#x6027;&#x3002;&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+</pre><pre class="language-text">&lt;td&gt;&lt;a href=&quot;/cssref/css3-pr-border-radius.html&quot;&gt;border-radius&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x6240;&#x6709;&#x56DB;&#x4E2A;&#x8FB9;&#x6846;- *-&#x534A;&#x5F84;&#x5C5E;&#x6027;&#x7684;&#x901F;&#x8BB0;&#x5C5E;&#x6027;&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+</pre><pre class="language-text">&lt;td&gt;&lt;a href=&quot;/cssref/css3-pr-box-shadow.html&quot;&gt;box-shadow&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;&#x9644;&#x52A0;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x4E0B;&#x62C9;&#x6846;&#x7684;&#x9634;&#x5F71;&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+</pre><table class="reference">
+  <tbody><tr>
+
+  </tr>
+  <tr>
+
+  </tr>
+  <tr>
+
+  </tr>
+  <tr>
+
+  </tr>
+</tbody></table>
+<h2 class="mume-header" id="%E4%B8%89-css3%E5%9C%86%E8%A7%92">&#x4E09;&#x3001;CSS3&#x5706;&#x89D2;</h2>
+
+<p>&#x4F7F;&#x7528; CSS3 border-radius &#x5C5E;&#x6027;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x7ED9;&#x4EFB;&#x4F55;&#x5143;&#x7D20;&#x5236;&#x4F5C; &quot;&#x5706;&#x89D2;&quot;&#x3002;<br>
+<strong>1&#x3001;CSS3 border-radius &#x5C5E;&#x6027;</strong><br>
+&#x5982;&#x679C;&#x4F60;&#x5728; border-radius &#x5C5E;&#x6027;&#x4E2D;&#x53EA;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x90A3;&#x4E48;&#x5C06;&#x751F;&#x6210; 4 &#x4E2A; &#x5706;&#x89D2;&#x3002;</p>
+<ul>
+<li>&#x56DB;&#x4E2A;&#x503C;: &#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x4E3A;&#x5DE6;&#x4E0A;&#x89D2;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x4E3A;&#x53F3;&#x4E0A;&#x89D2;&#xFF0C;&#x7B2C;&#x4E09;&#x4E2A;&#x503C;&#x4E3A;&#x53F3;&#x4E0B;&#x89D2;&#xFF0C;&#x7B2C;&#x56DB;&#x4E2A;&#x503C;&#x4E3A;&#x5DE6;&#x4E0B;&#x89D2;&#x3002;</li>
+<li>&#x4E09;&#x4E2A;&#x503C;: &#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x4E3A;&#x5DE6;&#x4E0A;&#x89D2;, &#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x4E3A;&#x53F3;&#x4E0A;&#x89D2;&#x548C;&#x5DE6;&#x4E0B;&#x89D2;&#xFF0C;&#x7B2C;&#x4E09;&#x4E2A;&#x503C;&#x4E3A;&#x53F3;&#x4E0B;&#x89D2;</li>
+<li>&#x4E24;&#x4E2A;&#x503C;: &#x7B2C;&#x4E00;&#x4E2A;&#x503C;&#x4E3A;&#x5DE6;&#x4E0A;&#x89D2;&#x4E0E;&#x53F3;&#x4E0B;&#x89D2;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x503C;&#x4E3A;&#x53F3;&#x4E0A;&#x89D2;&#x4E0E;&#x5DE6;&#x4E0B;&#x89D2;</li>
+<li>&#x4E00;&#x4E2A;&#x503C;&#xFF1A; &#x56DB;&#x4E2A;&#x5706;&#x89D2;&#x503C;&#x76F8;&#x540C;</li>
+</ul>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#rcorners4</span></span> <span class="token punctuation">{</span>
+
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">15</span><span class="token unit">px</span> <span class="token number">50</span><span class="token unit">px</span> <span class="token number">30</span><span class="token unit">px</span> <span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#8AC007</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">150</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token id">#rcorners5</span></span> <span class="token punctuation">{</span>
+
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">15</span><span class="token unit">px</span> <span class="token number">50</span><span class="token unit">px</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#8AC007</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">150</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token id">#rcorners6</span></span> <span class="token punctuation">{</span>
+
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">15</span><span class="token unit">px</span> <span class="token number">50</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#8AC007</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">150</span><span class="token unit">px</span><span class="token punctuation">;</span>
+
+<span class="token punctuation">}</span>
+</pre><p>&#x692D;&#x5706;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#rcorners7</span></span> <span class="token punctuation">{</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">px</span>/<span class="token number">15</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#8AC007</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">150</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token id">#rcorners8</span></span> <span class="token punctuation">{</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">15</span><span class="token unit">px</span>/<span class="token number">50</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#8AC007</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">150</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token id">#rcorners9</span></span> <span class="token punctuation">{</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#8AC007</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">20</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">150</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>CSS3 &#x5706;&#x89D2;&#x5C5E;&#x6027;</strong></p>
+<table class="reference">
+  <tbody><tr>
+    <th style="width:30%">&#x5C5E;&#x6027;</th>
+    <th>&#x63CF;&#x8FF0;</th>
+  </tr>
+  <tr>
+    <td><a href="..\..\cssref\css3-pr-border-radius.html" target="_blank">border-radius</a></td>
+    <td>&#x6240;&#x6709;&#x56DB;&#x4E2A;&#x8FB9;&#x89D2; border-*-*-radius &#x5C5E;&#x6027;&#x7684;&#x7F29;&#x5199; </td>
+  </tr>
+  <tr>
+    <td>
+   <a href="..\..\cssref\css3-pr-border-top-left-radius.html" target="_blank">border-top-left-radius</a></td>
+    <td>&#x5B9A;&#x4E49;&#x4E86;&#x5DE6;&#x4E0A;&#x89D2;&#x7684;&#x5F27;&#x5EA6;</td>
+  </tr>
+  <tr>
+    <td>
+   <a href="..\..\cssref\css3-pr-border-top-right-radius.html" target="_blank">border-top-right-radius</a></td>
+    <td>&#x5B9A;&#x4E49;&#x4E86;&#x53F3;&#x4E0A;&#x89D2;&#x7684;&#x5F27;&#x5EA6;</td>
+  </tr>
+  <tr>
+    <td>
+   <a href="..\..\cssref\css3-pr-border-bottom-right-radius.html" target="_blank">border-bottom-right-radius</a></td>
+    <td>&#x5B9A;&#x4E49;&#x4E86;&#x53F3;&#x4E0B;&#x89D2;&#x7684;&#x5F27;&#x5EA6;</td>
+  </tr>
+  <tr>
+    <td>
+   <a href="..\..\cssref\css3-pr-border-bottom-left-radius.html" target="_blank">border-bottom-left-radius</a></td>
+    <td>&#x5B9A;&#x4E49;&#x4E86;&#x5DE6;&#x4E0B;&#x89D2;&#x7684;&#x5F27;&#x5EA6;</td>
+  </tr>
+  </tbody></table>
+<h2 class="mume-header" id="%E5%9B%9B-css3-%E8%83%8C%E6%99%AF">&#x56DB;&#x3001;CSS3 &#x80CC;&#x666F;</h2>
+
+<p>CSS3&#x4E2D;&#x5305;&#x542B;&#x51E0;&#x4E2A;&#x65B0;&#x7684;&#x80CC;&#x666F;&#x5C5E;&#x6027;&#xFF0C;&#x63D0;&#x4F9B;&#x66F4;&#x5927;&#x80CC;&#x666F;&#x5143;&#x7D20;&#x63A7;&#x5236;&#x3002;</p>
+<ul>
+<li>background-image</li>
+<li>background-size</li>
+<li>background-origin</li>
+<li>background-clip</li>
+</ul>
+<p><strong>1&#x3001;CSS3 background-image&#x5C5E;&#x6027;</strong><br>
+CSS3&#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;background-image&#x5C5E;&#x6027;&#x6DFB;&#x52A0;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x3002;<br>
+&#x4E0D;&#x540C;&#x7684;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x548C;&#x56FE;&#x50CF;&#x7528;&#x9017;&#x53F7;&#x9694;&#x5F00;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x56FE;&#x7247;&#x4E2D;&#x663E;&#x793A;&#x5728;&#x6700;&#x9876;&#x7AEF;&#x7684;&#x4E3A;&#x7B2C;&#x4E00;&#x5F20;&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#example1</span></span> <span class="token punctuation">{</span> 
+    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url">url(img_flwr.gif)</span><span class="token punctuation">,</span> <span class="token url">url(paper.gif)</span><span class="token punctuation">;</span> 
+    <span class="token property">background-position</span><span class="token punctuation">:</span> right bottom<span class="token punctuation">,</span> left top<span class="token punctuation">;</span> 
+    <span class="token property">background-repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">,</span> repeat<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+</pre><p>&#x53EF;&#x4EE5;&#x7ED9;&#x4E0D;&#x540C;&#x7684;&#x56FE;&#x7247;&#x8BBE;&#x7F6E;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x5C5E;&#x6027;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#example1</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url(img_flwr.gif)</span> right bottom no-repeat<span class="token punctuation">,</span> <span class="token url">url(paper.gif)</span> left top repeat<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>2&#x3001;CSS3 background-size &#x5C5E;&#x6027;</strong><br>
+background-size&#x6307;&#x5B9A;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x7684;&#x5927;&#x5C0F;&#x3002;CSS3&#x4EE5;&#x524D;&#xFF0C;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x5927;&#x5C0F;&#x7531;&#x56FE;&#x50CF;&#x7684;&#x5B9E;&#x9645;&#x5927;&#x5C0F;&#x51B3;&#x5B9A;&#x3002;<br>
+CSS3&#x4E2D;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x80CC;&#x666F;&#x56FE;&#x7247;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x91CD;&#x65B0;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x73AF;&#x5883;&#x4E2D;&#x6307;&#x5B9A;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x50CF;&#x7D20;&#x6216;&#x767E;&#x5206;&#x6BD4;&#x5927;&#x5C0F;&#x3002;<br>
+&#x91CD;&#x7F6E;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">div</span>
+<span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span><span class="token url">url(img_flwr.gif)</span><span class="token punctuation">;</span>
+    <span class="token property">background-size</span><span class="token punctuation">:</span><span class="token number">80</span><span class="token unit">px</span> <span class="token number">60</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background-repeat</span><span class="token punctuation">:</span>no-repeat<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x4F38;&#x5C55;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x5B8C;&#x5168;&#x586B;&#x5145;&#x5185;&#x5BB9;&#x533A;&#x57DF;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">div</span>
+<span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span><span class="token url">url(img_flwr.gif)</span><span class="token punctuation">;</span>
+    <span class="token property">background-size</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token unit">%</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+    <span class="token property">background-repeat</span><span class="token punctuation">:</span>no-repeat<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>3&#x3001;CSS3&#x7684;background-Origin&#x5C5E;&#x6027;</strong><br>
+background-Origin&#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x4E86;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x7684;&#x4F4D;&#x7F6E;&#x533A;&#x57DF;&#x3002;<br>
+content-box, padding-box,&#x548C; border-box&#x533A;&#x57DF;&#x5185;&#x53EF;&#x4EE5;&#x653E;&#x7F6E;&#x80CC;&#x666F;&#x56FE;&#x50CF;&#x3002;<br>
+<img src="assets/background-origin.gif" alt="background-origin"></p>
+<p>&#x5728; content-box &#x4E2D;&#x5B9A;&#x4F4D;&#x80CC;&#x666F;&#x56FE;&#x7247;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">div</span>
+<span class="token punctuation">{</span>
+    <span class="token property">background</span><span class="token punctuation">:</span><span class="token url">url(img_flwr.gif)</span><span class="token punctuation">;</span>
+    <span class="token property">background-repeat</span><span class="token punctuation">:</span>no-repeat<span class="token punctuation">;</span>
+    <span class="token property">background-size</span><span class="token punctuation">:</span><span class="token number">100</span><span class="token unit">%</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+    <span class="token property">background-origin</span><span class="token punctuation">:</span>content-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>4&#x3001;CSS3&#x591A;&#x4E2A;&#x80CC;&#x666F;&#x56FE;&#x50CF;</strong></p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">body</span>
+<span class="token punctuation">{</span> 
+    <span class="token property">background-image</span><span class="token punctuation">:</span><span class="token url">url(img_flwr.gif)</span><span class="token punctuation">,</span><span class="token url">url(img_tree.gif)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>5&#x3001;CSS3 background-clip&#x5C5E;&#x6027;</strong><br>
+CSS3&#x4E2D;background-clip&#x80CC;&#x666F;&#x526A;&#x88C1;&#x5C5E;&#x6027;&#x662F;&#x4ECE;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x7ED8;&#x5236;&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#example1</span></span> <span class="token punctuation">{</span> 
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> dotted black<span class="token punctuation">;</span> 
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">35</span><span class="token unit">px</span><span class="token punctuation">;</span> 
+    <span class="token property">background</span><span class="token punctuation">:</span> yellow<span class="token punctuation">;</span> 
+    <span class="token property">background-clip</span><span class="token punctuation">:</span> content-box<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x65B0;&#x7684;&#x80CC;&#x666F;&#x5C5E;&#x6027;</strong></p>
+<table class="reference">
+<tbody><tr>
+<th width="28%" align="left">&#x987A;&#x5E8F;</th>
+    <th width="67%" align="left">&#x63CF;&#x8FF0;</th>
+    <th width="5%" align="left">CSS</th>
+  </tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-background-clip.html">background-clip</a></td>
+    <td>&#x89C4;&#x5B9A;&#x80CC;&#x666F;&#x7684;&#x7ED8;&#x5236;&#x533A;&#x57DF;&#x3002;</td>
+    <td>3</td>
+  </tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-background-origin.html">background-origin</a></td>
+    <td>&#x89C4;&#x5B9A;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x7684;&#x5B9A;&#x4F4D;&#x533A;&#x57DF;&#x3002;</td>
+    <td>3</td>
+  </tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-background-size.html">background-size</a></td>
+    <td>&#x89C4;&#x5B9A;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x7684;&#x5C3A;&#x5BF8;&#x3002;</td>
+    <td>3</td>
+  </tr>
+</tbody></table>
+<h2 class="mume-header" id="%E4%BA%94-css3-%E6%B8%90%E5%8F%98gradients">&#x4E94;&#x3001;CSS3 &#x6E10;&#x53D8;&#xFF08;Gradients&#xFF09;</h2>
+
+<p>CSS3 &#x5B9A;&#x4E49;&#x4E86;&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6E10;&#x53D8;&#xFF08;gradients&#xFF09;&#xFF1A;</p>
+<ul>
+<li>&#x7EBF;&#x6027;&#x6E10;&#x53D8;&#xFF08;Linear Gradients&#xFF09;- &#x5411;&#x4E0B;/&#x5411;&#x4E0A;/&#x5411;&#x5DE6;/&#x5411;&#x53F3;/&#x5BF9;&#x89D2;&#x65B9;&#x5411;</li>
+<li>&#x5F84;&#x5411;&#x6E10;&#x53D8;&#xFF08;Radial Gradients&#xFF09;- &#x7531;&#x5B83;&#x4EEC;&#x7684;&#x4E2D;&#x5FC3;&#x5B9A;&#x4E49;<br>
+<strong>&#x7EBF;&#x6027;&#x6E10;&#x53D8; - &#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#xFF08;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF09;</strong></li>
+</ul>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span><span class="token hexcode">#e66465</span><span class="token punctuation">,</span> <span class="token hexcode">#9198e5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x4ECE;&#x5DE6;&#x5230;&#x53F3;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right<span class="token punctuation">,</span> red <span class="token punctuation">,</span> yellow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5BF9;&#x89D2;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to bottom right<span class="token punctuation">,</span> red<span class="token punctuation">,</span> yellow<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x4F7F;&#x7528;&#x89D2;&#x5EA6;</strong><br>
+&#x5982;&#x679C;&#x4F60;&#x60F3;&#x8981;&#x5728;&#x6E10;&#x53D8;&#x7684;&#x65B9;&#x5411;&#x4E0A;&#x505A;&#x66F4;&#x591A;&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x89D2;&#x5EA6;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x9884;&#x5B9A;&#x4E49;&#x65B9;&#x5411;&#xFF08;to bottom&#x3001;to top&#x3001;to right&#x3001;to left&#x3001;to bottom right&#xFF0C;&#x7B49;&#x7B49;&#xFF09;&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>angle<span class="token punctuation">,</span> color-stop<span class="token number">1</span><span class="token punctuation">,</span> color-stop<span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><p><strong>&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x989C;&#x8272;&#x7ED3;&#x70B9;</strong><br>
+&#x5E26;&#x6709;&#x591A;&#x4E2A;&#x989C;&#x8272;&#x7ED3;&#x70B9;&#x7684;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x7684;&#x7EBF;&#x6027;&#x6E10;&#x53D8;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>red<span class="token punctuation">,</span> yellow<span class="token punctuation">,</span> green<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x4E0B;&#x9762;&#x7684;&#x5B9E;&#x4F8B;&#x6F14;&#x793A;&#x4E86;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x5F69;&#x8679;&#x989C;&#x8272;&#x548C;&#x6587;&#x672C;&#x7684;&#x7EBF;&#x6027;&#x6E10;&#x53D8;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* &#x6807;&#x51C6;&#x7684;&#x8BED;&#x6CD5; */</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right<span class="token punctuation">,</span> red<span class="token punctuation">,</span>orange<span class="token punctuation">,</span>yellow<span class="token punctuation">,</span>green<span class="token punctuation">,</span>blue<span class="token punctuation">,</span>indigo<span class="token punctuation">,</span>violet<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x4F7F;&#x7528;&#x900F;&#x660E;&#x5EA6;&#xFF08;transparent&#xFF09;</strong><br>
+CSS3 &#x6E10;&#x53D8;&#x4E5F;&#x652F;&#x6301;&#x900F;&#x660E;&#x5EA6;&#xFF08;transparent&#xFF09;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x521B;&#x5EFA;&#x51CF;&#x5F31;&#x53D8;&#x6DE1;&#x7684;&#x6548;&#x679C;&#x3002;<br>
+&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x7684;&#x7EBF;&#x6027;&#x6E10;&#x53D8;&#xFF0C;&#x5E26;&#x6709;&#x900F;&#x660E;&#x5EA6;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right<span class="token punctuation">,</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x91CD;&#x590D;&#x7684;&#x7EBF;&#x6027;&#x6E10;&#x53D8;</strong><br>
+repeating-linear-gradient() &#x51FD;&#x6570;&#x7528;&#x4E8E;&#x91CD;&#x590D;&#x7EBF;&#x6027;&#x6E10;&#x53D8;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">//&#x4E00;&#x4E2A;&#x91CD;&#x590D;&#x7684;&#x7EBF;&#x6027;&#x6E10;&#x53D8;&#xFF1A;
+<span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token comment">/* &#x6807;&#x51C6;&#x7684;&#x8BED;&#x6CD5; */</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">repeating-linear-gradient</span><span class="token punctuation">(</span>red<span class="token punctuation">,</span> yellow <span class="token number">10</span><span class="token unit">%</span><span class="token punctuation">,</span> green <span class="token number">20</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>CSS3 &#x5F84;&#x5411;&#x6E10;&#x53D8;</strong><br>
+&#x5F84;&#x5411;&#x6E10;&#x53D8; - &#x989C;&#x8272;&#x7ED3;&#x70B9;&#x5747;&#x5300;&#x5206;&#x5E03;&#xFF08;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF09;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">radial-gradient</span><span class="token punctuation">(</span>red<span class="token punctuation">,</span> yellow<span class="token punctuation">,</span> green<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5F84;&#x5411;&#x6E10;&#x53D8; - &#x989C;&#x8272;&#x7ED3;&#x70B9;&#x4E0D;&#x5747;&#x5300;&#x5206;&#x5E03;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">radial-gradient</span><span class="token punctuation">(</span>red <span class="token number">5</span><span class="token unit">%</span><span class="token punctuation">,</span> yellow <span class="token number">15</span><span class="token unit">%</span><span class="token punctuation">,</span> green <span class="token number">60</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x8BBE;&#x7F6E;&#x5F62;&#x72B6;</strong><br>
+shape &#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x4E86;&#x5F62;&#x72B6;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x662F;&#x503C; circle &#x6216; ellipse&#x3002;&#x5176;&#x4E2D;&#xFF0C;circle &#x8868;&#x793A;&#x5706;&#x5F62;&#xFF0C;ellipse &#x8868;&#x793A;&#x692D;&#x5706;&#x5F62;&#x3002;&#x9ED8;&#x8BA4;&#x503C;&#x662F; ellipse&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">radial-gradient</span><span class="token punctuation">(</span>circle<span class="token punctuation">,</span> red<span class="token punctuation">,</span> yellow<span class="token punctuation">,</span> green<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x4E0D;&#x540C;&#x5C3A;&#x5BF8;&#x5927;&#x5C0F;&#x5173;&#x952E;&#x5B57;&#x7684;&#x4F7F;&#x7528;</strong><br>
+size &#x53C2;&#x6570;&#x5B9A;&#x4E49;&#x4E86;&#x6E10;&#x53D8;&#x7684;&#x5927;&#x5C0F;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x662F;&#x4EE5;&#x4E0B;&#x56DB;&#x4E2A;&#x503C;&#xFF1A;</p>
+<ul>
+<li>closest-side</li>
+<li>farthest-side</li>
+<li>closest-corner</li>
+<li>farthest-corner</li>
+</ul>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad1</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">radial-gradient</span><span class="token punctuation">(</span>closest-side at <span class="token number">60</span><span class="token unit">%</span> <span class="token number">55</span><span class="token unit">%</span><span class="token punctuation">,</span> red<span class="token punctuation">,</span> yellow<span class="token punctuation">,</span> black<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token selector"><span class="token id">#grad2</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">radial-gradient</span><span class="token punctuation">(</span>farthest-side at <span class="token number">60</span><span class="token unit">%</span> <span class="token number">55</span><span class="token unit">%</span><span class="token punctuation">,</span> red<span class="token punctuation">,</span> yellow<span class="token punctuation">,</span> black<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x91CD;&#x590D;&#x7684;&#x5F84;&#x5411;&#x6E10;&#x53D8;</strong><br>
+repeating-radial-gradient() &#x51FD;&#x6570;&#x7528;&#x4E8E;&#x91CD;&#x590D;&#x5F84;&#x5411;&#x6E10;&#x53D8;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#grad</span></span> <span class="token punctuation">{</span>
+  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">repeating-radial-gradient</span><span class="token punctuation">(</span>red<span class="token punctuation">,</span> yellow <span class="token number">10</span><span class="token unit">%</span><span class="token punctuation">,</span> green <span class="token number">15</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E5%85%AD-css3%E6%96%87%E6%9C%AC%E6%95%88%E6%9E%9C">&#x516D;&#x3001;CSS3&#x6587;&#x672C;&#x6548;&#x679C;</h2>
+
+<p>CSS3&#x4E2D;&#x5305;&#x542B;&#x51E0;&#x4E2A;&#x65B0;&#x7684;&#x6587;&#x672C;&#x7279;&#x5F81;&#x3002;<br>
+&#x5728;&#x672C;&#x7AE0;&#x4E2D;&#x60A8;&#x5C06;&#x4E86;&#x89E3;&#x4EE5;&#x4E0B;&#x6587;&#x672C;&#x5C5E;&#x6027;&#xFF1A;</p>
+<ul>
+<li>text-shadow</li>
+<li>box-shadow</li>
+<li>text-overflow</li>
+<li>word-wrap</li>
+<li>word-break</li>
+</ul>
+<p><strong>CSS3&#x4E2D;&#xFF0C;text-shadow&#x5C5E;&#x6027;&#x9002;&#x7528;&#x4E8E;&#x6587;&#x672C;&#x9634;&#x5F71;&#x3002;</strong></p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">h1</span>
+<span class="token punctuation">{</span>
+    <span class="token property">text-shadow</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span> <span class="token number">5</span><span class="token unit">px</span> <span class="token number">5</span><span class="token unit">px</span> <span class="token hexcode">#FF0000</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>CSS3 box-shadow&#x5C5E;&#x6027;</strong><br>
+CSS3 &#x4E2D; CSS3 box-shadow &#x5C5E;&#x6027;&#x9002;&#x7528;&#x4E8E;&#x76D2;&#x5B50;&#x9634;&#x5F71;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">div</span> <span class="token punctuation">{</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">5</span><span class="token unit">px</span> <span class="token hexcode">#888888</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x9634;&#x5F71;&#x6DFB;&#x52A0;&#x989C;&#x8272;
+div</span> <span class="token punctuation">{</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">10</span><span class="token unit">px</span> grey<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x9634;&#x5F71;&#x6DFB;&#x52A0;&#x6A21;&#x7CCA;&#x6548;&#x679C;
+div</span> <span class="token punctuation">{</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">10</span><span class="token unit">px</span> <span class="token number">5</span><span class="token unit">px</span> grey<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>::before &#x548C; ::after &#x4E24;&#x4E2A;&#x4F2A;&#x5143;&#x7D20;&#x4E2D;&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x6548;&#x679C;</strong></p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token id">#boxshadow</span></span> <span class="token punctuation">{</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> <span class="token number">2</span><span class="token unit">px</span> <span class="token number">4</span><span class="token unit">px</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token selector"><span class="token id">#boxshadow</span> img</span> <span class="token punctuation">{</span>
+     <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+     <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token hexcode">#8a4419</span><span class="token punctuation">;</span>
+     <span class="token property">border-style</span><span class="token punctuation">:</span> inset<span class="token punctuation">;</span>
+<span class="token punctuation">}</span> 
+<span class="token selector"><span class="token id">#boxshadow</span><span class="token pseudo-element">::after</span></span> <span class="token punctuation">{</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">&apos;&apos;</span><span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">-1</span><span class="token punctuation">;</span> <span class="token comment">/* hide shadow behind image */</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">15</span><span class="token unit">px</span> <span class="token number">20</span><span class="token unit">px</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">70</span><span class="token unit">%</span><span class="token punctuation">;</span> 
+    <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">15</span><span class="token unit">%</span><span class="token punctuation">;</span> <span class="token comment">/* one half of the remaining 30% */</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x5361;&#x7247;&#x6548;&#x679C;</strong></p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">div<span class="token class">.card</span></span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">250</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">4</span><span class="token unit">px</span> <span class="token number">8</span><span class="token unit">px</span> <span class="token number">0</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token number">6</span><span class="token unit">px</span> <span class="token number">20</span><span class="token unit">px</span> <span class="token number">0</span> <span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0.19</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>CSS3 Text Overflow&#x5C5E;&#x6027;</strong><br>
+CSS3&#x6587;&#x672C;&#x6EA2;&#x51FA;&#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x5E94;&#x5411;&#x7528;&#x6237;&#x5982;&#x4F55;&#x663E;&#x793A;&#x6EA2;&#x51FA;&#x5185;&#x5BB9;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">p<span class="token class">.test1</span></span> <span class="token punctuation">{</span>
+    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span> 
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span> 
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token hexcode">#000000</span><span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+    <span class="token property">text-overflow</span><span class="token punctuation">:</span> clip<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+ 
+<span class="token selector">p<span class="token class">.test2</span></span> <span class="token punctuation">{</span>
+    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span> 
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span> 
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token hexcode">#000000</span><span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+    <span class="token property">text-overflow</span><span class="token punctuation">:</span> ellipsis<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+</pre><p><strong>CSS3&#x6362;&#x884C;</strong><br>
+&#x5141;&#x8BB8;&#x957F;&#x6587;&#x672C;&#x6362;&#x884C;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">p</span> <span class="token punctuation">{</span><span class="token property">word-wrap</span><span class="token punctuation">:</span>break-word<span class="token punctuation">;</span><span class="token punctuation">}</span>
+</pre><p><strong>CSS3&#x5355;&#x8BCD;&#x62C6;&#x5206;&#x6362;&#x884C;</strong><br>
+CSS3 &#x5355;&#x8BCD;&#x62C6;&#x5206;&#x6362;&#x884C;&#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x6362;&#x884C;&#x89C4;&#x5219;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">p<span class="token class">.test1</span></span> <span class="token punctuation">{</span>
+    <span class="token property">word-break</span><span class="token punctuation">:</span> keep-all<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token selector">p<span class="token class">.test2</span></span> <span class="token punctuation">{</span>
+    <span class="token property">word-break</span><span class="token punctuation">:</span> break-all<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x65B0;&#x6587;&#x672C;&#x5C5E;&#x6027;</strong></p>
+<table class="reference">
+<tbody><tr>
+<th style="width:25%">&#x5C5E;&#x6027;</th>
+<th>&#x63CF;&#x8FF0;</th>
+<th style="width:5%">CSS</th>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-hanging-punctuation.html" title="CSS3 hanging-punctuation &#x5C5E;&#x6027;">hanging-punctuation</a></td>
+<td>&#x89C4;&#x5B9A;&#x6807;&#x70B9;&#x5B57;&#x7B26;&#x662F;&#x5426;&#x4F4D;&#x4E8E;&#x7EBF;&#x6846;&#x4E4B;&#x5916;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-punctuation-trim.html" title="CSS3 punctuation-trim &#x5C5E;&#x6027;">punctuation-trim</a></td>
+<td>&#x89C4;&#x5B9A;&#x662F;&#x5426;&#x5BF9;&#x6807;&#x70B9;&#x5B57;&#x7B26;&#x8FDB;&#x884C;&#x4FEE;&#x526A;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-text-align-last.html" target="_blank">text-align-last</a></td>
+<td>&#x8BBE;&#x7F6E;&#x5982;&#x4F55;&#x5BF9;&#x9F50;&#x6700;&#x540E;&#x4E00;&#x884C;&#x6216;&#x7D27;&#x6328;&#x7740;&#x5F3A;&#x5236;&#x6362;&#x884C;&#x7B26;&#x4E4B;&#x524D;&#x7684;&#x884C;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="css3-pr-text-emphasis.html" target="_blank">text-emphasis</a></td>
+<td>&#x5411;&#x5143;&#x7D20;&#x7684;&#x6587;&#x672C;&#x5E94;&#x7528;&#x91CD;&#x70B9;&#x6807;&#x8BB0;&#x4EE5;&#x53CA;&#x91CD;&#x70B9;&#x6807;&#x8BB0;&#x7684;&#x524D;&#x666F;&#x8272;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-text-justify.html" title="CSS3 text-justify &#x5C5E;&#x6027;">text-justify</a></td>
+<td>&#x89C4;&#x5B9A;&#x5F53;  text-align &#x8BBE;&#x7F6E;&#x4E3A; &quot;justify&quot; &#x65F6;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x5BF9;&#x9F50;&#x65B9;&#x6CD5;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-text-outline.html" title="CSS3 text-outline &#x5C5E;&#x6027;">text-outline</a></td>
+<td>&#x89C4;&#x5B9A;&#x6587;&#x672C;&#x7684;&#x8F6E;&#x5ED3;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-text-overflow.html" title="CSS3 text-overflow &#x5C5E;&#x6027;">text-overflow</a></td>
+<td>&#x89C4;&#x5B9A;&#x5F53;&#x6587;&#x672C;&#x6EA2;&#x51FA;&#x5305;&#x542B;&#x5143;&#x7D20;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x60C5;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-text-shadow.html" title="CSS3 text-shadow &#x5C5E;&#x6027;">text-shadow</a></td>
+<td>&#x5411;&#x6587;&#x672C;&#x6DFB;&#x52A0;&#x9634;&#x5F71;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-text-wrap.html" title="CSS3 text-wrap &#x5C5E;&#x6027;">text-wrap</a></td>
+<td>&#x89C4;&#x5B9A;&#x6587;&#x672C;&#x7684;&#x6362;&#x884C;&#x89C4;&#x5219;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-word-break.html" title="CSS3 word-break &#x5C5E;&#x6027;">word-break</a></td>
+<td>&#x89C4;&#x5B9A;&#x975E;&#x4E2D;&#x65E5;&#x97E9;&#x6587;&#x672C;&#x7684;&#x6362;&#x884C;&#x89C4;&#x5219;&#x3002;</td>
+<td>3</td>
+</tr>
+<tr>
+<td><a href="..\..\cssref\css3-pr-word-wrap.html" title="CSS3 word-wrap &#x5C5E;&#x6027;">word-wrap</a></td>
+<td>&#x5141;&#x8BB8;&#x5BF9;&#x957F;&#x7684;&#x4E0D;&#x53EF;&#x5206;&#x5272;&#x7684;&#x5355;&#x8BCD;&#x8FDB;&#x884C;&#x5206;&#x5272;&#x5E76;&#x6362;&#x884C;&#x5230;&#x4E0B;&#x4E00;&#x884C;&#x3002;</td>
+<td>3</td>
+</tr>
+</tbody></table>
+<h2 class="mume-header" id="%E4%B8%83-css3%E5%AD%97%E4%BD%93">&#x4E03;&#x3001;CSS3&#x5B57;&#x4F53;</h2>
+
+<p>&#x8BED;&#x6CD5;</p>
+<pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css"> 
+<span class="token atrule"><span class="token rule">@font-face</span></span>
+<span class="token punctuation">{</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> myFirstFont<span class="token punctuation">;</span>
+    <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url">url(sansation_light.woff)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token selector">div</span>
+<span class="token punctuation">{</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span>myFirstFont<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</pre><p><strong>&#x4F7F;&#x7528;&#x7C97;&#x4F53;&#x6587;&#x672C;</strong></p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token atrule"><span class="token rule">@font-face</span></span>
+<span class="token punctuation">{</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> myFirstFont<span class="token punctuation">;</span>
+    <span class="token property">src</span><span class="token punctuation">:</span> <span class="token url">url(sansation_bold.woff)</span><span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span>bold<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>CSS3&#x5B57;&#x4F53;&#x63CF;&#x8FF0;</strong></p>
+<table class="reference mume-header" id="%E5%85%AB-css3-2d-3d%E8%BD%AC%E6%8D%A2-%E8%BF%87%E6%B8%A1-%E5%8A%A8%E7%94%BB-%E5%A4%9A%E5%88%97">
+<tbody><tr>
+<th style="width:20%">&#x63CF;&#x8FF0;&#x7B26;</th>
+<th style="width:25%">&#x503C;</th>
+<th>&#x63CF;&#x8FF0;</th>
+</tr>
+<tr>
+<td>font-family</td>
+<td><i>name</i></td>
+<td>&#x5FC5;&#x9700;&#x3002;&#x89C4;&#x5B9A;&#x5B57;&#x4F53;&#x7684;&#x540D;&#x79F0;&#x3002;</td>
+</tr>
+<tr>
+<td>src</td>
+<td><i>URL</i></td>
+<td>&#x5FC5;&#x9700;&#x3002;&#x5B9A;&#x4E49;&#x5B57;&#x4F53;&#x6587;&#x4EF6;&#x7684; URL&#x3002;</td>
+</tr>
+<tr>
+<td>font-stretch</td>
+<td>
+	<ul>
+	<li>normal</li>
+	<li>condensed</li>
+	<li>ultra-condensed</li>
+	<li>extra-condensed</li>
+	<li>semi-condensed</li>
+	<li>expanded</li>
+	<li>semi-expanded</li>
+	<li>extra-expanded</li>
+	<li>ultra-expanded</li>
+	</ul>
+</td>
+<td>&#x53EF;&#x9009;&#x3002;&#x5B9A;&#x4E49;&#x5982;&#x4F55;&#x62C9;&#x4F38;&#x5B57;&#x4F53;&#x3002;&#x9ED8;&#x8BA4;&#x662F; &quot;normal&quot;&#x3002;</td>
+</tr>
+<tr>
+<td>font-style</td>
+<td>
+	<ul>
+	<li>normal</li>
+	<li>italic</li>
+	<li>oblique</li>
+	</ul>
+</td>
+<td>&#x53EF;&#x9009;&#x3002;&#x5B9A;&#x4E49;&#x5B57;&#x4F53;&#x7684;&#x6837;&#x5F0F;&#x3002;&#x9ED8;&#x8BA4;&#x662F; &quot;normal&quot;&#x3002;</td>
+</tr>
+<tr>
+<td>font-weight</td>
+<td>
+	<ul>
+	<li>normal</li>
+	<li>bold</li>
+	<li>100</li>
+	<li>200</li>
+	<li>300</li>
+	<li>400</li>
+	<li>500</li>
+	<li>600</li>
+	<li>700</li>
+	<li>800</li>
+	<li>900</li>
+	</ul>
+</td>
+<td>&#x53EF;&#x9009;&#x3002;&#x5B9A;&#x4E49;&#x5B57;&#x4F53;&#x7684;&#x7C97;&#x7EC6;&#x3002;&#x9ED8;&#x8BA4;&#x662F; &quot;normal&quot;&#x3002;</td>
+</tr>
+<tr>
+<td>unicode-range</td>
+<td><i>unicode-range</i></td>
+<td>&#x53EF;&#x9009;&#x3002;&#x5B9A;&#x4E49;&#x5B57;&#x4F53;&#x652F;&#x6301;&#x7684; UNICODE &#x5B57;&#x7B26;&#x8303;&#x56F4;&#x3002;&#x9ED8;&#x8BA4;&#x662F; &quot;U+0-10FFFF&quot;&#x3002;</td>
+</tr>
+</tbody></table>
+##  &#x516B;&#x3001;CSS3 2D&#x3001;3D&#x8F6C;&#x6362;&#x3001;&#x8FC7;&#x6E21;&#x3001;&#x52A8;&#x753B;&#x3001;&#x591A;&#x5217;
+
+<p>&#x7565;</p>
+<h2 class="mume-header" id="%E4%B9%9D-css3-%E5%A4%9A%E5%88%97">&#x4E5D;&#x3001;CSS3 &#x591A;&#x5217;</h2>
+
+<p>CSS3 &#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x591A;&#x5217;&#x5C5E;&#x6027;:</p>
+<ul>
+<li>column-count &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x4E86;&#x9700;&#x8981;&#x5206;&#x5272;&#x7684;&#x5217;&#x6570;&#x3002;</li>
+<li>column-gap &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x4E86;&#x5217;&#x4E0E;&#x5217;&#x95F4;&#x7684;&#x95F4;&#x9699;&#x3002;</li>
+<li>column-rule-style  &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x4E86;&#x5217;&#x4E0E;&#x5217;&#x95F4;&#x7684;&#x8FB9;&#x6846;&#x6837;&#x5F0F;</li>
+<li>column-rule-width &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x4E86;&#x4E24;&#x5217;&#x7684;&#x8FB9;&#x6846;&#x539A;&#x5EA6;</li>
+<li>column-rule-color &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x4E86;&#x4E24;&#x5217;&#x7684;&#x8FB9;&#x6846;&#x989C;&#x8272;</li>
+<li>column-rule &#x5C5E;&#x6027;&#x662F; column-rule-* &#x6240;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x7B80;&#x5199;&#x3002;</li>
+<li>column-span &#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x6307;&#x5B9A; &lt;h2&gt; &#x5143;&#x7D20;&#x8DE8;&#x8D8A;&#x6240;&#x6709;&#x5217;</li>
+<li>column-width &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x4E86;&#x5217;&#x7684;&#x5BBD;&#x5EA6;&#x3002;</li>
+<li>columns &#x8BBE;&#x7F6E; column-width &#x548C; column-count &#x7684;&#x7B80;&#x5199;<br>
+&#x793A;&#x5217;:</li>
+</ul>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">//&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x5C06; &lt;div&gt; &#x5143;&#x7D20;&#x4E2D;&#x7684;&#x6587;&#x672C;&#x5206;&#x4E3A; 3 &#x5217;
+div</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-column-count</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment">/* Chrome, Safari, Opera */</span>
+    <span class="token property">-moz-column-count</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">;</span> <span class="token comment">/* Firefox */</span>
+    <span class="token property">column-count</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x6307;&#x5B9A;&#x4E86;&#x5217;&#x4E0E;&#x5217;&#x95F4;&#x7684;&#x95F4;&#x9699;&#x4E3A; 40 &#x50CF;&#x7D20;
+div</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-column-gap</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token comment">/* Chrome, Safari, Opera */</span>
+    <span class="token property">-moz-column-gap</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token comment">/* Firefox */</span>
+    <span class="token property">column-gap</span><span class="token punctuation">:</span> <span class="token number">40</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x6307;&#x5B9A;&#x4E86;&#x5217;&#x4E0E;&#x5217;&#x95F4;&#x7684;&#x8FB9;&#x6846;&#x6837;&#x5F0F;
+div</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-column-rule-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span> <span class="token comment">/* Chrome, Safari, Opera */</span>
+    <span class="token property">-moz-column-rule-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span> <span class="token comment">/* Firefox */</span>
+    <span class="token property">column-rule-style</span><span class="token punctuation">:</span> solid<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x6307;&#x5B9A;&#x4E86;&#x4E24;&#x5217;&#x7684;&#x8FB9;&#x6846;&#x539A;&#x5EA6;
+div</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-column-rule-width</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token comment">/* Chrome, Safari, Opera */</span>
+    <span class="token property">-moz-column-rule-width</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token comment">/* Firefox */</span>
+    <span class="token property">column-rule-width</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x6307;&#x5B9A;&#x4E86;&#x4E24;&#x5217;&#x7684;&#x8FB9;&#x6846;&#x989C;&#x8272;
+div</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-column-rule-color</span><span class="token punctuation">:</span> lightblue<span class="token punctuation">;</span> <span class="token comment">/* Chrome, Safari, Opera */</span>
+    <span class="token property">-moz-column-rule-color</span><span class="token punctuation">:</span> lightblue<span class="token punctuation">;</span> <span class="token comment">/* Firefox */</span>
+    <span class="token property">column-rule-color</span><span class="token punctuation">:</span> lightblue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x8BBE;&#x7F6E;&#x4E86;&#x5217;&#x76F4;&#x63A5;&#x7684;&#x8FB9;&#x6846;&#x7684;&#x539A;&#x5EA6;&#xFF0C;&#x6837;&#x5F0F;&#x53CA;&#x989C;&#x8272;
+div</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-column-rule</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid lightblue<span class="token punctuation">;</span> <span class="token comment">/* Chrome, Safari, Opera */</span>
+    <span class="token property">-moz-column-rule</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid lightblue<span class="token punctuation">;</span> <span class="token comment">/* Firefox */</span>
+    <span class="token property">column-rule</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid lightblue<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x6307;&#x5B9A; &lt;h2&gt; &#x5143;&#x7D20;&#x8DE8;&#x8D8A;&#x6240;&#x6709;&#x5217;
+h2</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-column-span</span><span class="token punctuation">:</span> all<span class="token punctuation">;</span> <span class="token comment">/* Chrome, Safari, Opera */</span>
+    <span class="token property">column-span</span><span class="token punctuation">:</span> all<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x6307;&#x5B9A;&#x4E86;&#x5217;&#x7684;&#x5BBD;&#x5EA6;&#x3002;
+div</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-column-width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token comment">/* Chrome, Safari, Opera */</span>
+    <span class="token property">column-width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E5%8D%81-css3%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2">&#x5341;&#x3001;CSS3&#x7528;&#x6237;&#x754C;&#x9762;</h2>
+
+<p>&#x5728; CSS3 &#x4E2D;, &#x589E;&#x52A0;&#x4E86;&#x4E00;&#x4E9B;&#x65B0;&#x7684;&#x7528;&#x6237;&#x754C;&#x9762;&#x7279;&#x6027;&#x6765;&#x8C03;&#x6574;&#x5143;&#x7D20;&#x5C3A;&#x5BF8;&#xFF0C;&#x6846;&#x5C3A;&#x5BF8;&#x548C;&#x5916;&#x8FB9;&#x6846;&#x3002;</p>
+<ul>
+<li>resize &#x8C03;&#x6574;&#x5C3A;&#x5BF8;(Resizing)</li>
+<li>box-sizing &#x5141;&#x8BB8;&#x60A8;&#x4EE5;&#x786E;&#x5207;&#x7684;&#x65B9;&#x5F0F;&#x5B9A;&#x4E49;&#x9002;&#x5E94;&#x67D0;&#x4E2A;&#x533A;&#x57DF;&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#x3002;</li>
+<li>outline-offset &#x5BF9;&#x8F6E;&#x5ED3;&#x8FDB;&#x884C;&#x504F;&#x79FB;&#xFF0C;&#x5E76;&#x5728;&#x8D85;&#x51FA;&#x8FB9;&#x6846;&#x8FB9;<br>
+&#x7F18;&#x7684;&#x4F4D;&#x7F6E;&#x7ED8;&#x5236;&#x8F6E;&#x5ED3;</li>
+</ul>
+<p>&#x8F6E;&#x5ED3;&#x4E0E;&#x8FB9;&#x6846;&#x6709;&#x4E24;&#x70B9;&#x4E0D;&#x540C;&#xFF1A;</p>
+<ul>
+<li>&#x8F6E;&#x5ED3;&#x4E0D;&#x5360;&#x7528;&#x7A7A;&#x95F4;</li>
+<li>&#x8F6E;&#x5ED3;&#x53EF;&#x80FD;&#x662F;&#x975E;&#x77E9;&#x5F62;</li>
+</ul>
+<p>&#x8FD9;&#x4E2A; div &#x5728;&#x8FB9;&#x6846;&#x4E4B;&#x5916; 15 &#x50CF;&#x7D20;&#x5904;&#x6709;&#x4E00;&#x4E2A;&#x8F6E;&#x5ED3;&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">//&#x7531;&#x7528;&#x6237;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;div&#x5143;&#x7D20;&#x5C3A;&#x5BF8;&#x5927;&#x5C0F;
+div</span>
+<span class="token punctuation">{</span>
+    <span class="token property">resize</span><span class="token punctuation">:</span>both<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span>auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x89C4;&#x5B9A;&#x4E24;&#x4E2A;&#x5E76;&#x6392;&#x7684;&#x5E26;&#x8FB9;&#x6846;&#x65B9;&#x6846;
+div</span>
+<span class="token punctuation">{</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span>border-box<span class="token punctuation">;</span>
+    <span class="token property">-moz-box-sizing</span><span class="token punctuation">:</span>border-box<span class="token punctuation">;</span> <span class="token comment">/* Firefox */</span>
+    <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">;</span>
+    <span class="token property">float</span><span class="token punctuation">:</span>left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector">//&#x89C4;&#x5B9A;&#x8FB9;&#x6846;&#x8FB9;&#x7F18;&#x4E4B;&#x5916; 15 &#x50CF;&#x7D20;&#x5904;&#x7684;&#x8F6E;&#x5ED3;
+div</span>
+<span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token unit">px</span> solid black<span class="token punctuation">;</span>
+    <span class="token property">outline</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token unit">px</span> solid red<span class="token punctuation">;</span>
+    <span class="token property">outline-offset</span><span class="token punctuation">:</span><span class="token number">15</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</pre><h2 class="mume-header" id="%E5%8D%81%E4%B8%80-css%E5%9B%BE%E7%89%87">&#x5341;&#x4E00;&#x3001;CSS&#x56FE;&#x7247;</h2>
+
+<p><strong>&#x5706;&#x89D2;&#x56FE;&#x7247;</strong></p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">8</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x692D;&#x5706;&#x56FE;&#x7247;</strong></p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">%</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x7F29;&#x7565;&#x56FE;</strong><br>
+&#x6211;&#x4EEC;&#x4F7F;&#x7528; border &#x5C5E;&#x6027;&#x6765;&#x521B;&#x5EFA;&#x7F29;&#x7565;&#x56FE;&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token hexcode">#ddd</span><span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+&lt;img src=<span class="token string">&quot;paris.jpg&quot;</span> alt=<span class="token string">&quot;Paris&quot;</span>&gt;
+</pre><pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">a</span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid <span class="token hexcode">#ddd</span><span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">4</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">5</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token number">0.3</span><span class="token unit">s</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">a<span class="token pseudo-class">:hover</span></span> <span class="token punctuation">{</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">2</span><span class="token unit">px</span> <span class="token number">1</span><span class="token unit">px</span> rgba
+    <span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">140</span><span class="token punctuation">,</span> <span class="token number">186</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+&lt;a href=<span class="token string">&quot;paris.jpg&quot;</span>&gt;
+  &lt;img src=<span class="token string">&quot;paris.jpg&quot;</span> alt=<span class="token string">&quot;Paris&quot;</span>&gt;
+&lt;/a&gt;
+</pre><p><strong>&#x54CD;&#x5E94;&#x5F0F;&#x56FE;&#x7247;</strong></p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+    <span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x56FE;&#x7247;&#x6EE4;&#x955C;</strong><br>
+&#x4FEE;&#x6539;&#x6240;&#x6709;&#x56FE;&#x7247;&#x7684;&#x989C;&#x8272;&#x4E3A;&#x9ED1;&#x767D; (100% &#x7070;&#x5EA6;)</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">img</span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-filter</span><span class="token punctuation">:</span> <span class="token function">grayscale</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">/* Chrome, Safari, Opera */</span>
+    <span class="token property">filter</span><span class="token punctuation">:</span> <span class="token function">grayscale</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token unit">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E5%8D%81%E4%BA%8C-css3%E6%A1%86%E5%A4%A7%E5%B0%8F">&#x5341;&#x4E8C;&#x3001;CSS3&#x6846;&#x5927;&#x5C0F;</h2>
+
+<p><strong>&#x4E0D;&#x4F7F;&#x7528; CSS3 box-sizing &#x5C5E;&#x6027;</strong><br>
+&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5143;&#x7D20;&#x7684;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;<br>
+<strong>width(&#x5BBD;) + padding(&#x5185;&#x8FB9;&#x8DDD;) + border(&#x8FB9;&#x6846;) = &#x5143;&#x7D20;&#x5B9E;&#x9645;&#x5BBD;&#x5EA6;</strong></p>
+<p><strong>height(&#x9AD8;) + padding(&#x5185;&#x8FB9;&#x8DDD;) + border(&#x8FB9;&#x6846;) = &#x5143;&#x7D20;&#x5B9E;&#x9645;&#x9AD8;&#x5EA6;</strong></p>
+<p>&#x8FD9;&#x5C31;&#x610F;&#x5473;&#x7740;&#x6211;&#x4EEC;&#x5728;&#x8BBE;&#x7F6E;&#x5143;&#x7D20;&#x7684; width/height &#x65F6;&#xFF0C;&#x5143;&#x7D20;&#x771F;&#x5B9E;&#x5C55;&#x793A;&#x7684;&#x9AD8;&#x5EA6;&#x4E0E;&#x5BBD;&#x5EA6;&#x4F1A;&#x66F4;&#x5927;(&#x56E0;&#x4E3A;&#x5143;&#x7D20;&#x7684;&#x8FB9;&#x6846;&#x4E0E;&#x5185;&#x8FB9;&#x8DDD;&#x4E5F;&#x4F1A;&#x8BA1;&#x7B97;&#x5728; width/height &#x4E2D;)&#x3002;</p>
+<style>
+ #div1 {     
+   width: 300px;     
+   height: 100px;     
+   border: 1px solid blue;     
+   box-sizing: content-box; 
+   }  
+ #div2 {     
+  width: 300px;
+  height: 100px;         
+  padding: 50px;     
+  border: 1px solid red;}
+ </style>
+<div id="div1">&#x8FD9;&#x4E2A;&#x662F;&#x4E2A;&#x8F83;&#x5C0F;&#x7684;&#x6846; (width &#x4E3A; 300px &#xFF0C;height &#x4E3A; 100px)&#x3002;</div>
+<br>
+<div id="div2">&#x8FD9;&#x4E2A;&#x662F;&#x4E2A;&#x8F83;&#x5927;&#x7684;&#x6846; (width &#x4E3A; 300px &#xFF0C;height &#x4E3A; 100px)&#x3002;</div>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token class">.div1</span></span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid blue<span class="token punctuation">;</span> 
+<span class="token punctuation">}</span>
+
+<span class="token selector"><span class="token class">.div2</span></span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid red<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5982;&#x679C;&#x60F3;&#x8981;&#x83B7;&#x5F97;&#x8F83;&#x5C0F;&#x7684;&#x90A3;&#x4E2A;&#x6846;&#x4E14;&#x5305;&#x542B;&#x5185;&#x8FB9;&#x8DDD;&#xFF0C;&#x5C31;&#x4E0D;&#x5F97;&#x4E0D;&#x8003;&#x8651;&#x5230;&#x8FB9;&#x6846;&#x548C;&#x5185;&#x8FB9;&#x8DDD;&#x7684;&#x5BBD;&#x5EA6;&#x3002;</p>
+<p>CSS3 &#x7684; box-sizing &#x5C5E;&#x6027;&#x5F88;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<p><strong>&#x4F7F;&#x7528; CSS3 box-sizing &#x5C5E;&#x6027;</strong><br>
+CSS3 box-sizing &#x5C5E;&#x6027;&#x5728;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x7684; width &#x548C; height &#x4E2D;&#x5305;&#x542B; padding(&#x5185;&#x8FB9;&#x8DDD;) &#x548C; border(&#x8FB9;&#x6846;)&#x3002;<br>
+&#x5982;&#x679C;&#x5728;&#x5143;&#x7D20;&#x4E0A;&#x8BBE;&#x7F6E;&#x4E86; box-sizing: border-box; &#x5219; padding(&#x5185;&#x8FB9;&#x8DDD;) &#x548C; border(&#x8FB9;&#x6846;) &#x4E5F;&#x5305;&#x542B;&#x5728; width &#x548C; height &#x4E2D;&#x3002;</p>
+<div class="div1">&#x4E24;&#x4E2A; div &#x73B0;&#x5728;&#x662F;&#x4E00;&#x6837;&#x5927;&#x5C0F;&#x7684;!</div>
+<div class="div2">&#x4E24;&#x4E2A; div &#x73B0;&#x5728;&#x662F;&#x4E00;&#x6837;&#x5927;&#x5C0F;&#x7684;!</div>
+<style>
+.div1 {
+    width: 300px;
+    height: 100px;
+    border: 1px solid blue;
+    box-sizing: border-box;
+}
+.div2 {
+    width: 300px;
+    height: 100px;
+    padding: 50px;
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+</style>
+&#x4ECE;&#x7ED3;&#x679C;&#x4E0A;&#x770B; box-sizing: border-box; &#x6548;&#x679C;&#x66F4;&#x597D;&#xFF0C;&#x4E5F;&#x6B63;&#x662F;&#x5F88;&#x591A;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x7684;&#x6548;&#x679C;&#x3002;
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token class">.div1</span></span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid blue<span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token selector"><span class="token class">.div2</span></span> <span class="token punctuation">{</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">300</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token unit">px</span> solid red<span class="token punctuation">;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x6240;&#x6709;&#x5143;&#x7D20;&#x4F7F;&#x7528; box-sizing &#x662F;&#x6BD4;&#x8F83;&#x63A8;&#x8350;&#x7684;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">*</span> <span class="token punctuation">{</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E5%8D%81%E4%B8%89-css3-%E5%BC%B9%E6%80%A7%E7%9B%92%E5%AD%90flex-box">&#x5341;&#x4E09;&#x3001;CSS3 &#x5F39;&#x6027;&#x76D2;&#x5B50;(Flex Box)</h2>
+
+<p><strong>CSS3 &#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5185;&#x5BB9;</strong><br>
+&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x7531;&#x5F39;&#x6027;&#x5BB9;&#x5668;(Flex container)&#x548C;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;(Flex item)&#x7EC4;&#x6210;&#x3002;</p>
+<p>&#x5F39;&#x6027;&#x5BB9;&#x5668;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E; display &#x5C5E;&#x6027;&#x7684;&#x503C;&#x4E3A; flex &#x6216; inline-flex&#x5C06;&#x5176;&#x5B9A;&#x4E49;&#x4E3A;&#x5F39;&#x6027;&#x5BB9;&#x5668;&#x3002;</p>
+<p>&#x5F39;&#x6027;&#x5BB9;&#x5668;&#x5185;&#x5305;&#x542B;&#x4E86;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A; &#x5F39;&#x6027;&#x5BB9;&#x5668;&#x5916;&#x53CA;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x5185;&#x662F;&#x6B63;&#x5E38;&#x6E32;&#x67D3;&#x7684;&#x3002;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x53EA;&#x5B9A;&#x4E49;&#x4E86;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x5982;&#x4F55;&#x5728;&#x5F39;&#x6027;&#x5BB9;&#x5668;&#x5185;&#x5E03;&#x5C40;&#x3002;</p>
+<p>&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x901A;&#x5E38;&#x5728;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5185;&#x4E00;&#x884C;&#x663E;&#x793A;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x6BCF;&#x4E2A;&#x5BB9;&#x5668;&#x53EA;&#x6709;&#x4E00;&#x884C;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x5143;&#x7D20;&#x5C55;&#x793A;&#x4E86;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x5728;&#x4E00;&#x884C;&#x5185;&#x663E;&#x793A;&#xFF0C;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;:</p>
+<div class="flex-container">
+  <div class="flex-item">flex item 1</div>
+  <div class="flex-item">flex item 2</div>
+  <div class="flex-item">flex item 3</div> 
+</div>
+<style>
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 400px;
+    height: 250px;
+    background-color: lightgrey;
+}
+.flex-item {
+    background-color: cornflowerblue;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+</style>
+```html
+
+
+
+<style>
+.flex-container {
+    display: -webkit-flex;
+    display: flex;
+    width: 400px;
+    height: 250px;
+    background-color: lightgrey;
+}
+.flex-item {
+    background-color: cornflowerblue;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+}
+</style>
+
+
+<div class="flex-container">
+  <div class="flex-item">flex item 1</div>
+  <div class="flex-item">flex item 2</div>
+  <div class="flex-item">flex item 3</div> 
+</div>
+
+
+```
+&#x5F53;&#x7136;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4FEE;&#x6539;&#x6392;&#x5217;&#x65B9;&#x5F0F;&#x3002;
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x8BBE;&#x7F6E; direction &#x5C5E;&#x6027;&#x4E3A; rtl (right-to-left),&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x6392;&#x5217;&#x65B9;&#x5F0F;&#x4E5F;&#x4F1A;&#x6539;&#x53D8;&#xFF0C;&#x9875;&#x9762;&#x5E03;&#x5C40;&#x4E5F;&#x8DDF;&#x7740;&#x6539;&#x53D8;:</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span>
+    <span class="token property">direction</span><span class="token punctuation">:</span> rtl<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token selector"><span class="token class">.flex-container</span></span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> -webkit-flex<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">400</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">250</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> lightgrey<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token selector"><span class="token class">.flex-item</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> cornflowerblue<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>flex-direction</strong><br>
+flex-direction &#x5C5E;&#x6027;&#x6307;&#x5B9A;&#x4E86;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x5728;&#x7236;&#x5BB9;&#x5668;&#x4E2D;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token property">flex-direction</span><span class="token punctuation">:</span> row | row-reverse | column | column-reverse
+</pre><p>flex-direction&#x7684;&#x503C;&#x6709;:</p>
+<ul>
+<li>row&#xFF1A;&#x6A2A;&#x5411;&#x4ECE;&#x5DE6;&#x5230;&#x53F3;&#x6392;&#x5217;&#xFF08;&#x5DE6;&#x5BF9;&#x9F50;&#xFF09;&#xFF0C;&#x9ED8;&#x8BA4;&#x7684;&#x6392;&#x5217;&#x65B9;&#x5F0F;&#x3002;</li>
+<li>row-reverse&#xFF1A;&#x53CD;&#x8F6C;&#x6A2A;&#x5411;&#x6392;&#x5217;&#xFF08;&#x53F3;&#x5BF9;&#x9F50;&#xFF0C;&#x4ECE;&#x540E;&#x5F80;&#x524D;&#x6392;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x9879;&#x6392;&#x5728;&#x6700;&#x524D;&#x9762;&#x3002;</li>
+<li>column&#xFF1A;&#x7EB5;&#x5411;&#x6392;&#x5217;&#x3002;</li>
+<li>column-reverse&#xFF1A;&#x53CD;&#x8F6C;&#x7EB5;&#x5411;&#x6392;&#x5217;&#xFF0C;&#x4ECE;&#x540E;&#x5F80;&#x524D;&#x6392;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x9879;&#x6392;&#x5728;&#x6700;&#x4E0A;&#x9762;&#x3002;<br>
+&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x6F14;&#x793A;&#x4E86; row-reverse &#x7684;&#x4F7F;&#x7528;:</li>
+</ul>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token class">.flex-container</span></span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> -webkit-flex<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-direction</span><span class="token punctuation">:</span> row-reverse<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> row-reverse<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">400</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">250</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> lightgrey<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x6F14;&#x793A;&#x4E86; column &#x7684;&#x4F7F;&#x7528;:</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token class">.flex-container</span></span> <span class="token punctuation">{</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> -webkit-flex<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+    <span class="token property">-webkit-flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+    <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">400</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">250</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> lightgrey<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>justify-content &#x5C5E;&#x6027;</strong><br>
+&#x5185;&#x5BB9;&#x5BF9;&#x9F50;&#xFF08;justify-content&#xFF09;&#x5C5E;&#x6027;&#x5E94;&#x7528;&#x5728;&#x5F39;&#x6027;&#x5BB9;&#x5668;&#x4E0A;&#xFF0C;&#x628A;&#x5F39;&#x6027;&#x9879;&#x6CBF;&#x7740;&#x5F39;&#x6027;&#x5BB9;&#x5668;&#x7684;&#x4E3B;&#x8F74;&#x7EBF;&#xFF08;main axis&#xFF09;&#x5BF9;&#x9F50;&#x3002;<br>
+justify-content &#x8BED;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token property">justify-content</span><span class="token punctuation">:</span> flex-start | flex-end | center | space-between | space-around
+</pre><p>&#x5404;&#x4E2A;&#x503C;&#x89E3;&#x6790;:</p>
+<ul>
+<li>
+<p>flex-start&#xFF1A;<br>
+&#x5F39;&#x6027;&#x9879;&#x76EE;&#x5411;&#x884C;&#x5934;&#x7D27;&#x6328;&#x7740;&#x586B;&#x5145;&#x3002;&#x8FD9;&#x4E2A;&#x662F;&#x9ED8;&#x8BA4;&#x503C;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x5F39;&#x6027;&#x9879;&#x7684;main-start&#x5916;&#x8FB9;&#x8DDD;&#x8FB9;&#x7EBF;&#x88AB;&#x653E;&#x7F6E;&#x5728;&#x8BE5;&#x884C;&#x7684;main-start&#x8FB9;&#x7EBF;&#xFF0C;&#x800C;&#x540E;&#x7EED;&#x5F39;&#x6027;&#x9879;&#x4F9D;&#x6B21;&#x5E73;&#x9F50;&#x6446;&#x653E;&#x3002;</p>
+</li>
+<li>
+<p>flex-end&#xFF1A;<br>
+&#x5F39;&#x6027;&#x9879;&#x76EE;&#x5411;&#x884C;&#x5C3E;&#x7D27;&#x6328;&#x7740;&#x586B;&#x5145;&#x3002;&#x7B2C;&#x4E00;&#x4E2A;&#x5F39;&#x6027;&#x9879;&#x7684;main-end&#x5916;&#x8FB9;&#x8DDD;&#x8FB9;&#x7EBF;&#x88AB;&#x653E;&#x7F6E;&#x5728;&#x8BE5;&#x884C;&#x7684;main-end&#x8FB9;&#x7EBF;&#xFF0C;&#x800C;&#x540E;&#x7EED;&#x5F39;&#x6027;&#x9879;&#x4F9D;&#x6B21;&#x5E73;&#x9F50;&#x6446;&#x653E;&#x3002;</p>
+</li>
+<li>
+<p>center&#xFF1A;<br>
+&#x5F39;&#x6027;&#x9879;&#x76EE;&#x5C45;&#x4E2D;&#x7D27;&#x6328;&#x7740;&#x586B;&#x5145;&#x3002;&#xFF08;&#x5982;&#x679C;&#x5269;&#x4F59;&#x7684;&#x81EA;&#x7531;&#x7A7A;&#x95F4;&#x662F;&#x8D1F;&#x7684;&#xFF0C;&#x5219;&#x5F39;&#x6027;&#x9879;&#x76EE;&#x5C06;&#x5728;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x4E0A;&#x540C;&#x65F6;&#x6EA2;&#x51FA;&#xFF09;&#x3002;</p>
+</li>
+<li>
+<p>space-between&#xFF1A;<br>
+&#x5F39;&#x6027;&#x9879;&#x76EE;&#x5E73;&#x5747;&#x5206;&#x5E03;&#x5728;&#x8BE5;&#x884C;&#x4E0A;&#x3002;&#x5982;&#x679C;&#x5269;&#x4F59;&#x7A7A;&#x95F4;&#x4E3A;&#x8D1F;&#x6216;&#x8005;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5F39;&#x6027;&#x9879;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x7B49;&#x540C;&#x4E8E;flex-start&#x3002;&#x5426;&#x5219;&#xFF0C;&#x7B2C;1&#x4E2A;&#x5F39;&#x6027;&#x9879;&#x7684;&#x5916;&#x8FB9;&#x8DDD;&#x548C;&#x884C;&#x7684;main-start&#x8FB9;&#x7EBF;&#x5BF9;&#x9F50;&#xFF0C;&#x800C;&#x6700;&#x540E;1&#x4E2A;&#x5F39;&#x6027;&#x9879;&#x7684;&#x5916;&#x8FB9;&#x8DDD;&#x548C;&#x884C;&#x7684;main-end&#x8FB9;&#x7EBF;&#x5BF9;&#x9F50;&#xFF0C;&#x7136;&#x540E;&#x5269;&#x4F59;&#x7684;&#x5F39;&#x6027;&#x9879;&#x5206;&#x5E03;&#x5728;&#x8BE5;&#x884C;&#x4E0A;&#xFF0C;&#x76F8;&#x90BB;&#x9879;&#x76EE;&#x7684;&#x95F4;&#x9694;&#x76F8;&#x7B49;&#x3002;</p>
+</li>
+<li>
+<p>space-around&#xFF1A;<br>
+&#x5F39;&#x6027;&#x9879;&#x76EE;&#x5E73;&#x5747;&#x5206;&#x5E03;&#x5728;&#x8BE5;&#x884C;&#x4E0A;&#xFF0C;&#x4E24;&#x8FB9;&#x7559;&#x6709;&#x4E00;&#x534A;&#x7684;&#x95F4;&#x9694;&#x7A7A;&#x95F4;&#x3002;&#x5982;&#x679C;&#x5269;&#x4F59;&#x7A7A;&#x95F4;&#x4E3A;&#x8D1F;&#x6216;&#x8005;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5F39;&#x6027;&#x9879;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x7B49;&#x540C;&#x4E8E;center&#x3002;&#x5426;&#x5219;&#xFF0C;&#x5F39;&#x6027;&#x9879;&#x76EE;&#x6CBF;&#x8BE5;&#x884C;&#x5206;&#x5E03;&#xFF0C;&#x4E14;&#x5F7C;&#x6B64;&#x95F4;&#x9694;&#x76F8;&#x7B49;&#xFF08;&#x6BD4;&#x5982;&#x662F;20px&#xFF09;&#xFF0C;&#x540C;&#x65F6;&#x9996;&#x5C3E;&#x4E24;&#x8FB9;&#x548C;&#x5F39;&#x6027;&#x5BB9;&#x5668;&#x4E4B;&#x95F4;&#x7559;&#x6709;&#x4E00;&#x534A;&#x7684;&#x95F4;&#x9694;&#xFF08;1/2*20px=10px&#xFF09;&#x3002;<br>
+&#x6548;&#x679C;&#x56FE;&#x5C55;&#x793A;&#xFF1A;<br>
+<img src="assets/flex1.jpg" alt="justify-content"><br>
+<strong>align-items &#x5C5E;&#x6027;</strong><br>
+align-items &#x8BBE;&#x7F6E;&#x6216;&#x68C0;&#x7D22;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x5728;&#x4FA7;&#x8F74;&#xFF08;&#x7EB5;&#x8F74;&#xFF09;&#x65B9;&#x5411;&#x4E0A;&#x7684;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;&#x3002;</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="html" class="language-html">align-items: flex-start | flex-end | center | baseline | stretch
+</pre><p>&#x5404;&#x4E2A;&#x503C;&#x89E3;&#x6790;:</p>
+<ul>
+<li>flex-start&#xFF1A;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x4FA7;&#x8F74;&#xFF08;&#x7EB5;&#x8F74;&#xFF09;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x7684;&#x8FB9;&#x754C;&#x7D27;&#x9760;&#x4F4F;&#x8BE5;&#x884C;&#x7684;&#x4FA7;&#x8F74;&#x8D77;&#x59CB;&#x8FB9;&#x754C;&#x3002;</li>
+<li>flex-end&#xFF1A;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x4FA7;&#x8F74;&#xFF08;&#x7EB5;&#x8F74;&#xFF09;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x7684;&#x8FB9;&#x754C;&#x7D27;&#x9760;&#x4F4F;&#x8BE5;&#x884C;&#x7684;&#x4FA7;&#x8F74;&#x7ED3;&#x675F;&#x8FB9;&#x754C;&#x3002;</li>
+<li>center&#xFF1A;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x5728;&#x8BE5;&#x884C;&#x7684;&#x4FA7;&#x8F74;&#xFF08;&#x7EB5;&#x8F74;&#xFF09;&#x4E0A;&#x5C45;&#x4E2D;&#x653E;&#x7F6E;&#x3002;&#xFF08;&#x5982;&#x679C;&#x8BE5;&#x884C;&#x7684;&#x5C3A;&#x5BF8;&#x5C0F;&#x4E8E;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x5219;&#x4F1A;&#x5411;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x6EA2;&#x51FA;&#x76F8;&#x540C;&#x7684;&#x957F;&#x5EA6;&#xFF09;&#x3002;</li>
+<li>baseline&#xFF1A;&#x5982;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x884C;&#x5185;&#x8F74;&#x4E0E;&#x4FA7;&#x8F74;&#x4E3A;&#x540C;&#x4E00;&#x6761;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x4E0E;&apos;flex-start&apos;&#x7B49;&#x6548;&#x3002;&#x5176;&#x5B83;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BE5;&#x503C;&#x5C06;&#x53C2;&#x4E0E;&#x57FA;&#x7EBF;&#x5BF9;&#x9F50;&#x3002;</li>
+<li>stretch&#xFF1A;&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4FA7;&#x8F74;&#x5927;&#x5C0F;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x4E3A;&apos;auto&apos;&#xFF0C;&#x5219;&#x5176;&#x503C;&#x4F1A;&#x4F7F;&#x9879;&#x76EE;&#x7684;&#x8FB9;&#x8DDD;&#x76D2;&#x7684;&#x5C3A;&#x5BF8;&#x5C3D;&#x53EF;&#x80FD;&#x63A5;&#x8FD1;&#x6240;&#x5728;&#x884C;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x4F46;&#x540C;&#x65F6;&#x4F1A;&#x9075;&#x7167;&apos;min/max-width/height&apos;&#x5C5E;&#x6027;&#x7684;&#x9650;&#x5236;&#x3002;<br>
+<strong>flex-wrap &#x5C5E;&#x6027;</strong><br>
+flex-wrap &#x5C5E;&#x6027;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x7684;&#x5B50;&#x5143;&#x7D20;&#x6362;&#x884C;&#x65B9;&#x5F0F;&#x3002;</li>
+</ul>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token property">flex-wrap</span><span class="token punctuation">:</span> nowrap|wrap|wrap-reverse|initial|inherit<span class="token punctuation">;</span>
+</pre><p>&#x5404;&#x4E2A;&#x503C;&#x89E3;&#x6790;:</p>
+<ul>
+<li>nowrap - &#x9ED8;&#x8BA4;&#xFF0C; &#x5F39;&#x6027;&#x5BB9;&#x5668;&#x4E3A;&#x5355;&#x884C;&#x3002;&#x8BE5;&#x60C5;&#x51B5;&#x4E0B;&#x5F39;&#x6027;&#x5B50;&#x9879;&#x53EF;&#x80FD;&#x4F1A;&#x6EA2;&#x51FA;&#x5BB9;&#x5668;&#x3002;</li>
+<li>wrap - &#x5F39;&#x6027;&#x5BB9;&#x5668;&#x4E3A;&#x591A;&#x884C;&#x3002;&#x8BE5;&#x60C5;&#x51B5;&#x4E0B;&#x5F39;&#x6027;&#x5B50;&#x9879;&#x6EA2;&#x51FA;&#x7684;&#x90E8;&#x5206;&#x4F1A;&#x88AB;&#x653E;&#x7F6E;&#x5230;&#x65B0;&#x884C;&#xFF0C;&#x5B50;&#x9879;&#x5185;&#x90E8;&#x4F1A;&#x53D1;&#x751F;&#x65AD;&#x884C;</li>
+<li>wrap-reverse -&#x53CD;&#x8F6C; wrap &#x6392;&#x5217;&#x3002;</li>
+</ul>
+<p><strong>align-content &#x5C5E;&#x6027;</strong><br>
+align-content &#x5C5E;&#x6027;&#x7528;&#x4E8E;&#x4FEE;&#x6539; flex-wrap &#x5C5E;&#x6027;&#x7684;&#x884C;&#x4E3A;&#x3002;&#x7C7B;&#x4F3C;&#x4E8E; align-items, &#x4F46;&#x5B83;&#x4E0D;&#x662F;&#x8BBE;&#x7F6E;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x5BF9;&#x9F50;&#xFF0C;&#x800C;&#x662F;&#x8BBE;&#x7F6E;&#x5404;&#x4E2A;&#x884C;&#x7684;&#x5BF9;&#x9F50;&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token property">align-content</span><span class="token punctuation">:</span> flex-start | flex-end | center | space-between | space-around | stretch
+</pre><p>&#x5404;&#x4E2A;&#x503C;&#x89E3;&#x6790;:</p>
+<ul>
+<li>stretch - &#x9ED8;&#x8BA4;&#x3002;&#x5404;&#x884C;&#x5C06;&#x4F1A;&#x4F38;&#x5C55;&#x4EE5;&#x5360;&#x7528;&#x5269;&#x4F59;&#x7684;&#x7A7A;&#x95F4;&#x3002;</li>
+<li>flex-start - &#x5404;&#x884C;&#x5411;&#x5F39;&#x6027;&#x76D2;&#x5BB9;&#x5668;&#x7684;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x5806;&#x53E0;&#x3002;</li>
+<li>flex-end - &#x5404;&#x884C;&#x5411;&#x5F39;&#x6027;&#x76D2;&#x5BB9;&#x5668;&#x7684;&#x7ED3;&#x675F;&#x4F4D;&#x7F6E;&#x5806;&#x53E0;&#x3002;</li>
+<li>center -&#x5404;&#x884C;&#x5411;&#x5F39;&#x6027;&#x76D2;&#x5BB9;&#x5668;&#x7684;&#x4E2D;&#x95F4;&#x4F4D;&#x7F6E;&#x5806;&#x53E0;&#x3002;</li>
+<li>space-between -&#x5404;&#x884C;&#x5728;&#x5F39;&#x6027;&#x76D2;&#x5BB9;&#x5668;&#x4E2D;&#x5E73;&#x5747;&#x5206;&#x5E03;&#x3002;</li>
+<li>space-around - &#x5404;&#x884C;&#x5728;&#x5F39;&#x6027;&#x76D2;&#x5BB9;&#x5668;&#x4E2D;&#x5E73;&#x5747;&#x5206;&#x5E03;&#xFF0C;&#x4E24;&#x7AEF;&#x4FDD;&#x7559;&#x5B50;&#x5143;&#x7D20;&#x4E0E;&#x5B50;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x95F4;&#x8DDD;&#x5927;&#x5C0F;&#x7684;&#x4E00;&#x534A;&#x3002;</li>
+</ul>
+<p><strong>&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x5C5E;&#x6027;</strong><br>
+&#x6392;&#x5E8F;<br>
+&#x8BED;&#x6CD5;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token property">order</span><span class="token punctuation">:</span> 
+</pre><p>&#x5404;&#x4E2A;&#x503C;&#x89E3;&#x6790;:</p>
+<ul>
+<li>&lt;integer&gt;&#xFF1A;&#x7528;&#x6574;&#x6570;&#x503C;&#x6765;&#x5B9A;&#x4E49;&#x6392;&#x5217;&#x987A;&#x5E8F;&#xFF0C;&#x6570;&#x503C;&#x5C0F;&#x7684;&#x6392;&#x5728;&#x524D;&#x9762;&#x3002;&#x53EF;&#x4EE5;&#x4E3A;&#x8D1F;&#x503C;&#x3002;</li>
+</ul>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token class">.flex-item</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> cornflowerblue<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token selector"><span class="token class">.first</span></span> <span class="token punctuation">{</span>
+    <span class="token property">-webkit-order</span><span class="token punctuation">:</span> <span class="token number">-1</span><span class="token punctuation">;</span>
+    <span class="token property">order</span><span class="token punctuation">:</span> <span class="token number">-1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x5BF9;&#x9F50;</strong><br>
+&#x8BBE;&#x7F6E;&quot;margin&quot;&#x503C;&#x4E3A;&quot;auto&quot;&#x503C;&#xFF0C;&#x81EA;&#x52A8;&#x83B7;&#x53D6;&#x5F39;&#x6027;&#x5BB9;&#x5668;&#x4E2D;&#x5269;&#x4F59;&#x7684;&#x7A7A;&#x95F4;&#x3002;&#x6240;&#x4EE5;&#x8BBE;&#x7F6E;&#x5782;&#x76F4;&#x65B9;&#x5411;margin&#x503C;&#x4E3A;&quot;auto&quot;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x5728;&#x5F39;&#x6027;&#x5BB9;&#x5668;&#x7684;&#x4E24;&#x4E0A;&#x8F74;&#x65B9;&#x5411;&#x90FD;&#x5B8C;&#x5168;&#x5C45;&#x4E2D;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x5728;&#x7B2C;&#x4E00;&#x4E2A;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x4E0A;&#x8BBE;&#x7F6E;&#x4E86; margin-right: auto; &#x3002; &#x5B83;&#x5C06;&#x5269;&#x4F59;&#x7684;&#x7A7A;&#x95F4;&#x653E;&#x7F6E;&#x5728;&#x5143;&#x7D20;&#x7684;&#x53F3;&#x4FA7;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token class">.flex-item</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> cornflowerblue<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">75</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">75</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">10</span><span class="token unit">px</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+ 
+<span class="token selector"><span class="token class">.flex-item</span><span class="token pseudo-class">:first-child</span></span> <span class="token punctuation">{</span>
+    <span class="token property">margin-right</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x5B8C;&#x7F8E;&#x7684;&#x5C45;&#x4E2D;</strong><br>
+&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x5C06;&#x5B8C;&#x7F8E;&#x89E3;&#x51B3;&#x6211;&#x4EEC;&#x5E73;&#x65F6;&#x78B0;&#x5230;&#x7684;&#x5C45;&#x4E2D;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#xFF0C;&#x5C45;&#x4E2D;&#x53D8;&#x7684;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x60F3;&#x8981;&#x8BBE;&#x7F6E; margin: auto; &#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x5728;&#x4E24;&#x4E0A;&#x8F74;&#x65B9;&#x5411;&#x4E0A;&#x5B8C;&#x5168;&#x5C45;&#x4E2D;:</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector"><span class="token class">.flex-item</span></span> <span class="token punctuation">{</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> cornflowerblue<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">75</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">75</span><span class="token unit">px</span><span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> auto<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>align-self</strong><br>
+align-self &#x5C5E;&#x6027;&#x7528;&#x4E8E;&#x8BBE;&#x7F6E;&#x5F39;&#x6027;&#x5143;&#x7D20;&#x81EA;&#x8EAB;&#x5728;&#x4FA7;&#x8F74;&#xFF08;&#x7EB5;&#x8F74;&#xFF09;&#x65B9;&#x5411;&#x4E0A;&#x7684;&#x5BF9;&#x9F50;&#x65B9;&#x5F0F;&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token property">align-self</span><span class="token punctuation">:</span> auto | flex-start | flex-end | center | baseline | stretch
+</pre><p>&#x5404;&#x4E2A;&#x503C;&#x89E3;&#x6790;:</p>
+<ul>
+<li>auto&#xFF1A;&#x5982;&#x679C;&apos;align-self&apos;&#x7684;&#x503C;&#x4E3A;&apos;auto&apos;&#xFF0C;&#x5219;&#x5176;&#x8BA1;&#x7B97;&#x503C;&#x4E3A;&#x5143;&#x7D20;&#x7684;&#x7236;&#x5143;&#x7D20;&#x7684;&apos;align-items&apos;&#x503C;&#xFF0C;&#x5982;&#x679C;&#x5176;&#x6CA1;&#x6709;&#x7236;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x8BA1;&#x7B97;&#x503C;&#x4E3A;&apos;stretch&apos;&#x3002;</li>
+<li>flex-start&#xFF1A;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x4FA7;&#x8F74;&#xFF08;&#x7EB5;&#x8F74;&#xFF09;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x7684;&#x8FB9;&#x754C;&#x7D27;&#x9760;&#x4F4F;&#x8BE5;&#x884C;&#x7684;&#x4FA7;&#x8F74;&#x8D77;&#x59CB;&#x8FB9;&#x754C;&#x3002;</li>
+<li>flex-end&#xFF1A;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x4FA7;&#x8F74;&#xFF08;&#x7EB5;&#x8F74;&#xFF09;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x7684;&#x8FB9;&#x754C;&#x7D27;&#x9760;&#x4F4F;&#x8BE5;&#x884C;&#x7684;&#x4FA7;&#x8F74;&#x7ED3;&#x675F;&#x8FB9;&#x754C;&#x3002;</li>
+<li>center&#xFF1A;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x5728;&#x8BE5;&#x884C;&#x7684;&#x4FA7;&#x8F74;&#xFF08;&#x7EB5;&#x8F74;&#xFF09;&#x4E0A;&#x5C45;&#x4E2D;&#x653E;&#x7F6E;&#x3002;&#xFF08;&#x5982;&#x679C;&#x8BE5;&#x884C;&#x7684;&#x5C3A;&#x5BF8;&#x5C0F;&#x4E8E;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x5219;&#x4F1A;&#x5411;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x6EA2;&#x51FA;&#x76F8;&#x540C;&#x7684;&#x957F;&#x5EA6;&#xFF09;&#x3002;</li>
+<li>baseline&#xFF1A;&#x5982;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x884C;&#x5185;&#x8F74;&#x4E0E;&#x4FA7;&#x8F74;&#x4E3A;&#x540C;&#x4E00;&#x6761;&#xFF0C;&#x5219;&#x8BE5;&#x503C;&#x4E0E;&apos;flex-start&apos;&#x7B49;&#x6548;&#x3002;&#x5176;&#x5B83;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8BE5;&#x503C;&#x5C06;&#x53C2;&#x4E0E;&#x57FA;&#x7EBF;&#x5BF9;&#x9F50;&#x3002;</li>
+<li>stretch&#xFF1A;&#x5982;&#x679C;&#x6307;&#x5B9A;&#x4FA7;&#x8F74;&#x5927;&#x5C0F;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x4E3A;&apos;auto&apos;&#xFF0C;&#x5219;&#x5176;&#x503C;&#x4F1A;&#x4F7F;&#x9879;&#x76EE;&#x7684;&#x8FB9;&#x8DDD;&#x76D2;&#x7684;&#x5C3A;&#x5BF8;&#x5C3D;&#x53EF;&#x80FD;&#x63A5;&#x8FD1;&#x6240;&#x5728;&#x884C;&#x7684;&#x5C3A;&#x5BF8;&#xFF0C;&#x4F46;&#x540C;&#x65F6;&#x4F1A;&#x9075;&#x7167;&apos;min/max-width/height&apos;&#x5C5E;&#x6027;&#x7684;&#x9650;&#x5236;&#x3002;</li>
+</ul>
+<p><strong>flex</strong><br>
+flex &#x5C5E;&#x6027;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5F39;&#x6027;&#x5B50;&#x5143;&#x7D20;&#x5982;&#x4F55;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token property">flex</span><span class="token punctuation">:</span> auto | initial | none | inherit |  [ flex-grow ] || [ flex-shrink ] || [ flex-basis ]
+</pre><p>&#x5404;&#x4E2A;&#x503C;&#x89E3;&#x6790;:</p>
+<ul>
+<li>auto: &#x8BA1;&#x7B97;&#x503C;&#x4E3A; 1 1 auto</li>
+<li>initial: &#x8BA1;&#x7B97;&#x503C;&#x4E3A; 0 1 auto</li>
+<li>none&#xFF1A;&#x8BA1;&#x7B97;&#x503C;&#x4E3A; 0 0 auto</li>
+<li>inherit&#xFF1A;&#x4ECE;&#x7236;&#x5143;&#x7D20;&#x7EE7;&#x627F;</li>
+<li>[ flex-grow ]&#xFF1A;&#x5B9A;&#x4E49;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x6269;&#x5C55;&#x6BD4;&#x7387;&#x3002;</li>
+<li>[ flex-shrink ]&#xFF1A;&#x5B9A;&#x4E49;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x6536;&#x7F29;&#x6BD4;&#x7387;&#x3002;</li>
+<li>[ flex-basis ]&#xFF1A;&#x5B9A;&#x4E49;&#x5F39;&#x6027;&#x76D2;&#x5B50;&#x5143;&#x7D20;&#x7684;&#x9ED8;&#x8BA4;&#x57FA;&#x51C6;&#x503C;&#x3002;</li>
+</ul>
+<p><strong><mark>&#x63D0;&#x793A;</mark></strong><br>
+&#x5757;&#x5143;&#x7D20;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x95EE;&#x9898;&#x91C7;&#x7528; flex &#x89E3;&#x51B3;&#x3002;<br>
+&#x884C;&#x5185;&#x5143;&#x7D20;&#x5782;&#x76F4;&#x5C45;&#x4E2D;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x5982;&#x4E0B;&#xFF1A;<br>
+1&#xFF09;&#x5355;&#x884C;<br>
+&#x8BE5;&#x5143;&#x7D20; css &#x5C5E;&#x6027; line-height &#x7684;&#x503C;&#x4E0E;&#x8BE5;&#x5143;&#x7D20;&#x7684;&#x7236;&#x7EA7;&#x5143;&#x7D20; css &#x5C5E;&#x6027; height &#x4E00;&#x81F4;&#x5373;&#x53EF;&#x3002;</p>
+<p>2&#xFF09;&#x591A;&#x884C;<br>
+&#x8BBE;&#x7F6E;&#x8BE5;&#x5143;&#x7D20; css &#x5C5E;&#x6027;&#xFF1A;display: table-cell; vertical-align: middle;&#xFF0C;&#x8FD8;&#x9700;&#x8BBE;&#x7F6E;&#x8BE5;&#x5143;&#x7D20;&#x7684;&#x7236;&#x7EA7;&#x5143;&#x7D20; css &#x5C5E;&#x6027;&#xFF1A;display: table;&#x3002;</p>
+<h2 class="mume-header" id="%E5%8D%81%E5%9B%9B-css3%E5%A4%9A%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2">&#x5341;&#x56DB;&#x3001;CSS3&#x591A;&#x5A92;&#x4F53;&#x67E5;&#x8BE2;</h2>
+
+<p><strong>CSS3 &#x591A;&#x5A92;&#x4F53;&#x67E5;&#x8BE2;</strong><br>
+CSS3 &#x7684;&#x591A;&#x5A92;&#x4F53;&#x67E5;&#x8BE2;&#x7EE7;&#x627F;&#x4E86; CSS2 &#x591A;&#x5A92;&#x4F53;&#x7C7B;&#x578B;&#x7684;&#x6240;&#x6709;&#x601D;&#x60F3;&#xFF1A; &#x53D6;&#x4EE3;&#x4E86;&#x67E5;&#x627E;&#x8BBE;&#x5907;&#x7684;&#x7C7B;&#x578B;&#xFF0C;CSS3 &#x6839;&#x636E;&#x8BBE;&#x7F6E;&#x81EA;&#x9002;&#x5E94;&#x663E;&#x793A;&#x3002;<br>
+&#x5A92;&#x4F53;&#x67E5;&#x8BE2;&#x53EF;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;&#x5F88;&#x591A;&#x4E8B;&#x60C5;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<ul>
+<li>viewport(&#x89C6;&#x7A97;) &#x7684;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;</li>
+<li>&#x8BBE;&#x5907;&#x7684;&#x5BBD;&#x5EA6;&#x4E0E;&#x9AD8;&#x5EA6;</li>
+<li>&#x671D;&#x5411; (&#x667A;&#x80FD;&#x624B;&#x673A;&#x6A2A;&#x5C4F;&#xFF0C;&#x7AD6;&#x5C4F;) &#x3002;</li>
+<li>&#x5206;&#x8FA8;&#x7387;</li>
+</ul>
+<p>&#x76EE;&#x524D;&#x5F88;&#x591A;&#x9488;&#x5BF9;&#x82F9;&#x679C;&#x624B;&#x673A;&#xFF0C;Android &#x624B;&#x673A;&#xFF0C;&#x5E73;&#x677F;&#x7B49;&#x8BBE;&#x5907;&#x90FD;&#x4F1A;&#x4F7F;&#x7528;&#x5230;&#x591A;&#x5A92;&#x4F53;&#x67E5;&#x8BE2;&#x3002;</p>
+<p><strong>&#x591A;&#x5A92;&#x4F53;&#x67E5;&#x8BE2;&#x8BED;&#x6CD5;</strong><br>
+&#x591A;&#x5A92;&#x4F53;&#x67E5;&#x8BE2;&#x7531;&#x591A;&#x79CD;&#x5A92;&#x4F53;&#x7EC4;&#x6210;&#xFF0C;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x8868;&#x8FBE;&#x5F0F;&#x6839;&#x636E;&#x6761;&#x4EF6;&#x662F;&#x5426;&#x6210;&#x7ACB;&#x8FD4;&#x56DE; true &#x6216; false&#x3002;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token atrule"><span class="token rule">@media</span> not|only mediatype and <span class="token punctuation">(</span>expressions<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    CSS &#x4EE3;&#x7801;<span class="token number">...</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x9664;&#x975E;&#x4F60;&#x4F7F;&#x7528;&#x4E86; not &#x6216; only &#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x5426;&#x5219;&#x6240;&#x6709;&#x7684;&#x6837;&#x5F0F;&#x4F1A;&#x9002;&#x5E94;&#x5728;&#x6240;&#x6709;&#x8BBE;&#x5907;&#x4E0A;&#x663E;&#x793A;&#x6548;&#x679C;&#x3002;</p>
+<ul>
+<li>
+<p><strong>not</strong>: not&#x662F;&#x7528;&#x6765;&#x6392;&#x9664;&#x6389;&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x8BBE;&#x5907;&#x7684;&#xFF0C;&#x6BD4;&#x5982; @media not print&#xFF08;&#x975E;&#x6253;&#x5370;&#x8BBE;&#x5907;&#xFF09;&#x3002;</p>
+</li>
+<li>
+<p><strong>only</strong>: &#x7528;&#x6765;&#x5B9A;&#x67D0;&#x79CD;&#x7279;&#x522B;&#x7684;&#x5A92;&#x4F53;&#x7C7B;&#x578B;&#x3002;&#x5BF9;&#x4E8E;&#x652F;&#x6301;Media Queries&#x7684;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x6765;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;only&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x7684;Web&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5FFD;&#x7565;only&#x5173;&#x952E;&#x5B57;&#x5E76;&#x76F4;&#x63A5;&#x6839;&#x636E;&#x540E;&#x9762;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x5E94;&#x7528;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x3002;&#x5BF9;&#x4E8E;&#x4E0D;&#x652F;&#x6301;Media Queries&#x7684;&#x8BBE;&#x5907;&#x4F46;&#x80FD;&#x591F;&#x8BFB;&#x53D6;Media Type&#x7C7B;&#x578B;&#x7684;Web&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x9047;&#x5230;only&#x5173;&#x952E;&#x5B57;&#x65F6;&#x4F1A;&#x5FFD;&#x7565;&#x8FD9;&#x4E2A;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x3002;</p>
+</li>
+<li>
+<p><strong>all</strong>: &#x6240;&#x6709;&#x8BBE;&#x5907;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E94;&#x8BE5;&#x7ECF;&#x5E38;&#x770B;&#x5230;&#x3002;<br>
+&#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5A92;&#x4F53;&#x4E0A;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#xFF1A;</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="css" class="language-css">&lt;link rel=<span class="token string">&quot;stylesheet&quot;</span> media=<span class="token string">&quot;mediatype and|not|only (expressions)&quot;</span> href=<span class="token string">&quot;print.css&quot;</span>&gt;
+</pre><p><strong>CSS3 &#x591A;&#x5A92;&#x4F53;&#x7C7B;&#x578B;</strong></p>
+<table class="reference">
+  <tbody><tr>
+    <th style="width:25%">&#x503C;</th>
+    <th>&#x63CF;&#x8FF0;</th>
+  </tr>  
+  <tr>
+    <td>all</td>
+    <td>&#x7528;&#x4E8E;&#x6240;&#x6709;&#x591A;&#x5A92;&#x4F53;&#x7C7B;&#x578B;&#x8BBE;&#x5907;</td>
+  </tr>
+  <tr>
+    <td>print</td>
+    <td>&#x7528;&#x4E8E;&#x6253;&#x5370;&#x673A;</td>
+  </tr>
+    <tr>
+    <td>screen</td>
+    <td>&#x7528;&#x4E8E;&#x7535;&#x8111;&#x5C4F;&#x5E55;&#xFF0C;&#x5E73;&#x677F;&#xFF0C;&#x667A;&#x80FD;&#x624B;&#x673A;&#x7B49;&#x3002;</td>
+    </tr>
+  <tr>
+    <td>speech</td>
+    <td>&#x7528;&#x4E8E;&#x5C4F;&#x5E55;&#x9605;&#x8BFB;&#x5668;</td>
+  </tr>
+  </tbody></table>
+<p><strong>&#x591A;&#x5A92;&#x4F53;&#x67E5;&#x8BE2;&#x7B80;&#x5355;&#x5B9E;&#x4F8B;</strong><br>
+&#x4F7F;&#x7528;&#x591A;&#x5A92;&#x4F53;&#x67E5;&#x8BE2;&#x53EF;&#x4EE5;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#x4F7F;&#x7528;&#x5BF9;&#x5E94;&#x7684;&#x6837;&#x5F0F;&#x66FF;&#x4EE3;&#x539F;&#x6709;&#x7684;&#x6837;&#x5F0F;&#x3002;<br>
+&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x4E2D;&#x5728;&#x5C4F;&#x5E55;&#x53EF;&#x89C6;&#x7A97;&#x53E3;&#x5C3A;&#x5BF8;&#x5C0F;&#x4E8E; 480 &#x50CF;&#x7D20;&#x7684;&#x8BBE;&#x5907;&#x4E0A;&#x4FEE;&#x6539;&#x80CC;&#x666F;&#x989C;&#x8272;:</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token selector">media screen and (max-width: 480px)</span> <span class="token punctuation">{</span>
+    <span class="token selector">body</span> <span class="token punctuation">{</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> lightgreen<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x4EE5;&#x4E0B;&#x5B9E;&#x4F8B;&#x5728;&#x5C4F;&#x5E55;&#x53EF;&#x89C6;&#x7A97;&#x53E3;&#x5C3A;&#x5BF8;&#x5927;&#x4E8E; 480 &#x50CF;&#x7D20;&#x65F6;&#x5C06;&#x83DC;&#x5355;&#x6D6E;&#x52A8;&#x5230;&#x9875;&#x9762;&#x5DE6;&#x4FA7;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token atrule"><span class="token rule">@media</span> screen and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">480</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector"><span class="token id">#leftsidebar</span></span> <span class="token punctuation">{</span><span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token unit">px</span><span class="token punctuation">;</span> <span class="token property">float</span><span class="token punctuation">:</span> left<span class="token punctuation">;</span><span class="token punctuation">}</span>
+    <span class="token selector"><span class="token id">#main</span></span> <span class="token punctuation">{</span><span class="token property">margin-left</span><span class="token punctuation">:</span><span class="token number">216</span><span class="token unit">px</span><span class="token punctuation">;</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="css" class="language-css"><span class="token atrule"><span class="token rule">@media</span> screen and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">699</span><span class="token unit">px</span><span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">520</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">ul li a</span> <span class="token punctuation">{</span>
+        <span class="token property">padding-left</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url(email-icon.png)</span> left center no-repeat<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p><strong>&#x5927;&#x4E8E; 1151px &#x5BBD;&#x5EA6; - &#x6DFB;&#x52A0;&#x56FE;&#x6807;</strong><br>
+&#x5F53;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x5BBD;&#x5EA6;&#x5927;&#x4E8E; 1001px &#x65F6;&#xFF0C;&#x4F1A;&#x5728;&#x4EBA;&#x540D;&#x524D;&#x6DFB;&#x52A0;&#x56FE;&#x6807;&#x3002;</p>
+<p>&#x5B9E;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x7F16;&#x5199;&#x989D;&#x5916;&#x7684;&#x67E5;&#x8BE2;&#x5757;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x5DF2;&#x6709;&#x7684;&#x67E5;&#x8BE2;&#x5A92;&#x4F53;&#x540E;&#x4F7F;&#x7528;&#x9017;&#x53F7;&#x5206;&#x9694;&#x6765;&#x6DFB;&#x52A0;&#x5176;&#x4ED6;&#x5A92;&#x4F53;&#x67E5;&#x8BE2; (&#x7C7B;&#x4F3C; OR &#x64CD;&#x4F5C;&#x7B26;):</p>
+<pre data-role="codeBlock" data-info="css" class="language-css"><span class="token atrule"><span class="token rule">@media</span> screen and <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> <span class="token number">699</span><span class="token unit">px</span><span class="token punctuation">)</span> and <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">520</span><span class="token unit">px</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token property">min-width</span><span class="token punctuation">:</span> <span class="token number">1151</span><span class="token unit">px</span><span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector">ul li a</span> <span class="token punctuation">{</span>
+        <span class="token property">padding-left</span><span class="token punctuation">:</span> <span class="token number">30</span><span class="token unit">px</span><span class="token punctuation">;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url(email-icon.png)</span> left center no-repeat<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
