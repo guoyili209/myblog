@@ -9,6 +9,9 @@ var files = {
         {"Bootstrap教程":"page/webclient/bootstrap.html"},
         {"vuejs教程":"page/webclient/vuejs.html"}
     ],
+    "Server":[
+        {"nodejs教程":"page/webserver/learnnodejs.html"}
+    ],
     "Gulp":[
         {"Gulp教程":"page/webclient/learngulp.html"}
     ],
