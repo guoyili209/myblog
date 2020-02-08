@@ -1,3 +1,16 @@
 .msgboardTop{
     margin-top: 4rem;
 }
+.title{
+    color:#ffffff;
+}
+.msgbg{
+    background-color: #ffffff;
+}
+a{
+  color: #ffffff;  
+}
+a:hover{
+    color: darkgray;
+    text-decoration: none;
+}

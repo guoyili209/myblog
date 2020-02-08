@@ -6,10 +6,10 @@
     <title>Tick's博客</title>
     <meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1.0,maximum-scale=1.0">
     <link rel="stylesheet" href="../libs/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/mb.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.min.css">
 </head>
 
-<body>
+<body style="background: transparent url(assets/bg.jpg) no-repeat fixed center;">
     <section>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <a class="navbar-brand" href="#">Tick's博客</a>
@@ -33,7 +33,7 @@
     </section>
     <section id='leaveMessage'>
         <div class="container">
-            <div class="text-center msgboardTop">
+            <div class="text-center msgboardTop title">
                 <h5>^_^<a href="#leavemsg">欢迎给我留言</a>^_^</h5>
             </div>
             <div>
@@ -51,7 +51,7 @@
             <div id="leavemsg" class="mb-2">
                 <form onsubmit="return false;">
                     <div class="form-group">
-                        <label for="comment">留言：</label>
+                        <label for="comment" class="title">留言：</label>
                         <textarea id="form_message" class="form-control" rows='5' id='comment'></textarea>
                     </div>
                     <div class="text-right">
@@ -62,14 +62,14 @@
 
         </div>
     </section>
-    <script type="text/javascript" src="../libs/js/jquery-3.4.1.js"></script>
-    <script type="text/javascript" src="../libs/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../libs/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../libs/js/bootstrap.min.js"></script>
     <script src="../libs/js/jquery.easing.1.3.js"></script>
     <script src="../libs/js/jquery.stellar.min.js"></script>
     <script src="../libs/js/jquery.waypoints.min.js"></script>
     <script src="../libs/js/vue.min.js"></script>
     <!-- <script src="js/components/leaveMessage.js"></script> -->
-    <script src="../bin1/messageboard/js/custom.min.js"></script>
+    <script src="js/custom.min.js"></script>
 </body>
 
 </html>

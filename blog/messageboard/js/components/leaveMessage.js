@@ -1,8 +1,8 @@
 Vue.component('v_leavemessageboard', {
     props: ['message'],
     template: '<div class="form-group">' +
-        '<label>{{message.ymd}} {{message.time}}  {{message.ipregion}}网友：</label>' +
-        '<p class="border">{{message.msg}}</p>' +
+        '<label class="title">{{message.ymd}} {{message.time}}  {{message.ipregion}}网友：</label>' +
+        '<p class="border msgbg">{{message.msg}}</p>' +
         '</div>' +
         '<span></span>'
 
