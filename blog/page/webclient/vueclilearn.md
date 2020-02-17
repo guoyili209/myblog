@@ -20,4 +20,14 @@ npm install -g @vue/cli-init
 //初始化脚手架2
 vue init webpack my-project
 ```
+==cli安装不成功==
+执行npm缓存清除
+```sh
+npm clean cache -force
+```
+如果命令强制清除缓存无效，可以手动删除缓存文件夹：
+c:\users\administrator\appdata\roaming\npm-cache
+
+## 3、创建3.x版本cli
+
 
