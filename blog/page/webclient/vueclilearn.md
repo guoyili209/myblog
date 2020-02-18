@@ -29,5 +29,8 @@ npm clean cache -force
 c:\users\administrator\appdata\roaming\npm-cache
 
 ## 3、创建3.x版本cli
+```sh
+vue create xxx;
+```
 
 
