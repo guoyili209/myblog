@@ -259,10 +259,23 @@ export default {
 ```
 
 ## 6、参数传递
-两种方式:
+两种方式传递:
 <ol>
 <li>router-link通过v-bind绑定属性。</li>
 <li>html标签通过js函数使用$router.push()方法传递。</li>
+</ol>
+
+两种可传的参数类型：
+**params的类型：**
+ - 配置路由格式：/router/:id
+ - 传递的方式：在path后面跟上对应的值
+ - 传递后形成的路径：/router/123,/router/abc
+
+**query的类型：**
+  - 配置路由格式：/router，也就是普通配置
+  - 传递的方式：对象中使用query的key作为传递方式
+  - 传递后形成的路径：/router?id=123,/router?id=abc
+
 
 ```js
 <template>
@@ -308,4 +321,90 @@ export default {
 
 ```
 
+## 7、\$router和$route的区别
+- $router是new VueRouter()的全局实例对象
+- $route是当前活跃的那个路由对象
+
+## 8、导航守卫
+路由跳转的时候，改变网页标题。
+路由配置里边增加meta元数据对象，然后通过router的beforeEach()方法进行设置。
+```js
+//1、通过Vue.use(插件),安装插件
+Vue.use(VueRouter)
+
+//2、创建VueRouter对象
+const routes=[
+  {
+    path:'',
+    redirect:'/home'//重定向
+  },
+  {
+    path:'/home',
+    component:Home,
+    meta:{
+      title:'首页'
+    }
+  },
+  {
+    path:'/about',
+    component:About,
+    meta:{
+      title:'关于'
+    }
+  }
+  ...
+]
+const router=new VueRouter({
+  //配置路由和组件之间的应用关系
+  routes,
+  mode:'history'
+})
+
+//导航守卫
+//前置守卫
+router.beforeEach((to,from,next)=>{
+  //从from跳转到to
+  document.title = to.matched[0].meta.title;
+  next();
+})
+
+//后置钩子（hook） 跳转后调用
+router.afterEach((to,from)=>{
+  console.log('after each')
+})
+```
+
+还有路由独享守卫，组件内守卫，可以参考官网:
+https://router.vuejs.org/zh/
+
+## 9、vue生命周期和keep-alive
+vue生命周期图示：
+<img src='assets/vuelifecycle.png' alt='vue生命周期图示'/>
+
+keep-alive创建后不销毁：
+```js
+ <keep-alive>
+      <router-view />
+  </keep-alive>
+```
+在keep-alive使用时，activated()和deactivated()有效。
+```js
+//Home.vue
+<script>
+export default {
+    name:"Home",
+    data(){
+       return {path:'/home/news'}
+    },
+    activated(){
+        this.$router.push(this.path);
+    },
+    beforeRouteLeave(to,from,next){//组件内路由
+        console.log(this.$route.path);
+        this.path=this.$route.path;
+        next();
+    }
+}
+</script>
+```
 
