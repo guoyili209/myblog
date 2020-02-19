@@ -408,3 +408,6 @@ export default {
 </script>
 ```
 
+# 10、通用组件开发（Tabbar开发例子）
+
+
