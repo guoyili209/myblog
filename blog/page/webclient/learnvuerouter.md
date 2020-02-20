@@ -409,5 +409,193 @@ export default {
 ```
 
 # 10、通用组件开发（Tabbar开发例子）
+组件树图示：
+<img src='assets/tabbar1.png' alt='组件树'/>
+App.vue
+```js
+<template>
+  <div id="app">
+    <router-view/>
+    <main-tab-bar/>   <!--使用MainTabBar组件-->
+  </div>
+</template>
 
+<script>
+import MainTabBar from './components/MainTabBar'
+export default {
+  name: "App",
+  components: {
+    MainTabBar        //注册MainTabBar组件
+  }
+};
+</script>
 
+<style scoped>
+@import "assets/css/base.css"; //动态引入外部css文件
+</style>
+```
+MainTabBar.vue
+```js
+/*
+* Author: guoyili
+* email: guoyili209@gmail.com
+* Date: 2020-02-20 10:02:37
+*/
+<template>
+ <div>
+     <tab-bar>
+      <tab-bar-item link="/home" activeColor="blue">
+        <img slot="item-icon" src="~assets/img/tabbar/tabbar1.png" alt="" />
+        <img slot="item-icon-active" src="~assets/img/tabbar/tabbar2.png" alt=""/>
+        <div slot="item-text">首页</div>
+      </tab-bar-item>
+      ...
+    </tab-bar>
+ </div>
+</template>
+
+<script scoped>
+import TabBar from "./tabbar/TabBar";
+import TabBarItem from "./tabbar/TabBarItem";
+ export default {
+    name:'MainTabBar',
+    components:{
+        TabBar,
+        TabBarItem
+    }
+ }
+</script>
+
+<style scoped>
+
+</style>
+```
+TabBar.vue
+```js
+/*
+* Author: guoyili
+* email: guoyili209@gmail.com
+* Date: 2020-02-19 16:02:25
+*/
+<template>
+ <div id='tab-bar'>
+     <slot></slot> //设置插槽，一遍动态放入TabBarItem组件
+ </div>
+</template>
+
+<script scoped>
+ export default {
+    name:'TabBar'
+ }
+</script>
+
+<style scoped>
+#tab-bar {
+  display: flex;
+  background-color: #f6f6f6;
+
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+</style>
+```
+TabBarItem.vue
+```js
+/*
+* Author: guoyili
+* email: guoyili209@gmail.com
+* Date: 2020-02-19 16:23:05
+*/
+<template>
+  <div class="tab-bar-item" @click="itemClick()">
+    <div v-if="!isActive">
+      <slot name="item-icon"></slot>
+    </div>
+    <div v-else>
+      <slot name="item-icon-active"></slot>
+    </div>
+    <!-- <div :class="{active:isActive}"> -->//动态绑定class
+    <div :style="activeStyle"> //动态绑定style样式
+      <slot name="item-text"></slot>
+    </div>
+  </div>
+</template>
+
+<script scoped>
+export default {
+  name: "TabBarItem",
+  props: {    //设置需要传入的属性
+    link: String,
+    activeColor: {
+      type: String,
+      default: "red"
+    }
+  },
+  data() {
+    return {
+        // isActive: true
+     };
+  },
+  computed: {
+    isActive() {
+      return this.$route.path.indexOf(this.link) != -1;
+    },
+    activeStyle() {
+      return this.isActive ? { color: this.activeColor } : {};
+    }
+  },
+  methods: {
+    itemClick() {
+      this.$router.replace(this.link);
+      //   this.$router.push()
+    }
+  }
+};
+</script>
+
+<style scoped>
+.tab-bar-item {
+  flex: 1;
+  text-align: center;
+  height: 49px;
+}
+.tab-bar-item img {
+  width: 24px;
+  height: 24px;
+  margin-top: 3px;
+  vertical-align: middle;
+  margin-bottom: 2px;
+}
+
+/* .active {
+  color: red;
+} */
+</style>
+```
+
+==webpack配置文件别名：==
+webpack.base.conf.js中设置alias对象:
+```js
+module.exports = {
+  ...
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      '@': resolve('src'),
+      'assets': resolve('src/assets'),
+      'components': resolve('src/components'),
+      'views': resolve('src/views')
+    }
+  }
+  ...
+```
+资源引用中运用"~"符号使用别名：
+```js
+      <tab-bar-item link="/home" activeColor="blue">
+        <img slot="item-icon" src="~assets/img/tabbar/tabbar1.png" alt="" /> //~assets 表示src/assets
+        <img slot="item-icon-active" src="~assets/img/tabbar/tabbar2.png" alt=""/>
+        <div slot="item-text">首页</div>
+      </tab-bar-item>
+```
