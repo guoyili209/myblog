@@ -1,4 +1,4 @@
-<p style="text-align:center;">Vuex教程</p>
+<p style="text-align:center;">Vuex官方教程笔记</p>
 =
 
 [toc]
