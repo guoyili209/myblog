@@ -17,3 +17,18 @@
 vw：即Viewport's width,1vw等于window.innerWidth的1%，所以窗口宽度是100vm
 
 </ul>
+
+## 2、.editorconfig文件
+统一代码风格
+```js
+root = false
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 4
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+```
