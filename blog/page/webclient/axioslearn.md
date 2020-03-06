@@ -341,3 +341,20 @@ axios.interceptors.request.eject(myInterceptor);
 var instance = axios.create();
 instance.interceptors.request.use(function () {/*...*/});
 ```
+
+## 11、发送数据需要使用qs模块进行转换
+例子:
+```js
+request({
+    method:"post",
+    url: "/msgboard",
+    data:qs.stringify({
+        msg:str
+    })
+})
+```
+
+qs安装:
+```sh
+npm install qs --save-dev
+```

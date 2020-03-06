@@ -17,7 +17,7 @@ fs.readFile('serverconfig/regioncode.json', function (err, data) {
 // 创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
 console.log(__dirname+"/assets/");
-app.use('/', express.static("C:/Users/guoyi/Desktop/3dlearnarticle/dev"));
+app.use('/', express.static("D:/myblog-vue/myblog-vue/myblog/dist"));
 // console.log(__dirname+'/web/')
 app.get('/index.html', function (req, res) {
     res.sendFile("index.html")
@@ -35,6 +35,7 @@ app.get('/msgpagecount', function (req, res) {
 });
 
 app.post('/msgboard', urlencodedParser, function (req, res) {
+    console.log(req.body)
     // 输出 JSON 格式
     var response = {
         "msg": req.body.msg
