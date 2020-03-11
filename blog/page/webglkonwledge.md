@@ -78,7 +78,7 @@ gl.blendFuncSeparate(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA,gl.ZERO,gl.ONE);
 ```
 
 混合函数表：
-<img src="../assets/blendfunc.jpg" alt="混合函数表"/>
+<img src="assets/blendfunc.jpg" alt="混合函数表"/>
 
 ##### 3、绘制不透明和半透明场景
 

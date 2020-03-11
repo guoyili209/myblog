@@ -1,6 +1,8 @@
 <p style="text-align:center;">ES6相关</p>
 ==
 
+[toc]
+
 ##1、import 和 export
 **export:**
 导出模块对外的接口。

@@ -5,7 +5,7 @@
 
 ## 一、效果展示
 
-<img src='/assets/fx/fog.jpg' alt='雾化效果图'/>
+<img src='../assets/fx/fog.jpg' alt='雾化效果图'/>
 
 ## 二、原理
 
