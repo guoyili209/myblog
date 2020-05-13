@@ -241,3 +241,51 @@ join()	把数组的所有元素放入一个字符串。
 map()	通过指定函数处理数组的每个元素，并返回处理后的数组。
 pop()	删除数组的最后一个元素并返回删除的元素。
 push()	向数组的末尾添加一个或更多元素，并返回新的长度。
+
+## 13、js中使用new时发生了哪些事情
+会做4步操作
+```js
+var obj  ={};
+obj.__proto__ = CO.prototype;
+CO.call(obj);
+return obj;
+```
+
+## 14、js 中 call()、apply()、bind() 的用法
+```js
+var name='小王',age=17;
+var obj={
+    name:'小张',
+    objAge:this.age,
+    myFun:function(fm,t){
+        console.log(this.name+"年龄"+this.age,"来自"+fm+"去往"+t);
+    }
+}
+var db={
+    name:'德玛',
+    age:99
+}
+
+obj.myFun.call(db,'成都','上海')；　　　　 // 德玛 年龄 99  来自 成都去往上海
+obj.myFun.apply(db,['成都','上海']);      // 德玛 年龄 99  来自 成都去往上海  
+obj.myFun.bind(db,'成都','上海')();       // 德玛 年龄 99  来自 成都去往上海
+obj.myFun.bind(db,['成都','上海'])();　　 // 德玛 年龄 99  来自 成都, 上海去往 undefined
+```
+区别:
+call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象，第二个参数差别就来了：
+
+call 的参数是直接放进去的，第二第三第 n 个参数全都用逗号分隔，直接放到后面 obj.myFun.call(db,'成都', ... ,'string' )。
+
+apply 的所有参数都必须放在一个数组里面传进去 obj.myFun.apply(db,['成都', ..., 'string' ])。
+
+bind 除了返回是函数以外，它 的参数和 call 一样。
+
+## 15、箭头函数和普通函数的区别
+1、this指向不同
+箭头函数在定义生命时，就确定了this指向；
+普通函数在实际调用的时候，才确定this指向；
+2、call、apply、bind无法改变箭头函数this指向。
+3、箭头函数全是匿名函数。
+4、不能用作构造函数。
+5、箭头函数没有arguments对象，可以用rest参数...解决。
+6、不能Generator函数，不具有prototype原型对象，不具有super，不具有new.target。

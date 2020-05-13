@@ -3,7 +3,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="file:///c:\Users\guoyili\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.2\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      <link rel="stylesheet" href="file:///c:\Users\guoyili\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.5.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
       
       
 
@@ -276,6 +276,9 @@ pre[data-line] .line-highlight[data-end]:after {
 <li><a href="#11-%E4%BD%A0%E7%90%86%E8%A7%A3%E7%9A%84%E9%97%AD%E5%8C%85%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%E4%BC%98%E7%BC%BA%E7%82%B9">11&#x3001;&#x4F60;&#x7406;&#x89E3;&#x7684;&#x95ED;&#x5305;&#x4F5C;&#x7528;&#x662F;&#x4EC0;&#x4E48;&#xFF0C;&#x4F18;&#x7F3A;&#x70B9;&#xFF1F;</a></li>
 <li><a href="#%E8%B6%A3%E5%91%B3%E9%A2%98">&#x8DA3;&#x5473;&#x9898;&#xFF1A;</a></li>
 <li><a href="#12-js%E4%B8%ADarray%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95">12&#x3001;js&#x4E2D;Array&#x7684;&#x5E38;&#x7528;&#x65B9;&#x6CD5;</a></li>
+<li><a href="#13-js%E4%B8%AD%E4%BD%BF%E7%94%A8new%E6%97%B6%E5%8F%91%E7%94%9F%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BA%8B%E6%83%85">13&#x3001;js&#x4E2D;&#x4F7F;&#x7528;new&#x65F6;&#x53D1;&#x751F;&#x4E86;&#x54EA;&#x4E9B;&#x4E8B;&#x60C5;</a></li>
+<li><a href="#14-js-%E4%B8%AD-call-apply-bind-%E7%9A%84%E7%94%A8%E6%B3%95">14&#x3001;js &#x4E2D; call()&#x3001;apply()&#x3001;bind() &#x7684;&#x7528;&#x6CD5;</a></li>
+<li><a href="#15-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB">15&#x3001;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x548C;&#x666E;&#x901A;&#x51FD;&#x6570;&#x7684;&#x533A;&#x522B;</a></li>
 </ul>
 <h2 class="mume-header" id="1-%E5%8F%98%E9%87%8F%E5%87%BD%E6%95%B0%E6%8F%90%E5%8D%87">1&#x3001;&#x53D8;&#x91CF;/&#x51FD;&#x6570;&#x63D0;&#x5347;</h2>
 
@@ -486,6 +489,47 @@ join()	&#x628A;&#x6570;&#x7EC4;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x653E;&
 map()	&#x901A;&#x8FC7;&#x6307;&#x5B9A;&#x51FD;&#x6570;&#x5904;&#x7406;&#x6570;&#x7EC4;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5904;&#x7406;&#x540E;&#x7684;&#x6570;&#x7EC4;&#x3002;<br>
 pop()	&#x5220;&#x9664;&#x6570;&#x7EC4;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x5E76;&#x8FD4;&#x56DE;&#x5220;&#x9664;&#x7684;&#x5143;&#x7D20;&#x3002;<br>
 push()	&#x5411;&#x6570;&#x7EC4;&#x7684;&#x672B;&#x5C3E;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6216;&#x66F4;&#x591A;&#x5143;&#x7D20;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x65B0;&#x7684;&#x957F;&#x5EA6;&#x3002;</p>
+<h2 class="mume-header" id="13-js%E4%B8%AD%E4%BD%BF%E7%94%A8new%E6%97%B6%E5%8F%91%E7%94%9F%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BA%8B%E6%83%85">13&#x3001;js&#x4E2D;&#x4F7F;&#x7528;new&#x65F6;&#x53D1;&#x751F;&#x4E86;&#x54EA;&#x4E9B;&#x4E8B;&#x60C5;</h2>
+
+<p>&#x4F1A;&#x505A;4&#x6B65;&#x64CD;&#x4F5C;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">var</span> obj  <span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span>__proto__ <span class="token operator">=</span> <span class="token class-name">CO</span><span class="token punctuation">.</span>prototype<span class="token punctuation">;</span>
+<span class="token constant">CO</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">return</span> obj<span class="token punctuation">;</span>
+</pre><h2 class="mume-header" id="14-js-%E4%B8%AD-call-apply-bind-%E7%9A%84%E7%94%A8%E6%B3%95">14&#x3001;js &#x4E2D; call()&#x3001;apply()&#x3001;bind() &#x7684;&#x7528;&#x6CD5;</h2>
+
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">var</span> name<span class="token operator">=</span><span class="token string">&apos;&#x5C0F;&#x738B;&apos;</span><span class="token punctuation">,</span>age<span class="token operator">=</span><span class="token number">17</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> obj<span class="token operator">=</span><span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span><span class="token string">&apos;&#x5C0F;&#x5F20;&apos;</span><span class="token punctuation">,</span>
+    objAge<span class="token punctuation">:</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">,</span>
+    <span class="token function-variable function">myFun</span><span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">fm<span class="token punctuation">,</span>t</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token operator">+</span><span class="token string">&quot;&#x5E74;&#x9F84;&quot;</span><span class="token operator">+</span><span class="token keyword">this</span><span class="token punctuation">.</span>age<span class="token punctuation">,</span><span class="token string">&quot;&#x6765;&#x81EA;&quot;</span><span class="token operator">+</span>fm<span class="token operator">+</span><span class="token string">&quot;&#x53BB;&#x5F80;&quot;</span><span class="token operator">+</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">var</span> db<span class="token operator">=</span><span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span><span class="token string">&apos;&#x5FB7;&#x739B;&apos;</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span><span class="token number">99</span>
+<span class="token punctuation">}</span>
+
+obj<span class="token punctuation">.</span><span class="token function">myFun</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token string">&apos;&#x6210;&#x90FD;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x4E0A;&#x6D77;&apos;</span><span class="token punctuation">)</span>&#xFF1B;&#x3000;&#x3000;&#x3000;&#x3000; <span class="token comment">// &#x5FB7;&#x739B; &#x5E74;&#x9F84; 99  &#x6765;&#x81EA; &#x6210;&#x90FD;&#x53BB;&#x5F80;&#x4E0A;&#x6D77;</span>
+obj<span class="token punctuation">.</span><span class="token function">myFun</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">&apos;&#x6210;&#x90FD;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x4E0A;&#x6D77;&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// &#x5FB7;&#x739B; &#x5E74;&#x9F84; 99  &#x6765;&#x81EA; &#x6210;&#x90FD;&#x53BB;&#x5F80;&#x4E0A;&#x6D77;  </span>
+obj<span class="token punctuation">.</span><span class="token function">myFun</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token string">&apos;&#x6210;&#x90FD;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x4E0A;&#x6D77;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// &#x5FB7;&#x739B; &#x5E74;&#x9F84; 99  &#x6765;&#x81EA; &#x6210;&#x90FD;&#x53BB;&#x5F80;&#x4E0A;&#x6D77;</span>
+obj<span class="token punctuation">.</span><span class="token function">myFun</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">&apos;&#x6210;&#x90FD;&apos;</span><span class="token punctuation">,</span><span class="token string">&apos;&#x4E0A;&#x6D77;&apos;</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>&#x3000;&#x3000; <span class="token comment">// &#x5FB7;&#x739B; &#x5E74;&#x9F84; 99  &#x6765;&#x81EA; &#x6210;&#x90FD;, &#x4E0A;&#x6D77;&#x53BB;&#x5F80; undefined</span>
+</pre><p>&#x533A;&#x522B;:<br>
+call &#x3001;bind &#x3001; apply &#x8FD9;&#x4E09;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x90FD;&#x662F; this &#x7684;&#x6307;&#x5411;&#x5BF9;&#x8C61;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x5DEE;&#x522B;&#x5C31;&#x6765;&#x4E86;&#xFF1A;</p>
+<p>call &#x7684;&#x53C2;&#x6570;&#x662F;&#x76F4;&#x63A5;&#x653E;&#x8FDB;&#x53BB;&#x7684;&#xFF0C;&#x7B2C;&#x4E8C;&#x7B2C;&#x4E09;&#x7B2C; n &#x4E2A;&#x53C2;&#x6570;&#x5168;&#x90FD;&#x7528;&#x9017;&#x53F7;&#x5206;&#x9694;&#xFF0C;&#x76F4;&#x63A5;&#x653E;&#x5230;&#x540E;&#x9762; obj.myFun.call(db,&apos;&#x6210;&#x90FD;&apos;, ... ,&apos;string&apos; )&#x3002;</p>
+<p>apply &#x7684;&#x6240;&#x6709;&#x53C2;&#x6570;&#x90FD;&#x5FC5;&#x987B;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#x91CC;&#x9762;&#x4F20;&#x8FDB;&#x53BB; obj.myFun.apply(db,[&apos;&#x6210;&#x90FD;&apos;, ..., &apos;string&apos; ])&#x3002;</p>
+<p>bind &#x9664;&#x4E86;&#x8FD4;&#x56DE;&#x662F;&#x51FD;&#x6570;&#x4EE5;&#x5916;&#xFF0C;&#x5B83; &#x7684;&#x53C2;&#x6570;&#x548C; call &#x4E00;&#x6837;&#x3002;</p>
+<h2 class="mume-header" id="15-%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB">15&#x3001;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x548C;&#x666E;&#x901A;&#x51FD;&#x6570;&#x7684;&#x533A;&#x522B;</h2>
+
+<p>1&#x3001;this&#x6307;&#x5411;&#x4E0D;&#x540C;<br>
+&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x5728;&#x5B9A;&#x4E49;&#x751F;&#x547D;&#x65F6;&#xFF0C;&#x5C31;&#x786E;&#x5B9A;&#x4E86;this&#x6307;&#x5411;&#xFF1B;<br>
+&#x666E;&#x901A;&#x51FD;&#x6570;&#x5728;&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x624D;&#x786E;&#x5B9A;this&#x6307;&#x5411;&#xFF1B;<br>
+2&#x3001;call&#x3001;apply&#x3001;bind&#x65E0;&#x6CD5;&#x6539;&#x53D8;&#x7BAD;&#x5934;&#x51FD;&#x6570;this&#x6307;&#x5411;&#x3002;<br>
+3&#x3001;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x5168;&#x662F;&#x533F;&#x540D;&#x51FD;&#x6570;&#x3002;<br>
+4&#x3001;&#x4E0D;&#x80FD;&#x7528;&#x4F5C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;<br>
+5&#x3001;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x6CA1;&#x6709;arguments&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;rest&#x53C2;&#x6570;...&#x89E3;&#x51B3;&#x3002;<br>
+6&#x3001;&#x4E0D;&#x80FD;Generator&#x51FD;&#x6570;&#xFF0C;&#x4E0D;&#x5177;&#x6709;prototype&#x539F;&#x578B;&#x5BF9;&#x8C61;&#xFF0C;&#x4E0D;&#x5177;&#x6709;super&#xFF0C;&#x4E0D;&#x5177;&#x6709;new.target&#x3002;</p>
 
       </div>
       
